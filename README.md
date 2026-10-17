@@ -119,3 +119,26 @@ accessibility, in addition to the existing booking and responsive checks.
 Font licences are also available in FONT-LICENSES.txt and inside index.html.
 The two Jakarta weights are Latin subsets with punctuation, arrows and the
 rupee sign. Serif Latin subsets come from the installed Fontsource package.
+
+## Bridal planning and film layer
+
+The bridal planning chapter uses CSS sticky positioning on desktop and a normal
+reading order on phones. The three chapters explain what to share and what the
+salon must confirm; they do not advertise a trial, deposit or guaranteed slot.
+
+The hero's optional silk texture is a small handwritten WebGL shader, started
+after the first paint. It caps DPR at 1.25 on mobile and 1.5 on desktop, draws at
+about 30fps, and stops when hidden or off-screen. Reduced motion, Save-Data,
+modest hardware and unavailable WebGL keep the existing photographic hero.
+Context loss also returns to that fallback. There are no new runtime libraries.
+
+Gallery images support touch swipes as well as buttons and arrow keys. “Discuss
+this reference” opens the bridal booking drawer, showing the chosen editorial
+reference and starting price/duration. The reference can be removed. Optional
+appointment notes and the reference URL are encoded into the WhatsApp request;
+no image is uploaded and nothing is sent automatically. Focus returns to the
+relevant gallery thumbnail when the drawer closes.
+
+JSON-LD now includes the four owner-supplied Service offers and the five visible
+FAQ answers alongside BeautySalon and WebSite data. No review count, geo point,
+award, additional service or availability has been invented.

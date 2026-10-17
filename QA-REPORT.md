@@ -40,3 +40,24 @@ increased text sizes and added the image viewer. Browser coverage now includes
 its Escape/arrow-key controls and an axe check while open. The decorative footer
 wordmark was adjusted to meet large-text contrast after the first check found
 it too faint. All six checks passed after that correction: four viewport passes, a motion pass and an intercepted booking-flow pass.
+
+## Bridal planning and optional WebGL release
+
+Seven browser checks passed for this release: the four viewport/accessibility
+passes, a motion/WebGL pass, a forced unavailable-WebGL pass, and the intercepted
+booking pass. Chromium successfully compiled and displayed the silk shader.
+Its canvas stopped displaying off-screen. Reduced-motion contexts kept it off.
+With WebGL forced unavailable, the static hero and booking drawer still worked.
+
+The 360px pass sent native touch events through Chromium and confirmed swipe
+navigation. The reference-to-booking transition preserved the page scroll lock,
+selected bridal styling and returned keyboard focus to the thumbnail on close.
+The intercepted WhatsApp message contained the correct reference URL and optional
+notes, including ampersands and angle brackets, without interpreting them as HTML.
+No message reached WhatsApp or the salon. Responsive tests found no document
+overflow, application errors, site CSP violations, broken decoded images or axe
+WCAG AA violations in tested states. The sticky bridal chapter was also inspected
+visually. Service offer names/prices and FAQ text come from visible owner content.
+
+These tests do not establish a measured Android frame rate, real-device result,
+Lighthouse score or field Core Web Vitals result.

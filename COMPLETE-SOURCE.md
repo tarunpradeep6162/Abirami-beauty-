@@ -1130,6 +1130,14 @@ body{font-size:15px;line-height:1.9}
 }
 
 
+
+/* A small film texture, then a useful bridal conversation. */
+.silk-veil{position:absolute;inset:0 auto 0 0;width:60%;height:100%;z-index:-1;pointer-events:none;opacity:.44;mix-blend-mode:screen}.bridal-planning{display:grid;grid-template-columns:1fr .95fr;gap:12%;align-items:start;position:relative;background:var(--velvet);border-bottom:1px solid var(--line)}.planning-title-block{position:sticky;top:135px;align-self:start}.planning-title-block h2{font-size:clamp(48px,5.3vw,82px);margin:25px 0 29px;max-width:14ch;line-height:1.08}.planning-title-block>p:not(.eyebrow){max-width:33ch;font-size:14px;margin-bottom:28px}.planning-title-block>.button{font-size:11px;padding-inline:21px}.planning-progress{display:flex;justify-content:space-between;gap:20px;max-width:340px;margin-top:70px;border-top:1px solid var(--line);padding-top:16px;font-size:10px;letter-spacing:.12em;color:var(--gold)}.planning-chapter{position:relative;padding:40px 0 100px;border-top:1px solid var(--line)}.planning-chapter:last-child{padding-bottom:15px}.chapter-number{display:block;font:400 80px/.9 var(--serif);color:#8f764e;margin-bottom:40px;transition:color 1.2s var(--ease)}.planning-chapter.is-current .chapter-number{color:var(--gold)}.planning-chapter h3{font-size:clamp(35px,3.3vw,52px);line-height:1.12;margin:18px 0 26px}.planning-chapter p:not(.eyebrow){font-size:14px;max-width:42ch}.planning-chapter .text-link{margin-top:20px}.booking-summary{border-left:1px solid var(--gold);padding:10px 0 10px 16px;font-size:12px;color:var(--gold);margin:-7px 0 25px;line-height:1.8}.booking-reference{border:1px solid var(--line);padding:16px 18px;margin-bottom:25px;background:#c5a05909}.booking-reference p{font-size:12px;color:var(--alabaster)}.booking-reference button{padding:0;background:transparent;border:0;border-bottom:1px solid var(--line);font-size:11px;margin-top:8px}.booking-form textarea{display:block;width:100%;resize:vertical;min-height:95px;background:var(--velvet);color:var(--alabaster);border:1px solid var(--line);border-radius:0;font:400 16px/1.7 var(--sans);padding:12px;margin-top:10px}.booking-form textarea:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.optional-label{float:right;letter-spacing:0;color:var(--taupe)}.field-help{display:block;font-size:11px;letter-spacing:0;line-height:1.7;margin-top:10px}.viewer-bottomline{flex-wrap:wrap;align-items:center}.viewer-enquire{font-size:11px;min-height:48px;padding:12px 18px;gap:18px}.viewer-figure img{touch-action:pan-y;-webkit-user-select:none;user-select:none}.viewer-topline{position:sticky;top:0;z-index:2;background:var(--night);padding-block:4px}
+@media(max-width:900px){.bridal-planning{gap:7%}.planning-title-block h2{font-size:48px}.planning-title-block>.button{font-size:10px;gap:14px;padding-inline:15px}.planning-chapter h3{font-size:35px}.planning-progress{margin-top:45px}}
+@media(max-width:767px){.silk-veil{width:100%;opacity:.2}.bridal-planning{grid-template-columns:1fr;gap:55px}.planning-title-block{position:static}.planning-title-block h2{font-size:51px;max-width:15ch}.planning-title-block>p:not(.eyebrow){font-size:15px}.planning-title-block>.button{font-size:12px;padding:17px 21px;gap:20px}.planning-progress{display:none}.planning-chapter{padding:31px 0 55px}.chapter-number{font-size:65px;margin-bottom:28px}.planning-chapter h3{font-size:38px}.planning-chapter p:not(.eyebrow){font-size:15px}.viewer-enquire{width:100%;font-size:12px}.viewer-figure img{height:55svh}.viewer-bottomline{gap:13px}.booking-summary{font-size:12px}.field-help{font-size:12px}}
+
+@media(min-width:768px) and (max-width:1100px){.site-nav>a[href="#reviews"]{display:none}}
+@media(hover:none){.gallery-view{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *,*::before,*::after{animation:none!important;transition:none!important}
 .curtain,.custom-cursor{display:none!important}
@@ -1138,7 +1146,7 @@ body{font-size:15px;line-height:1.9}
 
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","slogan":"The Art of Natural Radiance & Bespoke Bridal Artistry","telephone":"+919840638981","address":{"@type":"PostalAddress","streetAddress":"No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"20:30"}],"priceRange":"₹600–₹8,500+","hasMap":"https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5","sameAs":["https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5"]}
+[{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","slogan":"The Art of Natural Radiance & Bespoke Bridal Artistry","telephone":"+919840638981","address":{"@type":"PostalAddress","streetAddress":"No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"20:30"}],"priceRange":"₹600–₹8,500+","hasMap":"https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5","sameAs":["https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5"],"@id":"https://abirami-beauty.vercel.app/#salon","hasOfferCatalog":{"@type":"OfferCatalog","name":"The treatment collection","itemListElement":[{"@type":"Offer","price":"8500","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Bridal Couture & Muhurtham Styling","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"1800","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Botanical & Gold Radiance Facials","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"1500","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Ayurvedic Hair & Scalp Rituals","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"600","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Precision Grooming & Hand/Foot Spa","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}}]}},{"@context":"https://schema.org","@type":"FAQPage","@id":"https://abirami-beauty.vercel.app/#questions","mainEntity":[{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Choose your ritual, preferred date and time in our booking form. It opens a message in WhatsApp for you to send. Your appointment is confirmed when the salon replies. You can also call +91 98406 38981."}},{"@type":"Question","name":"Can I book a Sunday visit?","acceptedAnswer":{"@type":"Answer","text":"Sunday is by bridal appointment only. For facials, hair care and grooming, choose Monday to Saturday, between 9:30 AM and 8:30 PM. Please confirm your bridal timing with the salon."}},{"@type":"Question","name":"Are the menu prices the final quote?","acceptedAnswer":{"@type":"Answer","text":"The menu shows starting prices. Your final quote depends on your chosen treatment and bridal styling needs. We will confirm the selection and price with you during consultation."}},{"@type":"Question","name":"What should I share for a bridal consultation?","acceptedAnswer":{"@type":"Answer","text":"Tell us your wedding date, muhurtham timing and venue. Share your saree or outfit, jewellery and the makeup references you like, so we can discuss the finish, draping and floral setting together."}},{"@type":"Question","name":"Where is the parlour?","acceptedAnswer":{"@type":"Answer","text":"Find Abirami Natural Beauty Parlour at No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai, Tamil Nadu 600100. Use the directions link below to plan your route."}}]},{"@context":"https://schema.org","@type":"WebSite","@id":"https://abirami-beauty.vercel.app/#website","url":"https://abirami-beauty.vercel.app/","name":"Abirami Natural Beauty Parlour","inLanguage":"en-IN"}]
 </script>
 </head>
 <body>
@@ -1148,11 +1156,11 @@ body{font-size:15px;line-height:1.9}
 <header class="site-header">
 <a class="brand" href="#home" aria-label="Abirami Natural Beauty Parlour home"><span class="brand-symbol" aria-hidden="true"></span><span><span class="brand-name">ABIRAMI</span><small>Natural Beauty Parlour</small></span></a>
 <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">Menu</button>
-<nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="#sanctuary">Our sanctuary</a><a href="#treatments">Treatments</a><a href="#bridal">Bridal journal</a><a href="#reviews">Kind words</a><a href="#visit">Visit us</a><a class="button" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Reserve consultation <span class="arrow" aria-hidden="true">↗</span></a></nav>
+<nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="#sanctuary">Our sanctuary</a><a href="#treatments">Treatments</a><a href="#bridal-planning">For brides</a><a href="#bridal">Bridal journal</a><a href="#reviews">Kind words</a><a href="#visit">Visit us</a><a class="button" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Reserve consultation <span class="arrow" aria-hidden="true">↗</span></a></nav>
 </header>
 <main id="main" tabindex="-1">
 <section class="hero" id="home" aria-labelledby="hero-title">
-<div class="hero-art"><img sizes="(max-width: 767px) 100vw, 57vw" srcset="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Editorial Indian occasion portrait featuring a silk saree and traditional jewellery" width="1600" height="2400" fetchpriority="high"></div><div class="hero-shade"></div><div class="hero-glow"></div><div class="grain" aria-hidden="true"></div>
+<div class="hero-art"><img sizes="(max-width: 767px) 100vw, 57vw" srcset="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80 1600w" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Editorial Indian occasion portrait featuring a silk saree and traditional jewellery" width="1600" height="2400" fetchpriority="high"></div><div class="hero-shade"></div><canvas class="silk-veil" id="silk-veil" aria-hidden="true" hidden></canvas><div class="hero-glow"></div><div class="grain" aria-hidden="true"></div>
 <div class="hero-copy"><p class="eyebrow">Beauty &amp; bridal artistry · Medavakkam, Chennai</p><h1 id="hero-title"><span>For the days</span><span>that become</span><span><em>memories.</em></span></h1><p class="hero-tagline">The Art of Natural Radiance &amp; Bespoke Bridal Artistry</p><div class="hero-actions"><a class="button" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Reserve consultation <span class="arrow" aria-hidden="true">↗</span></a><a class="text-link" href="#treatments">Explore our rituals <span aria-hidden="true">↓</span></a></div></div>
 <div class="hero-note"><span>Jalladiampet · Medavakkam · Chennai</span><span class="scroll-cue">Take your time. Scroll slowly.</span></div>
 </section>
@@ -1166,6 +1174,7 @@ body{font-size:15px;line-height:1.9}
 <article class="treatment-panel" id="panel-grooming" role="tabpanel" aria-labelledby="tab-grooming" tabindex="0"><figure class="image-frame"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Editorial photograph of long styled hair against a soft pink background" width="1200" height="802" loading="lazy" decoding="async"></figure><div><p class="eyebrow">The finishing details</p><h3>Precision Grooming<br><em>&amp; Hand/Foot Spa</em></h3><p>A thoughtful finish for the small details. Discuss your preferred brow shape, grooming needs or a hand and foot appointment before your visit.</p><ul class="treatment-features"><li>Micro-Precision Brow Threading</li><li>Organic Peel Waxing</li><li>Rose &amp; Milk Pedicure</li></ul><div class="treatment-price"><strong>₹600+</strong><span>45 minutes</span></div><a class="button button-quiet" data-book data-service="Precision Grooming &amp; Hand/Foot Spa" href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Plan your finishing touches <span class="arrow" aria-hidden="true">↗</span></a></div></article>
 <p class="fine-note photo-credit">Starting prices and appointment durations supplied by the salon. Confirm your selection and final quote during consultation. Photography is editorial inspiration, not Abirami’s premises or client work.</p>
 </section>
+<section class="section bridal-planning" id="bridal-planning" aria-labelledby="planning-title"><div class="planning-title-block"><p class="eyebrow">Your bridal appointment</p><h2 id="planning-title">Before the silk.<br>Before the flowers.<br><em>Let’s talk.</em></h2><p>Every bridal morning has its own rhythm. Start with the details of yours.</p><a class="button button-quiet" data-book data-service="Bridal Couture &amp; Muhurtham Styling" href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Plan your bridal consultation <span class="arrow" aria-hidden="true">↗</span></a><div class="planning-progress" aria-hidden="true"><span>THE CONVERSATION</span><span id="planning-position">01 / 03</span></div></div><div class="planning-chapters"><article class="planning-chapter" data-chapter="0"><span class="chapter-number" aria-hidden="true">01</span><p class="eyebrow">The date &amp; the day</p><h3>Your morning,<br><em>from the beginning.</em></h3><p>Share your wedding date, muhurtham timing and venue. Tell us when you would like to be ready. We’ll discuss the appointment timing with you on WhatsApp.</p></article><article class="planning-chapter" data-chapter="1"><span class="chapter-number" aria-hidden="true">02</span><p class="eyebrow">The details you love</p><h3>A saree. A jewel.<br><em>A look that feels right.</em></h3><p>Bring your outfit, jewellery and a few styling references into the conversation. Soft or defined, traditional or understated: tell us what you feel most comfortable wearing.</p></article><article class="planning-chapter" data-chapter="2"><span class="chapter-number" aria-hidden="true">03</span><p class="eyebrow">A clear plan</p><h3>The last flower.<br><em>The first photograph.</em></h3><p>Discuss your makeup finish, Kanjeevaram draping and floral veni setting. Confirm the services, final quote and timing with the salon before considering the appointment booked.</p><a class="text-link" href="#bridal">Keep a styling reference <span aria-hidden="true">↓</span></a></article></div></section>
 <section class="section promise reveal" aria-labelledby="promise-title"><p class="eyebrow">Our way of seeing beauty</p><h2 id="promise-title">Your day. Your pace.<br><em>Your kind of beautiful.</em></h2><p>Not every visit is a grand occasion. Some are simply a little time you have kept for yourself. Both deserve care.</p></section>
 <section id="bridal" aria-labelledby="bridal-title"><div class="section section-head gallery-heading reveal"><div><p class="eyebrow">The bridal journal</p><h2 id="bridal-title">A mood.<br><em>A memory.</em></h2></div><p>Silk, soft light and the details you will remember. A few references to begin your bridal conversation.</p></div><div class="gallery-strip" tabindex="0" role="region" aria-label="Bridal inspiration photographs. Scroll horizontally to explore"><figure><button class="image-frame gallery-open" type="button" data-gallery="0" aria-label="View Silk and jewellery photograph"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Editorial portrait in a purple saree and gold jewellery" width="900" height="1350" loading="lazy" decoding="async"><span class="gallery-view" aria-hidden="true">View reference ↗</span></button><figcaption><span>Silk &amp; jewellery</span><span>01</span></figcaption></figure><figure><button class="image-frame gallery-open" type="button" data-gallery="1" aria-label="View A softer moment photograph"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Editorial portrait in light embroidered occasion wear outdoors" width="900" height="1125" loading="lazy" decoding="async"><span class="gallery-view" aria-hidden="true">View reference ↗</span></button><figcaption><span>A softer moment</span><span>02</span></figcaption></figure><figure><button class="image-frame gallery-open" type="button" data-gallery="2" aria-label="View The finishing touch photograph"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Editorial photograph of long, softly styled hair" width="900" height="601" loading="lazy" decoding="async"><span class="gallery-view" aria-hidden="true">View reference ↗</span></button><figcaption><span>The finishing touch</span><span>03</span></figcaption></figure></div><p class="gallery-disclosure fine-note">Select a photograph for a closer view. Editorial inspiration from Unsplash. These photographs are not presented as Abirami client results.</p></section>
 <section class="section comparison-section" aria-labelledby="comparison-title"><div class="comparison-copy reveal"><p class="eyebrow">Two expressions of beauty</p><h2 id="comparison-title">A quieter look.<br><em>An occasion</em><br>to remember.</h2><p>Slide between a natural portrait and an occasion-styling reference. Bring the details you love into your own consultation.</p><p class="fine-note">Style comparison only. The photographs show different people. This is not a client before-and-after result or a treatment claim.</p></div><div><div class="comparison" id="style-comparison"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Editorial natural-light portrait of a woman in a striped shirt" width="900" height="1349" loading="lazy" decoding="async"><div class="comparison-after"><img sizes="(max-width: 767px) 92vw, (max-width: 1599px) 44vw, 680px" srcset="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=480&amp;q=80 480w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80 1200w" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Editorial occasion styling with silk saree and jewellery, showing a different person" width="900" height="1350" loading="lazy" decoding="async"></div><span class="comparison-label first">Natural portrait</span><span class="comparison-label second">Occasion styling</span><div class="comparison-divider" aria-hidden="true"><div class="comparison-handle">↔</div></div><label class="sr-only" for="style-range">Compare natural portrait and occasion styling</label><input class="comparison-range" id="style-range" type="range" min="0" max="100" value="50" aria-valuetext="Equal view of both editorial photographs"></div><p class="comparison-readout">Drag, touch, or use the arrow keys to compare.</p></div></section>
@@ -1176,8 +1185,8 @@ body{font-size:15px;line-height:1.9}
 </main>
 <footer class="footer"><a class="salon-seal" href="#home" aria-label="Abirami Natural Beauty Parlour home"><span class="logo-print" role="img" aria-label="Approved Abirami Beauty Parlour logo"></span></a><p>© 2026 Abirami Natural Beauty Parlour.<br>A little time for you, here in Medavakkam.<br>Editorial photography: Unsplash. Business information supplied by the salon.</p><nav class="footer-links" aria-label="Footer navigation"><a href="#treatments">Treatments</a><a href="#visit">Visit us</a><a href="tel:+919840638981">Call the salon</a></nav><div class="footer-signature" aria-hidden="true">ABIRAMI</div></footer>
 <a class="button floating-book" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Book on WhatsApp <span class="arrow" aria-hidden="true">↗</span></a>
-<dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description"><div class="booking-content"><button class="dialog-close" type="button" aria-label="Close booking form">×</button><p class="eyebrow">A little time, reserved for you</p><h2 id="booking-title">Let’s plan<br><em>your visit.</em></h2><p class="dialog-note" id="booking-description">Tell us a little about your appointment. We’ll open your message in WhatsApp for you to send. Your visit is confirmed after we reply.</p><form class="booking-form" id="booking-form" action="https://wa.me/919840638981" method="get"><label for="client-name">Client name<input id="client-name" name="client-name" autocomplete="name" required maxlength="80"></label><label for="client-phone">Phone number<input id="client-phone" name="client-phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" pattern="\+?[0-9 ]{7,19}" title="Enter a phone number using digits, with an optional country code."></label><label for="client-service">Your ritual<select id="client-service" name="client-service" required><option value="Bridal Couture &amp; Muhurtham Styling">Bridal Couture &amp; Muhurtham Styling</option><option value="Botanical &amp; Gold Radiance Facials">Botanical &amp; Gold Radiance Facials</option><option value="Ayurvedic Hair &amp; Scalp Rituals">Ayurvedic Hair &amp; Scalp Rituals</option><option value="Precision Grooming &amp; Hand/Foot Spa">Precision Grooming &amp; Hand/Foot Spa</option></select></label><div class="date-time"><label for="client-date">Preferred date<input id="client-date" name="client-date" type="date" required></label><label for="client-time">Preferred time<input id="client-time" name="client-time" type="time" min="09:30" max="20:30" required></label></div><p class="form-status" id="form-status" role="status"></p><button class="button" type="submit">Continue to WhatsApp <span class="arrow" aria-hidden="true">↗</span></button><p class="privacy-note">No details are stored on this website. Your name, phone number and appointment request are shared with the salon only when you send the WhatsApp message. Sunday visits are by bridal appointment only.</p></form><noscript><p><a class="text-link" href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Continue directly to WhatsApp ↗</a></p></noscript></div></dialog>
-<dialog class="gallery-dialog" id="gallery-dialog" aria-labelledby="gallery-viewer-title" aria-describedby="gallery-viewer-note"><div class="gallery-viewer"><div class="viewer-topline"><h2 id="gallery-viewer-title">The bridal journal</h2><button class="round-button viewer-close" type="button" aria-label="Close photograph">×</button></div><figure class="viewer-figure"><img id="viewer-image" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" loading="lazy" alt="Editorial silk saree and jewellery portrait" width="900" height="1350"><figcaption id="viewer-caption"></figcaption></figure><div class="viewer-bottomline"><p id="gallery-viewer-note">Editorial inspiration. Not Abirami client work.</p><div class="viewer-controls"><button class="round-button" id="photo-prev" type="button" aria-label="Previous photograph">←</button><span id="photo-counter" aria-live="polite">1 / 3</span><button class="round-button" id="photo-next" type="button" aria-label="Next photograph">→</button></div></div></div></dialog>
+<dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description"><div class="booking-content"><button class="dialog-close" type="button" aria-label="Close booking form">×</button><p class="eyebrow">A little time, reserved for you</p><h2 id="booking-title">Let’s plan<br><em>your visit.</em></h2><p class="dialog-note" id="booking-description">Tell us a little about your appointment. We’ll open your message in WhatsApp for you to send. Your visit is confirmed after we reply.</p><form class="booking-form" id="booking-form" action="https://wa.me/919840638981" method="get"><label for="client-name">Client name<input id="client-name" name="client-name" autocomplete="name" required maxlength="80"></label><label for="client-phone">Phone number<input id="client-phone" name="client-phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" pattern="\+?[0-9 ]{7,19}" title="Enter a phone number using digits, with an optional country code."></label><label for="client-service">Your ritual<select id="client-service" name="client-service" required><option value="Bridal Couture &amp; Muhurtham Styling">Bridal Couture &amp; Muhurtham Styling</option><option value="Botanical &amp; Gold Radiance Facials">Botanical &amp; Gold Radiance Facials</option><option value="Ayurvedic Hair &amp; Scalp Rituals">Ayurvedic Hair &amp; Scalp Rituals</option><option value="Precision Grooming &amp; Hand/Foot Spa">Precision Grooming &amp; Hand/Foot Spa</option></select></label><p class="booking-summary" id="booking-summary" aria-live="polite"></p><div class="booking-reference" id="booking-reference" hidden><p id="booking-reference-text"></p><button type="button" class="text-link" id="clear-reference">Remove reference</button></div><div class="date-time"><label for="client-date">Preferred date<input id="client-date" name="client-date" type="date" required></label><label for="client-time">Preferred time<input id="client-time" name="client-time" type="time" min="09:30" max="20:30" required></label></div><label for="client-notes">Anything you would like us to know? <span class="optional-label">Optional</span><textarea id="client-notes" name="client-notes" rows="3" maxlength="240" aria-describedby="notes-help"></textarea><span id="notes-help" class="field-help">For bridal visits, you can share your venue, muhurtham timing or when you need to be ready.</span></label><p class="form-status" id="form-status" role="status"></p><button class="button" type="submit">Continue to WhatsApp <span class="arrow" aria-hidden="true">↗</span></button><p class="privacy-note">No details are stored on this website. Your details, optional notes and chosen styling reference are shared with the salon only when you send the WhatsApp message. Sunday visits are by bridal appointment only.</p></form><noscript><p><a class="text-link" href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Continue directly to WhatsApp ↗</a></p></noscript></div></dialog>
+<dialog class="gallery-dialog" id="gallery-dialog" aria-labelledby="gallery-viewer-title" aria-describedby="gallery-viewer-note"><div class="gallery-viewer"><div class="viewer-topline"><h2 id="gallery-viewer-title">The bridal journal</h2><button class="round-button viewer-close" type="button" aria-label="Close photograph">×</button></div><figure class="viewer-figure"><img id="viewer-image" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" loading="lazy" alt="Editorial silk saree and jewellery portrait" width="900" height="1350"><figcaption id="viewer-caption"></figcaption></figure><div class="viewer-bottomline"><p id="gallery-viewer-note">Editorial inspiration. Not Abirami client work.</p><a class="button button-quiet viewer-enquire" data-book data-reference="current" data-service="Bridal Couture &amp; Muhurtham Styling" href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Discuss this reference <span class="arrow" aria-hidden="true">↗</span></a><div class="viewer-controls"><button class="round-button" id="photo-prev" type="button" aria-label="Previous photograph">←</button><span id="photo-counter" aria-live="polite">1 / 3</span><button class="round-button" id="photo-next" type="button" aria-label="Next photograph">→</button></div></div></div></dialog>
 <div class="custom-cursor" aria-hidden="true"></div>
 <script>
 (() => {
@@ -1192,6 +1201,9 @@ const serviceSelect = document.querySelector('#client-service');
 const dateInput = document.querySelector('#client-date');
 const timeInput = document.querySelector('#client-time');
 const status = document.querySelector('#form-status');
+let selectedReference = null;
+let bookingTrigger = null;
+function syncModalLock() { document.body.classList.toggle('modal-open', dialog.open || document.querySelector('#gallery-dialog').open); }
 function closeMenu() { menu.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }
 menuButton.addEventListener('click', () => { const open = menuButton.getAttribute('aria-expanded') !== 'true'; menuButton.setAttribute('aria-expanded', String(open)); menu.classList.toggle('open', open); document.body.classList.toggle('menu-open', open); });
 menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
@@ -1208,16 +1220,24 @@ function refreshBookingDate() {
 refreshBookingDate();
 const isSunday = () => dateInput.value && new Date(`${dateInput.value}T12:00:00+05:30`).getUTCDay() === 0;
 dateInput.addEventListener('change', () => { if (isSunday()) { timeInput.removeAttribute('min'); timeInput.removeAttribute('max'); status.textContent = 'Sunday is by bridal appointment only. Your timing will be confirmed by the salon.'; } else { timeInput.min = '09:30'; timeInput.max = '20:30'; status.textContent = ''; } });
-function closeBooking() { dialog.close(); document.body.classList.remove('modal-open'); }
+function closeBooking() { dialog.close(); syncModalLock(); }
 document.querySelectorAll('[data-book]').forEach(link => link.addEventListener('click', event => {
  if (typeof dialog.showModal !== 'function') return;
  event.preventDefault(); closeMenu(); refreshBookingDate(); status.textContent = '';
+ bookingTrigger = link.closest('#gallery-dialog') ? galleryItems[photoIndex] : link;
  if (link.dataset.service) serviceSelect.value = link.dataset.service;
+ selectedReference = null;
+ if (link.dataset.reference === 'current') {
+  const image = galleryItems[photoIndex].querySelector('img');
+  selectedReference = { label: document.querySelector('#viewer-caption').textContent, url: image.src };
+ }
+ if (document.querySelector('#gallery-dialog').open) document.querySelector('#gallery-dialog').close();
+ updateBookingSummary();
  if (!dialog.open) dialog.showModal();
  document.body.classList.add('modal-open');
 }));
 document.querySelector('.dialog-close').addEventListener('click', closeBooking);
-dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+dialog.addEventListener('close', () => { syncModalLock(); if (bookingTrigger?.isConnected) bookingTrigger.focus({ preventScroll: true }); });
 dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) closeBooking(); } });
 const clean = (text, max) => String(text || '').normalize('NFC').replace(/[\u0000-\u001f\u007f\ud800-\udfff]/g, ' ').trim().slice(0, max);
 form.addEventListener('submit', event => {
@@ -1237,10 +1257,25 @@ form.addEventListener('submit', event => {
  const dateText = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'long', year: 'numeric' }).format(dateValue);
  const hour = Number(time.slice(0, 2));
  const timeText = `${hour % 12 || 12}:${time.slice(3)} ${hour >= 12 ? 'PM' : 'AM'}`;
- const message = `Hello Abirami Beauty Parlour, I would like to book an appointment for ${service} on ${dateText} at ${timeText}. My name is ${name}. My contact number is ${clientPhone}.`;
+ let message = `Hello Abirami Beauty Parlour, I would like to book an appointment for ${service} on ${dateText} at ${timeText}. My name is ${name}. My contact number is ${clientPhone}.`;
+ const notes = clean(document.querySelector('#client-notes').value, 240);
+ if (notes) message += `\nAppointment notes: ${notes}`;
+ if (selectedReference) message += `\nStyling reference (editorial inspiration): ${selectedReference.label}. ${selectedReference.url}`;
  status.textContent = 'Opening WhatsApp. Please send the message to request your appointment.';
  location.assign(`https://wa.me/919840638981?text=${encodeURIComponent(message)}`);
 });
+function updateBookingSummary() {
+ const panel = document.querySelectorAll('.treatment-panel')[serviceSelect.selectedIndex];
+ const price = panel.querySelector('.treatment-price strong').textContent;
+ const duration = panel.querySelector('.treatment-price span').textContent;
+ document.querySelector('#booking-summary').textContent = `From ${price} · ${duration}. Final quote and timing confirmed by the salon.`;
+ const reference = document.querySelector('#booking-reference');
+ reference.hidden = !selectedReference;
+ document.querySelector('#booking-reference-text').textContent = selectedReference ? `Your styling reference: ${selectedReference.label}. Editorial inspiration, shared with your enquiry.` : '';
+}
+serviceSelect.addEventListener('change', () => { selectedReference = null; updateBookingSummary(); });
+document.querySelector('#clear-reference').addEventListener('click', () => { selectedReference = null; updateBookingSummary(); serviceSelect.focus(); });
+updateBookingSummary();
 const tabs = Array.from(document.querySelectorAll('.treatment-tab'));
 function selectTab(index, focus = false) { tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; document.getElementById(tab.getAttribute('aria-controls')).hidden = i !== index; }); if (focus) { tabs[index].focus({ preventScroll: true }); tabs[index].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion.matches ? 'instant' : 'smooth' }); } }
 tabs.forEach((tab, index) => { tab.addEventListener('click', () => selectTab(index)); tab.addEventListener('keydown', event => { let next = index; if (event.key === 'ArrowRight') next = (index + 1) % tabs.length; else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = tabs.length - 1; else return; event.preventDefault(); selectTab(next, true); }); });
@@ -1289,12 +1324,31 @@ galleryItems.forEach((item, index) => item.addEventListener('click', () => {
  showPhotograph(index); galleryDialog.showModal(); document.body.classList.add('modal-open');
 }));
 document.querySelector('.viewer-close').addEventListener('click', () => galleryDialog.close());
-galleryDialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+galleryDialog.addEventListener('close', syncModalLock);
 document.querySelector('#photo-prev').addEventListener('click', () => showPhotograph(photoIndex - 1));
 document.querySelector('#photo-next').addEventListener('click', () => showPhotograph(photoIndex + 1));
 galleryDialog.addEventListener('keydown', event => {
  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); showPhotograph(photoIndex + (event.key === 'ArrowRight' ? 1 : -1)); }
 });
+let swipeStart = null;
+viewerImage.addEventListener('pointerdown', event => { if (event.pointerType === 'touch' || event.pointerType === 'pen') { swipeStart = { x: event.clientX, y: event.clientY }; viewerImage.setPointerCapture(event.pointerId); } });
+viewerImage.addEventListener('pointerup', event => {
+ if (!swipeStart) return;
+ const dx = event.clientX - swipeStart.x;
+ const dy = event.clientY - swipeStart.y;
+ swipeStart = null;
+ if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) showPhotograph(photoIndex + (dx < 0 ? 1 : -1));
+});
+viewerImage.addEventListener('pointercancel', () => { swipeStart = null; });
+if ('IntersectionObserver' in window) {
+ const chapterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (!entry.isIntersecting) return;
+  document.querySelectorAll('.planning-chapter').forEach(chapter => chapter.classList.toggle('is-current', chapter === entry.target));
+  document.querySelector('#planning-position').textContent = `${String(Number(entry.target.dataset.chapter) + 1).padStart(2, '0')} / 03`;
+ }), { rootMargin: '-25% 0px -35% 0px' });
+ document.querySelectorAll('.planning-chapter').forEach(chapter => chapterObserver.observe(chapter));
+}
+let silkRenderer = null;
 const floatingBook = document.querySelector('.floating-book');
 const heroSection = document.querySelector('.hero');
 const heroPhoto = document.querySelector('.hero-art img');
@@ -1302,7 +1356,7 @@ let heroVisible = true;
 let invitationVisible = false;
 let contactVisible = false;
 function updateFloatingBook() { floatingBook.classList.toggle('is-quiet', heroVisible || invitationVisible || contactVisible); }
-function updateAmbientMotion() { heroPhoto.style.animationPlayState = reduceMotion.matches || document.hidden || !heroVisible ? 'paused' : 'running'; }
+function updateAmbientMotion() { const active = !reduceMotion.matches && !document.hidden && heroVisible; heroPhoto.style.animationPlayState = active ? 'running' : 'paused'; if (silkRenderer) silkRenderer.setActive(active); }
 if ('IntersectionObserver' in window) {
  const bookingObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -1325,6 +1379,98 @@ function updateReadingPosition() {
 }
 addEventListener('scroll', () => { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateReadingPosition); }, { passive: true });
 updateReadingPosition();
+
+function createSilkFilm(canvas) {
+ let gl;
+ try { gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' }); } catch { return null; }
+ if (!gl) return null;
+ const shaders = [];
+ let program;
+ let buffer;
+ try {
+  function compile(type, source) {
+   const shader = gl.createShader(type);
+   if (!shader) throw new Error('Shader allocation failed');
+   shaders.push(shader); gl.shaderSource(shader, source); gl.compileShader(shader);
+   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error('Shader unavailable');
+   return shader;
+  }
+  const vertex = compile(gl.VERTEX_SHADER, 'attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}');
+  const fragment = compile(gl.FRAGMENT_SHADER, `precision mediump float;
+uniform vec2 resolution;
+uniform vec2 pointer;
+uniform float time;
+void main(){
+ vec2 uv=gl_FragCoord.xy/resolution;
+ float drift=sin(uv.x*5.4+time*.055)*.13+sin(uv.x*10.0-time*.037)*.035;
+ float fold=uv.y+drift+pointer.x*.009;
+ float thread=pow(.5+.5*sin(fold*85.0+uv.x*9.0),24.0);
+ float sheen=pow(.5+.5*sin(fold*19.0+time*.045),9.0);
+ float edge=smoothstep(0.0,.25,uv.x)*(1.0-smoothstep(.7,1.0,uv.x));
+ float alpha=(thread*.11+sheen*.055)*edge;
+ gl_FragColor=vec4(vec3(.77,.63,.35),alpha);
+}`);
+  program = gl.createProgram(); buffer = gl.createBuffer();
+  if (!program || !buffer) throw new Error('Film allocation failed');
+  gl.attachShader(program, vertex); gl.attachShader(program, fragment); gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error('Film unavailable');
+  gl.useProgram(program); gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const position = gl.getAttribLocation(program, 'position');
+  gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+ } catch {
+  shaders.forEach(shader => gl.deleteShader(shader));
+  if (program) gl.deleteProgram(program);
+  if (buffer) gl.deleteBuffer(buffer);
+  canvas.hidden = true;
+  return null;
+ }
+ const resolution = gl.getUniformLocation(program, 'resolution');
+ const time = gl.getUniformLocation(program, 'time');
+ const pointer = gl.getUniformLocation(program, 'pointer');
+ let frame = 0;
+ let running = false;
+ let failed = false;
+ let lastDraw = 0;
+ let pointerX = 0;
+ function resize() {
+  const dpr = Math.min(devicePixelRatio || 1, matchMedia('(max-width:767px)').matches ? 1.25 : 1.5);
+  canvas.width = Math.max(1, Math.round(canvas.clientWidth * dpr));
+  canvas.height = Math.max(1, Math.round(canvas.clientHeight * dpr));
+  gl.viewport(0, 0, canvas.width, canvas.height);
+ }
+ function draw(now) {
+  if (!running || failed) return;
+  if (now - lastDraw >= 32) {
+   gl.uniform2f(resolution, canvas.width, canvas.height);
+   gl.uniform2f(pointer, pointerX, 0);
+   gl.uniform1f(time, now / 1000);
+   gl.drawArrays(gl.TRIANGLES, 0, 3);
+   lastDraw = now;
+  }
+  frame = requestAnimationFrame(draw);
+ }
+ function setActive(active) {
+  if (failed) return;
+  canvas.hidden = !active;
+  if (active && !running) { running = true; resize(); frame = requestAnimationFrame(draw); }
+  if (!active && running) { running = false; cancelAnimationFrame(frame); }
+ }
+ canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); failed = true; running = false; cancelAnimationFrame(frame); canvas.hidden = true; });
+ if ('ResizeObserver' in window) new ResizeObserver(() => { if (running) resize(); }).observe(canvas);
+ else addEventListener('resize', () => { if (running) resize(); }, { passive: true });
+ heroSection.addEventListener('pointermove', event => { if (event.pointerType === 'mouse') pointerX = event.clientX / innerWidth - .5; }, { passive: true });
+ return { setActive };
+}
+function startSilkFilm() {
+ const modestDevice = navigator.connection?.saveData || (navigator.deviceMemory && navigator.deviceMemory < 4) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
+ if (reduceMotion.matches || modestDevice) return;
+ silkRenderer = createSilkFilm(document.querySelector('#silk-veil'));
+ updateAmbientMotion();
+}
+requestAnimationFrame(() => { if ('requestIdleCallback' in window) requestIdleCallback(startSilkFilm, { timeout: 1500 }); else startSilkFilm(); });
+addEventListener('pagehide', () => silkRenderer?.setActive(false));
+addEventListener('pageshow', updateAmbientMotion);
 
 const cursor = document.querySelector('.custom-cursor');
 if (matchMedia('(pointer:fine) and (min-width:768px)').matches) {
@@ -3391,6 +3537,27 @@ its Escape/arrow-key controls and an axe check while open. The decorative footer
 wordmark was adjusted to meet large-text contrast after the first check found
 it too faint. All six checks passed after that correction: four viewport passes, a motion pass and an intercepted booking-flow pass.
 
+## Bridal planning and optional WebGL release
+
+Seven browser checks passed for this release: the four viewport/accessibility
+passes, a motion/WebGL pass, a forced unavailable-WebGL pass, and the intercepted
+booking pass. Chromium successfully compiled and displayed the silk shader.
+Its canvas stopped displaying off-screen. Reduced-motion contexts kept it off.
+With WebGL forced unavailable, the static hero and booking drawer still worked.
+
+The 360px pass sent native touch events through Chromium and confirmed swipe
+navigation. The reference-to-booking transition preserved the page scroll lock,
+selected bridal styling and returned keyboard focus to the thumbnail on close.
+The intercepted WhatsApp message contained the correct reference URL and optional
+notes, including ampersands and angle brackets, without interpreting them as HTML.
+No message reached WhatsApp or the salon. Responsive tests found no document
+overflow, application errors, site CSP violations, broken decoded images or axe
+WCAG AA violations in tested states. The sticky bridal chapter was also inspected
+visually. Service offer names/prices and FAQ text come from visible owner content.
+
+These tests do not establish a measured Android frame rate, real-device result,
+Lighthouse score or field Core Web Vitals result.
+
 ````
 
 ## README.md
@@ -3517,6 +3684,29 @@ accessibility, in addition to the existing booking and responsive checks.
 Font licences are also available in FONT-LICENSES.txt and inside index.html.
 The two Jakarta weights are Latin subsets with punctuation, arrows and the
 rupee sign. Serif Latin subsets come from the installed Fontsource package.
+
+## Bridal planning and film layer
+
+The bridal planning chapter uses CSS sticky positioning on desktop and a normal
+reading order on phones. The three chapters explain what to share and what the
+salon must confirm; they do not advertise a trial, deposit or guaranteed slot.
+
+The hero's optional silk texture is a small handwritten WebGL shader, started
+after the first paint. It caps DPR at 1.25 on mobile and 1.5 on desktop, draws at
+about 30fps, and stops when hidden or off-screen. Reduced motion, Save-Data,
+modest hardware and unavailable WebGL keep the existing photographic hero.
+Context loss also returns to that fallback. There are no new runtime libraries.
+
+Gallery images support touch swipes as well as buttons and arrow keys. “Discuss
+this reference” opens the bridal booking drawer, showing the chosen editorial
+reference and starting price/duration. The reference can be removed. Optional
+appointment notes and the reference URL are encoded into the WhatsApp request;
+no image is uploaded and nothing is sent automatically. Focus returns to the
+relevant gallery thumbnail when the drawer closes.
+
+JSON-LD now includes the four owner-supplied Service offers and the five visible
+FAQ answers alongside BeautySalon and WebSite data. No review count, geo point,
+award, additional service or availability has been invented.
 
 ````
 
@@ -3793,7 +3983,7 @@ async function watchResources(context) {
 }
 try {
   for (const width of [360, 768, 1280, 1920]) {
-    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce', timezoneId: 'Asia/Kolkata' });
+    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce', timezoneId: 'Asia/Kolkata', hasTouch: width === 360 });
     await watchResources(context);
     const page = await context.newPage();
     const errors = [];
@@ -3805,6 +3995,7 @@ try {
     const response = await page.goto(base, { waitUntil: 'networkidle', timeout: 60000 });
     assert.equal(response.status(), 200);
     await page.evaluate(() => document.fonts.ready);
+    assert.equal(await page.locator('#silk-veil').isVisible(), false, 'Reduced motion uses the static hero');
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `${width}px overflow`);
     await page.screenshot({ path: `qa-results/hero-${width}.png` });
@@ -3836,12 +4027,31 @@ try {
     assert.equal(await page.locator('#photo-counter').textContent(), '2 / 3');
     await page.locator('#gallery-dialog').press('ArrowLeft');
     assert.equal(await page.locator('#photo-counter').textContent(), '1 / 3');
+    await page.screenshot({ path: `qa-results/gallery-${width}.png` });
+    if (width === 360) {
+      const bounds = await page.locator('#viewer-image').boundingBox();
+      const x = bounds.x + bounds.width / 2;
+      const y = bounds.y + bounds.height / 2;
+      const touch = await context.newCDPSession(page);
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: x + 45, y }] });
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x - 45, y }] });
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      await page.waitForFunction(() => document.querySelector('#photo-counter').textContent === '2 / 3');
+      await page.getByRole('button', { name: 'Previous photograph', exact: true }).click();
+      await touch.detach();
+    }
     const beforeGalleryAxe = await page.evaluate(() => window.cspViolations.slice());
     const galleryAxe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     assert.deepEqual(galleryAxe.violations.map(issue => ({ id: issue.id, nodes: issue.nodes.map(node => ({ target: node.target, summary: node.failureSummary })) })), [], 'Gallery accessibility');
     await page.evaluate(prior => { window.cspViolations = prior; }, beforeGalleryAxe);
-    await page.keyboard.press('Escape');
+    await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
     assert.equal(await page.locator('#gallery-dialog').isVisible(), false);
+    assert.equal(await page.locator('#booking-dialog').isVisible(), true);
+    assert.match(await page.locator('#booking-reference-text').textContent(), /Silk & jewellery/);
+    assert.equal(await page.evaluate(() => document.body.classList.contains('modal-open')), true);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#booking-dialog').isVisible(), false);
+    assert.equal(await page.evaluate(() => document.activeElement.dataset.gallery), '0');
     await page.locator('summary').first().click();
     assert.notEqual(await page.locator('details').first().getAttribute('open'), null);
     for (const image of await page.locator('main img:visible').all()) {
@@ -3862,14 +4072,42 @@ try {
   motionPage.on('pageerror', error => motionErrors.push(error.message));
   await motionPage.goto(base, { waitUntil: 'networkidle' });
   await motionPage.waitForFunction(() => document.querySelector('.curtain').getBoundingClientRect().bottom <= 0);
+  const film = await motionPage.locator('#silk-veil').evaluate(canvas => {
+    const gl = canvas.getContext('webgl');
+    return { available: Boolean(gl), compiled: gl ? Boolean(gl.getParameter(gl.CURRENT_PROGRAM)) : false, visible: !canvas.hidden };
+  });
   const reveals = await motionPage.locator('.reveal').all();
   for (const [index, element] of reveals.entries()) {
     await element.scrollIntoViewIfNeeded();
     await motionPage.waitForFunction(i => !document.querySelectorAll('.reveal')[i].classList.contains('waiting'), index);
   }
+  assert.equal(await motionPage.locator('#silk-veil').isVisible(), false, 'Film stops off-screen');
+  await motionPage.locator('#bridal-planning').evaluate(section => section.scrollIntoView({ behavior: 'instant', block: 'start' }));
+  await motionPage.screenshot({ path: 'qa-results/bridal-planning.png' });
   await motionPage.locator('.closing-invitation').screenshot({ path: 'qa-results/closing-invitation.png' });
-  results.push({ motion: 'Curtain and scroll reveals completed', errors: motionErrors });
+  results.push({ motion: 'Curtain and scroll reveals completed', film, errors: motionErrors });
   await motionContext.close();
+  const fallbackContext = await browser.newContext({ viewport: { width: 360, height: 900 }, reducedMotion: 'no-preference' });
+  await watchResources(fallbackContext);
+  const fallbackPage = await fallbackContext.newPage();
+  const fallbackErrors = [];
+  fallbackPage.on('pageerror', error => fallbackErrors.push(error.message));
+  await fallbackPage.addInitScript(() => {
+    Object.defineProperty(navigator, 'deviceMemory', { value: 8 });
+    Object.defineProperty(navigator, 'hardwareConcurrency', { value: 8 });
+    const original = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (kind, ...args) {
+      if (kind === 'webgl') { window.filmAttempted = true; return null; }
+      return original.call(this, kind, ...args);
+    };
+  });
+  await fallbackPage.goto(base, { waitUntil: 'networkidle' });
+  await fallbackPage.waitForFunction(() => window.filmAttempted === true);
+  assert.equal(await fallbackPage.locator('#silk-veil').isVisible(), false);
+  await fallbackPage.locator('.hero [data-book]').click();
+  assert.equal(await fallbackPage.locator('#booking-dialog').isVisible(), true);
+  results.push({ fallback: 'Forced unavailable WebGL: static hero and booking passed', errors: fallbackErrors });
+  await fallbackContext.close();
   const context = await browser.newContext({ viewport: { width: 360, height: 900 }, reducedMotion: 'reduce' });
   await watchResources(context);
   const page = await context.newPage();
@@ -3892,7 +4130,10 @@ try {
   await page.locator('#client-time').fill('10:30');
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
   assert.match(await page.locator('#form-status').textContent(), /Sunday is for bridal/);
-  await page.locator('#client-service').selectOption('Bridal Couture & Muhurtham Styling');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'View Silk and jewellery photograph', exact: true }).click();
+  await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
+  await page.locator('#client-notes').fill('Muhurtham at 11 AM & a soft finish <please>');
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
   await page.waitForURL('https://wa.me/**');
   assert.equal(outgoing.length, 1);
@@ -3900,6 +4141,9 @@ try {
   assert.equal(url.pathname, '/919840638981');
   assert.match(url.searchParams.get('text'), /Test Client & Family/);
   assert.match(url.searchParams.get('text'), /25 October 2026 at 10:30 AM/);
+  assert.match(url.searchParams.get('text'), /Muhurtham at 11 AM & a soft finish <please>/);
+  assert.match(url.searchParams.get('text'), /Styling reference \(editorial inspiration\): Silk & jewellery/);
+  assert.match(url.searchParams.get('text'), /https:\/\/images.unsplash.com\/photo-1610030469983/);
   results.push({ booking: 'Past-time and Sunday rules passed. WhatsApp intercepted locally; no message sent.' });
   await context.close();
 } finally {
@@ -4382,7 +4626,8 @@ const config = JSON.parse(await readFile('vercel.json', 'utf8'));
 const policy = config.headers[0].headers.find(header => header.key === 'Content-Security-Policy').value;
 for (const block of html.matchAll(/<(?:script[^>]*|style)>([\s\S]*?)<\/(?:script|style)>/g)) assert.ok(policy.includes(createHash('sha256').update(block[1]).digest('base64')), 'CSP authorizes exact embedded block');
 assert.ok(!policy.includes('unsafe-inline') && !policy.includes('unsafe-eval'));
-const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+const structuredData = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+const schema = structuredData.find(item => item['@type'] === 'BeautySalon');
 assert.equal(schema.telephone, '+919840638981');
 assert.equal(schema.address.postalCode, '600100');
 const app = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
@@ -5624,7 +5869,7 @@ export async function loadStructuredData() {
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-1Xy+WB8AMhM9JzuHrokRSJgIB5IMTpQvrPL13zNJY8E=' 'sha256-UTr2LC2VfGi2V249g4rUBrS/0XjYn5TKMQw+zG+Um00='; style-src 'self' 'sha256-KnABCEJlmmxpNpKKLG7pB+rneKfwT3Qj2ULUEjSgYO4='; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-5Yn0dew1hHbGCSn0v2BZOIYyDiBmM7oWLjfsEBcpVyY=' 'sha256-tQDoChZbXGNcWoip4+Qu6qmMWfkQ58+R4S/KZnt5zP8='; style-src 'self' 'sha256-/k2vhV/hRo+TLmoKJilGjc/L7Keoh4ibDqr1+PDtd6U='; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
