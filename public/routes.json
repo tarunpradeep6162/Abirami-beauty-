@@ -1,0 +1,38 @@
+[
+  {
+    "route": "/",
+    "label": "Home"
+  },
+  {
+    "route": "/services/",
+    "label": "Services"
+  },
+  {
+    "route": "/gallery/",
+    "label": "Gallery"
+  },
+  {
+    "route": "/about/",
+    "label": "About"
+  },
+  {
+    "route": "/book/",
+    "label": "Contact & book"
+  },
+  {
+    "route": "/services/bridal-makeup/",
+    "label": "Bridal makeup guide"
+  },
+  {
+    "route": "/services/facials/",
+    "label": "Facials guide"
+  },
+  {
+    "route": "/services/hair-spa/",
+    "label": "Hair spa guide"
+  },
+  {
+    "route": "/services/threading/",
+    "label": "Threading guide"
+  }
+]

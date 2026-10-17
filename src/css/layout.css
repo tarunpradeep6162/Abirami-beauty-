@@ -1,4 +1,4 @@
-.site-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; min-height: 120px; padding: 4px var(--gutter); border-bottom: 1px solid var(--line); background: var(--ivory); transition: transform .35s; }
+.site-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; min-height: 120px; padding: 4px var(--gutter); border-bottom: 1px solid var(--line); background: var(--ivory); transition: transform 1s var(--film-ease); }
 .site-header.is-away { transform: translateY(-105%); }
 .wordmark { text-decoration: none; display: grid; place-items: center; width: 174px; height: 112px; overflow: hidden; flex-shrink: 0; }
 .wordmark img { width: 174px; height: 174px; object-fit: contain; max-width: none; }

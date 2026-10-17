@@ -10,7 +10,7 @@ test('responsive manifest reaches hero, editorial images, comparison and shader 
   const root = await mkdtemp(join(tmpdir(), 'abirami-media-'));
   try {
     for (const dir of ['scripts', 'src', 'public/assets/img/generated']) await mkdir(join(root, dir), { recursive: true });
-    for (const name of ['prerender.mjs', 'media.mjs']) await copyFile(new URL(name, import.meta.url), join(root, 'scripts', name));
+    for (const name of ['prerender.mjs', 'media.mjs', 'content.mjs', 'business.mjs']) await copyFile(new URL(name, import.meta.url), join(root, 'scripts', name));
     const business = JSON.parse(await readFile(new URL('../src/business.json', import.meta.url), 'utf8'));
     business.comparisonApproved = true;
     await writeFile(join(root, 'src/business.json'), JSON.stringify(business));
@@ -33,8 +33,10 @@ test('responsive manifest reaches hero, editorial images, comparison and shader 
     assert.match(html, /hero-480\.avif 480w/);
     assert.match(html, /hero-1600\.webp 1600w/);
     assert.match(html, /fetchpriority="high"/);
-    assert.match(html, /background-color:#253e34/);
-    assert.match(html, /data:image\/webp;base64,UklGRg==/);
+    const colours = await readFile(join(root, 'public/assets/img/photo-colours.css'), 'utf8');
+    assert.match(colours, /background-color:#253e34/);
+    assert.match(colours, /data:image\/webp;base64,UklGRg==/);
+    assert.ok(!html.includes(' style='));
     assert.match(html, /data-alt="\/assets\/img\/generated\/service-alt-960.webp"/);
     assert.match(html, /data-approved="true"/);
     assert.match(html, /before-480\.avif/);

@@ -13,7 +13,11 @@ export function startMotion() {
     gsap.ticker.add(tick);
     cleanups.push(() => { gsap.ticker.remove(tick); lenis.destroy(); });
   }
-  gsap.from('.hero-title span', { yPercent: 35, opacity: 0, duration: 1.3, stagger: .13, ease: 'power3.out', clearProps: 'all' });
+  const filmEase = (x: number) => {
+    let lo = 0, hi = 1;
+    for (let i = 0; i < 14; i++) { const t = (lo + hi) / 2; const value = 3 * (1 - t) ** 2 * t * .22 + 3 * (1 - t) * t ** 2 * .36 + t ** 3; if (value < x) lo = t; else hi = t; }
+    return 1 - (1 - (lo + hi) / 2) ** 3;
+  };
   gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(title => {
     gsap.from(title, { y: 35, opacity: .3, duration: 1.1, clearProps: 'all', scrollTrigger: { trigger: title, start: 'top 94%', once: true } });
   });
@@ -47,9 +51,9 @@ export function startMotion() {
     document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach(button => {
       const move = (event: PointerEvent) => {
         const rect = button.getBoundingClientRect();
-        gsap.to(button, { x: (event.clientX - rect.left - rect.width / 2) * .12, y: (event.clientY - rect.top - rect.height / 2) * .14, duration: .35 });
+        gsap.to(button, { x: (event.clientX - rect.left - rect.width / 2) * .12, y: (event.clientY - rect.top - rect.height / 2) * .14, duration: 1.1 });
       };
-      const reset = () => gsap.to(button, { x: 0, y: 0, duration: .6, ease: 'elastic.out(1,.5)' });
+      const reset = () => gsap.to(button, { x: 0, y: 0, duration: 1.1, ease: filmEase });
       button.addEventListener('pointermove', move);
       button.addEventListener('pointerleave', reset);
       cleanups.push(() => { button.removeEventListener('pointermove', move); button.removeEventListener('pointerleave', reset); });
@@ -69,8 +73,26 @@ export function startMotion() {
     document.addEventListener('visibilitychange', visibility);
     cleanups.push(() => { observer.disconnect(); video.pause(); document.removeEventListener('visibilitychange', visibility); });
   }
+  const focusTrack = (event: FocusEvent) => {
+    const item = (event.target as HTMLElement).closest<HTMLElement>('.strip-item');
+    const track = document.querySelector<HTMLElement>('.services-track');
+    const trigger = ScrollTrigger.getAll().find(entry => entry.trigger?.classList.contains('horizontal-section'));
+    if (item && track && trigger) { const distance = Math.max(1, track.scrollWidth - innerWidth); window.scrollTo({ top: trigger.start + Math.min(distance, item.offsetLeft) }); }
+  };
+  document.addEventListener('focusin', focusTrack);
+  cleanups.push(() => document.removeEventListener('focusin', focusTrack));
   const refresh = () => ScrollTrigger.refresh();
   void document.fonts.ready.then(refresh);
   document.querySelectorAll('img').forEach(image => { if (!image.complete) image.addEventListener('load', refresh, { once: true }); });
-  addEventListener('pagehide', () => { match.revert(); ScrollTrigger.getAll().forEach(trigger => trigger.kill()); cleanups.forEach(clean => clean()); }, { once: true });
+  let disposed = false;
+  const dispose = () => {
+    if (disposed) return; disposed = true;
+    match.revert(); ScrollTrigger.getAll().forEach(trigger => trigger.kill(true));
+    gsap.killTweensOf('*');
+    gsap.set('.hero-title span, [data-reveal], [data-story-text], .parallax-photo img, .services-track, [data-magnetic]', { clearProps: 'all' });
+    document.querySelector('.cursor')?.classList.remove('is-visible');
+    cleanups.forEach(clean => clean());
+  };
+  addEventListener('pagehide', dispose, { once: true });
+  return dispose;
 }

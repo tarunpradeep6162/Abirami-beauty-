@@ -7,10 +7,10 @@
 .photo-caption { position: absolute; left: 15px; bottom: 15px; padding: 7px 10px; background: var(--ivory); color: var(--moss); font-size: 10px; letter-spacing: .06em; z-index: 2; }
 .photo canvas, .hero > canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero > canvas { z-index: -2; opacity: .6; }
-.photo canvas { opacity: 0; transition: opacity .6s; }
+.photo canvas { opacity: 0; transition: opacity 1.2s var(--film-ease); }
 .photo.gl-ready canvas { opacity: 1; }
 .curtain { display: none; position: fixed; inset: 0; z-index: 80; background: var(--ivory); color: var(--moss); place-items: center; pointer-events: none; }
-.curtain.is-active { display: grid; animation: curtain-away 1.3s .2s cubic-bezier(.76,0,.24,1) both; }
+.curtain.is-active { display: grid; animation: curtain-away 1.4s .2s var(--film-ease) both; }
 .curtain img { width: 240px; height: 240px; object-fit: contain; animation: mark-in .8s both; }
 @keyframes curtain-away { 0%, 30% { transform: translateY(0); } 100% { transform: translateY(-101%); } }
 @keyframes mark-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -44,8 +44,8 @@
 .form-status { margin: 20px 0; font-size: 13px; }
 .native-transitions { view-transition-name: root; }
 @view-transition { navigation: auto; }
-::view-transition-old(root) { animation: page-out .22s both; }
-::view-transition-new(root) { animation: page-in .4s both; }
+::view-transition-old(root) { animation: page-out 1s var(--film-ease) both; }
+::view-transition-new(root) { animation: page-in 1.1s var(--film-ease) both; }
 @keyframes page-out { to { opacity: 0; } }
 @keyframes page-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) {

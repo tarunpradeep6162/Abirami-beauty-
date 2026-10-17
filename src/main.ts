@@ -1,7 +1,11 @@
 import './css/base.css';
 import './css/layout.css';
 import './css/components.css';
-import business from './business.json';
+import './css/editorial.css';
+import { connectBooking } from './booking';
+import { loadStructuredData } from './structured-data';
+connectBooking();
+void loadStructuredData();
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
@@ -11,12 +15,16 @@ function closeMenu() {
   nav.classList.remove('is-open');
   menuButton.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('menu-open');
+  document.querySelector<HTMLElement>('main')!.inert = false;
+  document.querySelector<HTMLElement>('footer')!.inert = false;
 }
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
   menuButton.setAttribute('aria-expanded', String(open));
   nav.classList.toggle('is-open', open);
   document.body.classList.toggle('menu-open', open);
+  document.querySelector<HTMLElement>('main')!.inert = open;
+  document.querySelector<HTMLElement>('footer')!.inert = open;
 });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); menuButton.focus(); }
@@ -36,7 +44,7 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
       if (openedByHover && !details.contains(document.activeElement)) details.open = false;
       openedByHover = false;
     });
-    details.querySelector('summary')?.addEventListener('click', () => { openedByHover = false; });
+    details.querySelector('summary')?.addEventListener('click', event => { if (openedByHover) event.preventDefault(); openedByHover = false; });
   });
 }
 header.addEventListener('focusin', () => header.classList.remove('is-away'));
@@ -57,15 +65,22 @@ try {
 } catch { /* Private browsing can block storage. */ }
 
 document.querySelectorAll<HTMLElement>('[data-map]').forEach(shell => {
-  shell.querySelector('button')?.addEventListener('click', () => {
-    const frame = document.createElement('iframe');
-    frame.title = 'Map to Abirami Natural Beauty Parlour';
-    frame.loading = 'lazy';
-    frame.referrerPolicy = 'no-referrer';
-    frame.src = `https://maps.google.com/maps?q=${shell.dataset.query}&output=embed`;
-    shell.replaceChildren(frame);
+  const frame = shell.querySelector<HTMLIFrameElement>('iframe')!;
+  const button = shell.querySelector<HTMLButtonElement>('[data-map-toggle]')!;
+  const status = shell.querySelector<HTMLElement>('.map-status')!;
+  const fallback = () => { shell.classList.add('map-unavailable'); button.textContent = 'Try the map again'; status.textContent = 'Use Get Directions for a live map and route.'; };
+  frame.addEventListener('error', fallback);
+  frame.addEventListener('load', () => { status.textContent = 'If the map does not display, use Get Directions below.'; });
+  button.addEventListener('click', () => {
+    if (!shell.classList.contains('map-unavailable')) fallback();
+    else { shell.classList.remove('map-unavailable'); button.textContent = 'Show location card'; frame.src = frame.src; }
   });
 });
+document.querySelectorAll<HTMLButtonElement>('[data-share]').forEach(button => button.addEventListener('click', () => {
+  const url = document.querySelector<HTMLLinkElement>('link[rel=canonical]')?.href;
+  if (!url || new URL(url).origin !== location.origin) return;
+  window.open('https://wa.me/?text=' + encodeURIComponent(document.title + '\n' + url), '_blank', 'noopener,noreferrer');
+}));
 
 document.querySelectorAll<HTMLElement>('[data-comparison]').forEach(box => {
   const input = box.parentElement!.querySelector<HTMLInputElement>('input[type=range]')!;
@@ -76,21 +91,6 @@ document.querySelectorAll<HTMLElement>('[data-comparison]').forEach(box => {
     box.dispatchEvent(new CustomEvent('comparisonchange', { detail: Number(input.value) / 100 }));
   });
 });
-
-const form = document.querySelector<HTMLFormElement>('.enquiry-form');
-form?.addEventListener('submit', event => {
-  event.preventDefault();
-  const phone = business.phone as string | null;
-  if (!phone || !/^\+[1-9]\d{7,14}$/.test(phone) || !form.reportValidity()) return;
-  const fields = new FormData(form);
-  const message = `Hello Abirami, I’m ${String(fields.get('name')).trim()}.\nI’d like to ask about: ${String(fields.get('service')).trim()}.\nPreferred date: ${fields.get('date') || 'Let’s discuss'}.\n${String(fields.get('note') || '').trim()}`;
-  location.assign(`https://wa.me/${phone.slice(1)}?text=${encodeURIComponent(message)}`);
-});
-const date = form?.querySelector<HTMLInputElement>('input[type=date]');
-if (date) {
-  const today = new Date();
-  date.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-}
 
 const reviews = Array.from(document.querySelectorAll<HTMLElement>('[data-review]'));
 if (reviews.length) {
@@ -109,6 +109,7 @@ if (reviews.length) {
   };
   const setPause = () => { pause.textContent = paused ? 'Play' : 'Pause'; pause.setAttribute('aria-pressed', String(paused)); };
   setPause();
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) { paused = true; setPause(); } });
   region.querySelector('[data-review-prev]')!.addEventListener('click', () => show(index - 1, true));
   region.querySelector('[data-review-next]')!.addEventListener('click', () => show(index + 1, true));
   pause.addEventListener('click', () => { paused = !paused; setPause(); });
@@ -120,14 +121,26 @@ if (reviews.length) {
   addEventListener('pagehide', () => clearInterval(timer), { once: true });
 }
 
+let generation = 0;
+let stopMotion: (() => void) | undefined;
+let stopGraphics: (() => void) | undefined;
 const startEnhancements = () => {
+  const token = ++generation;
   if (reducedMotion.matches) return;
-  import('./motion').then(module => module.startMotion()).catch(() => { /* Static pages stay usable. */ });
+  import('./motion').then(module => { if (!reducedMotion.matches && token === generation) stopMotion = module.startMotion(); }).catch(() => { /* Static pages stay usable. */ });
   const navInfo = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
   const lowPower = (navInfo.deviceMemory ?? 8) <= 4 || (navigator.hardwareConcurrency || 8) <= 4 || navInfo.connection?.saveData;
-  if (!lowPower) import('./gl/experience').then(module => module.startExperience()).catch(() => { /* Keep image fallbacks. */ });
+  if (!lowPower && document.querySelector('[data-fabric], [data-liquid], [data-comparison][data-approved="true"]')) import('./gl/experience').then(async module => { if (!reducedMotion.matches && token === generation) { const dispose = await module.startExperience(); if (token === generation && !reducedMotion.matches) stopGraphics = dispose; else dispose(); } }).catch(() => { /* Keep image fallbacks. */ });
 };
-if ('requestIdleCallback' in window) window.requestIdleCallback(startEnhancements, { timeout: 1800 });
-else setTimeout(startEnhancements, 400);
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  if ('requestIdleCallback' in window) window.requestIdleCallback(startEnhancements, { timeout: 1800 });
+  else setTimeout(startEnhancements, 400);
+}));
 
-reducedMotion.addEventListener('change', () => location.reload());
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) { generation++; stopMotion?.(); stopGraphics?.(); curtain?.classList.remove('is-active'); }
+  else startEnhancements();
+});
+addEventListener('pageshow', event => { if (event.persisted) startEnhancements(); });
+
+addEventListener('pagehide', () => { generation++; stopMotion?.(); stopGraphics?.(); });

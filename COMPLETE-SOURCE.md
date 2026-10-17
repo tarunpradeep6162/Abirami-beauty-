@@ -6,22 +6,48 @@ Static frontend, Rust image CLI, noise WASM and build tooling. Compiled output a
 
 ```text
 .gitignore
+404.html
 about/index.html
 AGENTS.md
 book/index.html
+docs/AUDIT.md
+docs/npm-audit.json
+docs/OWNER-CHECKLIST-AND-SOCIAL.md
+docs/VERIFICATION-AND-DEPLOY.md
 gallery/index.html
 index.html
 package-lock.json
 package.json
+public/.well-known/security.txt
+public/assets/fonts/cormorant-garamond-LICENSE.txt
+public/assets/fonts/dm-sans-LICENSE.txt
+public/assets/img/grain.svg
+public/assets/img/location-card.svg
 public/assets/img/manifest.json
 public/assets/img/mark.svg
+public/assets/img/photo-colours.css
 public/assets/img/photo-placeholder.svg
 public/assets/wasm/manifest.json
+public/data/schema/404.html.json
+public/data/schema/about.json
+public/data/schema/book.json
+public/data/schema/gallery.json
+public/data/schema/home.json
+public/data/schema/services-bridal-makeup.json
+public/data/schema/services-facials.json
+public/data/schema/services-hair-spa.json
+public/data/schema/services-threading.json
+public/data/schema/services.json
+public/routes.json
+public/site.webmanifest
 README.md
 rust/imgtool/Cargo.toml
 rust/imgtool/src/main.rs
 rust/noise-wasm/Cargo.toml
 rust/noise-wasm/src/lib.rs
+scripts/browser-qa.mjs
+scripts/business.mjs
+scripts/content.mjs
 scripts/finalize.mjs
 scripts/media.mjs
 scripts/media.test.mjs
@@ -30,10 +56,16 @@ scripts/prerender.mjs
 scripts/rust.mjs
 scripts/source.mjs
 scripts/verify.mjs
+services/bridal-makeup/index.html
+services/facials/index.html
+services/hair-spa/index.html
 services/index.html
+services/threading/index.html
+src/booking.ts
 src/business.json
 src/css/base.css
 src/css/components.css
+src/css/editorial.css
 src/css/layout.css
 src/gl/experience.ts
 src/gl/noise.ts
@@ -46,6 +78,7 @@ src/gl/shaders/liquid.frag.glsl
 src/gl/shaders/wipe.frag.glsl
 src/main.ts
 src/motion.ts
+src/structured-data.ts
 tsconfig.json
 vercel.json
 vite.config.ts
@@ -56,7 +89,8 @@ vite.config.ts
 ````
 node_modules/
 dist/
-.env
+.env*
+!.env.example
 .DS_Store
 
 rust/**/target/
@@ -65,12 +99,21 @@ photos-original/*
 
 .vercel/
 
+qa-results/
+lighthouse-report.html
+
+````
+
+## 404.html
+
+````html
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Page Not Found | Abirami Natural Beauty</title><meta name="description" content="That page is not here. Return to Abirami Natural Beauty Parlour or find our address and booking information."><link rel="canonical" href="https://abirami-beauty.vercel.app/404.html"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Page Not Found | Abirami Natural Beauty"><meta property="og:description" content="That page is not here. Return to Abirami Natural Beauty Parlour or find our address and booking information."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/404.html"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Page Not Found | Abirami Natural Beauty"><meta name="twitter:description" content="That page is not here. Return to Abirami Natural Beauty Parlour or find our address and booking information."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/404.html.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><section class="page-intro"><p class="eyebrow">Page not found</p><h1 data-reveal>A different<br><em>turn.</em></h1><p>This page is not here. <a href="/">Return home</a> or <a href="/book/">find our address</a>.</p></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
 ````
 
 ## about/index.html
 
 ````html
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>About our Jalladiampet parlour | Abirami Natural Beauty Parlour</title><meta name="description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:title" content="Abirami Natural Beauty Parlour"><meta property="og:description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"}}</script><script type="module" src="/src/main.ts"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/services/">Services</a><a href="/gallery/">Gallery</a><a href="/about/" aria-current="page">About</a><a href="/book/">Book</a></nav></header><main id="main" tabindex="-1"><section class="page-intro"><p class="eyebrow">Abirami, close to home</p><h1 data-reveal>On Rice<br><em>Mill Road.</em></h1><p>A neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai.</p></section><section class="section story" data-story><div class="story-art"><div class="photo parallax-photo" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: The salon on Rice Mill Road" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">salon.webp · photo to follow</span></div><div class="photo story-inset" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A detail from the salon" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">detail.webp · photo to follow</span></div></div><div class="story-copy"><p class="eyebrow">01 / Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Abirami Natural Beauty Parlour is on Rice Mill Road, Jalladiampet. If you are looking for a beauty parlour in Medavakkam, come and talk to us about your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section><section class="section closing"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">closing.webp · photo to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" data-magnetic href="/book/" >Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p><a href="https://www.google.com/maps/search/?api=1&query=No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p>Instagram: [handle]</p></div><div class="map-shell" data-map data-query="No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer><div class="cursor" aria-hidden="true"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>About Our Jalladiampet Parlour | Abirami Natural Beauty</title><meta name="description" content="Find Abirami Natural Beauty Parlour on Rice Mill Road in Jalladiampet, Medavakkam, Chennai. Natural beauty, close to home."><link rel="canonical" href="https://abirami-beauty.vercel.app/about/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="About Our Jalladiampet Parlour | Abirami Natural Beauty"><meta property="og:description" content="Find Abirami Natural Beauty Parlour on Rice Mill Road in Jalladiampet, Medavakkam, Chennai. Natural beauty, close to home."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/about/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="About Our Jalladiampet Parlour | Abirami Natural Beauty"><meta name="twitter:description" content="Find Abirami Natural Beauty Parlour on Rice Mill Road in Jalladiampet, Medavakkam, Chennai. Natural beauty, close to home."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/about.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" aria-current="page">About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">About</span></nav><section class="page-intro"><p class="eyebrow">Abirami, close to home</p><h1 data-reveal>On Rice<br><em>Mill Road.</em></h1><p>A neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai.</p></section><section class="section story" data-story><div class="story-art"><div class="photo photo-salon parallax-photo" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside the salon on Rice Mill Road" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div class="photo photo-detail story-inset" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A detail from the salon" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div class="story-copy"><p class="eyebrow">Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Find Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet. Tell us what you have in mind for your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section><section class="section promise"><p class="eyebrow">Our Promise</p><h2 data-reveal>Your face.<br>Your comfort.<br><em>Your choice.</em></h2><div class="promise-note"><p>Beauty should leave room for you. The look you like. The questions you want to ask. The things you would rather keep simple.</p><p>Before you book, let’s talk about what you have in mind.</p></div><span class="promise-signature" aria-hidden="true">Abirami.</span></section><section class="section closing"><div class="photo photo-closing " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" href="/book/" data-magnetic>Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
 ````
 
 ## AGENTS.md
@@ -96,19 +139,221 @@ Vercel builds from the repository root using npm run build; output is dist.
 ## book/index.html
 
 ````html
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Contact &amp; book | Abirami Natural Beauty Parlour</title><meta name="description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Find our address and ask about an appointment."><meta property="og:title" content="Abirami Natural Beauty Parlour"><meta property="og:description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Find our address and ask about an appointment."><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"}}</script><script type="module" src="/src/main.ts"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/services/">Services</a><a href="/gallery/">Gallery</a><a href="/about/">About</a><a href="/book/" aria-current="page">Book</a></nav></header><main id="main" tabindex="-1"><section class="page-intro"><p class="eyebrow">Come by. Say hello.</p><h1 data-reveal>Let’s make<br><em>some time.</em></h1><p>Ask about a service, a date, or your next visit to Abirami Natural Beauty Parlour.</p></section><section class="section book-layout"><div class="book-details"><h2>Say hello.</h2><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p class="fine-print">Online enquiries will open when the salon’s phone number is added. This form does not store or send your details.</p></div><form class="enquiry-form"><label for="guest-name">Your name<input id="guest-name" name="name" autocomplete="given-name" maxlength="80" required></label><label for="guest-service">What would you like to ask about?<input id="guest-service" name="service" maxlength="120" required></label><label for="guest-date">Preferred date, if you have one<input id="guest-date" name="date" type="date"></label><label for="guest-note">Anything you would like us to know?<textarea id="guest-note" name="note" maxlength="800"></textarea></label><label class="consent"><input type="checkbox" name="consent" required><span>I’m happy to share these details with the salon through WhatsApp.</span></label><p class="fine-print">Please leave out medical or other sensitive details.</p><p class="form-status" role="status">Booking is not connected yet. Phone number required.</p><button class="button" type="submit" disabled>Continue to WhatsApp</button></form></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p><a href="https://www.google.com/maps/search/?api=1&query=No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p>Instagram: [handle]</p></div><div class="map-shell" data-map data-query="No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer><div class="cursor" aria-hidden="true"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>WhatsApp Booking &amp; Directions | Abirami Natural Beauty</title><meta name="description" content="Plan a visit to Abirami Natural Beauty Parlour, No.1/11, Rice Mill Road, Jalladiampet, Medavakkam. Find directions and WhatsApp booking information."><link rel="canonical" href="https://abirami-beauty.vercel.app/book/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="WhatsApp Booking &amp; Directions | Abirami Natural Beauty"><meta property="og:description" content="Plan a visit to Abirami Natural Beauty Parlour, No.1/11, Rice Mill Road, Jalladiampet, Medavakkam. Find directions and WhatsApp booking information."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/book/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="WhatsApp Booking &amp; Directions | Abirami Natural Beauty"><meta name="twitter:description" content="Plan a visit to Abirami Natural Beauty Parlour, No.1/11, Rice Mill Road, Jalladiampet, Medavakkam. Find directions and WhatsApp booking information."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/book.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" aria-current="page">Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact &amp; book</span></nav><section class="page-intro"><p class="eyebrow">Come by. Say hello.</p><h1 data-reveal>Let’s make<br><em>some time.</em></h1><p>Ask about a service, a date, or your next visit.</p></section><section class="section book-layout"><div class="book-details"><h2>Say hello.</h2><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Nearby landmark: to be confirmed</p><p class="fine-print">WhatsApp booking will open when the verified salon number is added. Your details are not sent or stored.</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a></div><form class="enquiry-form" action="/book/" method="get"><label for="guest-name">Your name<input id="guest-name" name="name" autocomplete="given-name" maxlength="80" required></label><label for="guest-service">What would you like to ask about?<input id="guest-service" name="service" maxlength="120" required></label><label for="guest-date">Preferred date<input id="guest-date" name="date" type="date"></label><label for="guest-note">Anything else?<textarea id="guest-note" name="note" maxlength="800"></textarea></label><label class="consent"><input type="checkbox" name="consent" required><span>I’m happy to share these details with the salon through WhatsApp.</span></label><p class="fine-print">Please leave out medical or other sensitive details.</p><p class="form-status" role="status">The verified WhatsApp number is awaiting confirmation.</p><button class="button" type="submit" disabled data-book-submit>Continue to WhatsApp</button><noscript><p>Please enable JavaScript to prepare your WhatsApp message. This form does not submit to a server.</p></noscript></form></section><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
+````
+
+## docs/AUDIT.md
+
+````md
+# Audit before changes — 17 October 2026
+
+Scope: repository at 3d4446314749a503208311b74d999a0884449e4d and its static Vercel configuration. This is a code/HTTP audit, not a completed browser or penetration test.
+
+## Ranked findings
+
+1. **Launch blocker — business content.** phone, hours, Instagram, services, Google rating and reviews are unset. Booking is disabled. No salon photos or approved result pair exist. Fixing code cannot supply these facts.
+2. **High — CSP missing.** vercel.json sets nosniff/referrer/three permissions but no CSP, explicit HSTS, COOP or payment permission. Generated background styles and external Google Fonts are incompatible with requested self-only policy.
+3. **High — canonical/SEO output absent.** siteUrl is null; every page is noindex and robots disallows crawling. Canonicals, sitemap and OG image output are absent. Keep noindex until approved content, but support the known canonical domain and valid sitemap immediately.
+4. **High — no runtime CSP coverage.** Inline JSON-LD exists. GSAP and the CSS comparison use runtime CSSOM styles. Testing must distinguish static inline styles from necessary animation CSSOM writes; do not enable unsafe-inline.
+5. **High — unmeasured quality targets.** No browser tests at requested widths, no measured CWV, no Lighthouse run and no real Android timing evidence. Static build success does not establish any of those scores.
+6. **Medium — thin SEO copy.** Most page descriptions are repeated. Concatenated titles exceed 60 characters. No service planning pages, FAQ, breadcrumbs, Service schema support, Twitter tags or consistent per-page social titles.
+7. **Medium — incomplete metadata.** No custom 404, web manifest, conventional icon sizes or 1200×630 raster social image. Full square logo works poorly as a tiny favicon.
+8. **Medium — map resilience.** Click-loaded maps.google.com differs from the requested www.google.com frame-src allowance. No iframe failure treatment, timeout explanation, static location illustration or nearby-landmark field.
+9. **Medium — external fonts.** Render-blocking CSS @import contacts Google and lacks local preload; body 500/600 weights may synthesize under some font failures.
+10. **Medium — interaction accessibility.** Small nav/link/menu targets, hover-open native details can conflict with click, inherited blockquote margins can overflow, and the horizontal desktop strip does not explicitly handle keyboard focus moving to a translated item.
+11. **Medium — performance.** Motion loads after idle even on a page with no animated content. Hero reveal starts only when heavy motion JS arrives. Continuous WebGL surfaces reread layout per frame. GPU performance and context limits are unmeasured. Still image texture requests may duplicate responsive image downloads.
+12. **Medium — motion inconsistency.** Several transitions last .22–.6 seconds with unrelated easing. Curtain and late hero reveal can obscure or move already-painted content; header uses fixed heights that can drift from branding layout.
+13. **Medium — lifecycle.** pagehide disposes motion/graphics but bfcache restores do not restart them. Reduced-motion changes reload the page and can discard typed form content.
+14. **Medium — defensive data validation.** Instagram/phone are validated but siteUrl and service/review records lack central validation. Missing CSP increases the consequence of future unsafe rendering. No security.txt.
+15. **Medium — phone exposure.** Once configured, the full phone is repeated in links and bundled config. HTML obfuscation can reduce trivial scraping but cannot keep a public booking number secret, especially with required telephone schema.
+16. **Medium — release reproducibility.** Direct npm versions are ranges. Rust is absent, so the Rust encoder and compiled WASM have not been executed. No Rust lockfiles exist; dependency resolution remains a first-native-build task.
+17. **Low — design substance.** No promise statement, trust-data slot, FAQ, local Instagram section, share button or contact composition. Before/after has only demonstration imagery. Empty service rows are not a substitute for owner content.
+18. **Low — caching.** There is no explicit immutable rule confined to hashed bundles and no HTML revalidation rule. Stable overwritten media must never be treated as immutable.
+19. **Low — asset documentation.** Logo is supplied and preserved, but page crops and placeholder alt text need replacement when real photographs arrive. No owner SEO or social publishing checklist.
+20. **Low — automated checks.** Verification checks local routes/schema/container headers, but not title lengths, inline markup, safe external links, navigation target size rules, social metadata, canonical consistency or security header configuration.
+
+Baseline positives: no backend/secrets found; static links are escaped; WhatsApp messages are URL-encoded; reduced-motion, keyboard menu, paused off-screen WebGL, mobile DPR cap and image fallbacks already exist. Initial npm audit: zero reported vulnerabilities. No breach or exploitable dependency vulnerability was found by this limited audit.
+
+## Content that must remain unfilled
+
+Verified salon number, hours, coordinates, opening year, service availability, real review text/rating/count, Instagram, Google Business Profile, nearby landmarks and real photos. Public planning guides must not be represented as confirmed services. Service schema is emitted only for confirmed services. FAQ markup does not guarantee Google FAQ rich-result eligibility.
+
+````
+
+## docs/npm-audit.json
+
+````json
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {},
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 4,
+      "dev": 82,
+      "optional": 53,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 85
+    }
+  }
+}
+
+````
+
+## docs/OWNER-CHECKLIST-AND-SOCIAL.md
+
+````md
+# Owner launch checklist
+
+- Confirm the salon's international-format WhatsApp/call number. Test the actual phone and WhatsApp links on a phone. A public WhatsApp number cannot be kept secret from determined scraping; HTML fragments are only light obfuscation.
+- Confirm the exact opening hours, all available services and prices. Add them to src/business.json. Add structured opening hours only after checking days and opening/closing times.
+- Confirm the Instagram username and actual Google Business Profile URL. Do not substitute an unrelated listing. Add verified coordinates and a nearby landmark only after checking the correct entrance.
+- Confirm the opening year if you want it shown. Do not guess years in business. The service count is derived from the confirmed list. The trust strip stays hidden when no verified figures are supplied.
+- Claim and verify the Google Business Profile. Use exactly Abirami Natural Beauty Parlour and No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100; use the same phone as the site.
+- Fill the listing's real hours, categories and service descriptions. Add https://abirami-beauty.vercel.app as the website.
+- Upload approved exterior, entrance, interior and service photos. Use customer photos only with permission. Add accessible photo descriptions when replacing the placeholder assets.
+- Obtain the actual Google review short link from the verified profile. Ask happy clients for honest reviews without incentives or pressure. Do not gate negative reviews or invent quotes. Add genuine review text and rating/count only after verification.
+- Review the four public planning guides. They do not establish that bridal makeup, facials, hair spa or threading is offered. Confirm the menu separately before listing any as services or adding Service schema.
+- Supply an accurate matched before/after pair and permission before enabling comparisonApproved. Never replace it with simulated results.
+- Review all public copy. Then set indexable to true, rebuild and deploy. Until then noindex stays on the pages; the sitemap and canonical URLs are already usable.
+- After launch, verify Search Console domain/URL ownership, submit sitemap.xml, run URL Inspection, and check the Google Business Profile website link.
+- Review security.txt yearly before its 2027-10-17 expiry. The current contact is the repository issue page. Use a verified monitored security mailbox instead if desired; none has been invented here.
+
+## Ready-to-paste Instagram bio
+
+Abirami Natural Beauty Parlour
+Jalladiampet · Medavakkam, Chennai
+A little time for you.
+WhatsApp for appointments ↓
+
+Set the profile website to https://abirami-beauty.vercel.app/book/ once the real booking number is connected. Do not imply a working WhatsApp link before it exists.
+
+## Google Business description
+
+Abirami Natural Beauty Parlour is on Rice Mill Road in Jalladiampet, Medavakkam, Chennai. Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Please contact the parlour to confirm current services, consultation prices and appointment availability before visiting.
+
+This draft contains only supplied facts. Add confirmed services and real opening details after owner review, without medical promises or unverified superiority claims.
+
+## Ten caption ideas
+
+1. A little time for you, close to home. Find Abirami on Rice Mill Road, Jalladiampet. Ask us about your next visit.
+2. Before a big day, start with a small conversation. Tell us the date, the look you like and the questions on your mind. Please confirm service availability before booking.
+3. Your face. Your comfort. Your choice. Keep the things you like about yourself in the conversation.
+4. Coming from Medavakkam? The website has our address and a directions link. Confirm your appointment before setting out.
+5. A photograph can begin a conversation. Bring a reference and tell us which details you like.
+6. Not sure what to ask before a facial appointment? Our website has a simple planning guide. Confirm the current options with the parlour.
+7. Planning time for your hair? Ask what is included, how long to allow and the full consultation price before you book.
+8. Small details matter too. Tell us what you want to keep and what you would like to discuss before your visit.
+9. Photographs from the parlour will be shared with permission. Your comfort matters behind the camera as well.
+10. A first visit can begin with a hello. Ask about a service, check a date and make a little room for yourself.
+
+Add a booking CTA only after the verified WhatsApp number is connected. Pair each caption with an appropriate real approved photograph, not the current site placeholders. Do not label an image as posted on Instagram unless it actually was.
+
+## Social preview asset spec
+
+public/assets/img/social-preview.png is a real 1200×630 PNG using the supplied logo, ivory/moss/brass palette and the truthful Jalladiampet/Medavakkam location. It is a branded placeholder card, not a salon photograph. It is used by OG and Twitter metadata on all pages; titles and descriptions are page-specific. Replace it with a verified final card if desired, preserving dimensions, name, legibility and safe edges. WhatsApp cache refresh timing is controlled by WhatsApp, not the site.
+
+Icon exports preserve the supplied full artwork; at 32px the full wordmark is necessarily small. For a stronger favicon, supply an approved standalone mark. The original logo is never redrawn or modified on the page.
+
+````
+
+## docs/VERIFICATION-AND-DEPLOY.md
+
+````md
+# Verification and redeployment
+
+## Local build and dependency checks
+
+```sh
+npm ci
+npm run build
+npm test
+npm run verify
+npm audit
+```
+
+The build runs optional Rust image conversion, optional WASM, prerender, TypeScript, Vite, SEO output and the full source listing in order. Missing Rust prints a clear skip. This environment cannot establish Rust compilation or compiled-WASM execution; earlier Rust source tests remain available in README.
+
+Static verification checks all 10 pages, unique title/description limits, local asset and srcset targets, canonical and social metadata, original guide word counts, JSON-LD data files, no authored inline CSS/scripts/events, fonts, pinned direct dependencies, CSP configuration and missing-business-data guards.
+
+## Browser QA, CSP and four viewport sizes
+
+```sh
+npx playwright install chromium
+npm run qa:browser
+```
+
+Run this on a machine with browser support after deployment. QA_BASE_URL optionally selects a staging origin. The script checks all routes at 360, 768, 1280 and 1920px, horizontal overflow, visible navigation, reduced motion, keyboard skip link, axe WCAG A/AA issues and top-frame CSP violation events. It writes local QA results and screenshots to qa-results (ignored by Git). It is not a field-performance measurement. Review Google Maps visually: cross-origin frame restrictions prevent reliable detection of every provider error; the manual location-card control and permanent directions link remain available.
+
+The shipped HTML contains no inline scripts, style attributes, style blocks or event handlers. Image preview styling is an external generated stylesheet. JSON-LD is fetched from same-origin JSON and added as a non-executable data block by an external module; Google supports rendered structured data. It is not executable inline JavaScript. GSAP and the comparison control still update CSSOM properties at runtime, as required for motion. Browser verification is needed to catch library-specific CSP interactions; static checks are not a claim of zero runtime violations.
+
+## Lighthouse and public validators
+
+```sh
+npx lighthouse https://abirami-beauty.vercel.app --only-categories=performance,accessibility,best-practices,seo --output=html --output-path=./lighthouse-report.html
+```
+
+Install Chrome/Chromium first. Repeat mobile and desktop, and use a real mid-range Android. Targets are performance 90+, accessibility/best-practices/SEO 100, LCP <2.5s, CLS <0.1 and INP <200ms. These are targets, not measured results. INP needs representative interactions and eventually field data; a synthetic score does not establish it. noindex intentionally prevents full launch SEO eligibility until the owner content gate is opened.
+
+- https://securityheaders.com — enter https://abirami-beauty.vercel.app. Inspect actual headers; do not rely solely on the letter grade.
+- https://search.google.com/test/rich-results — use each URL, not pasted source, because JSON-LD is added during rendering. Missing real phone/hours/geo may produce completeness warnings. Do not fill them with fake values.
+- https://validator.schema.org — inspect BeautySalon/LocalBusiness, BreadcrumbList, FAQPage and confirmed Service records.
+- Google FAQ rich results are restricted to eligible authoritative sites; FAQPage markup is not a promise of a rich result for this salon. Self-serving LocalBusiness review stars are likewise not promised. Ratings remain unpublished until real data is supplied.
+- Google Search Console URL Inspection — after owner approval and indexable=true, verify rendered content and indexing status.
+
+## Exact Vercel redeployment commands
+
+The Vercel project already exists in team tarun-2f6a, project abirami-beauty.
+Run these from the repository root with the Vercel CLI installed and your own
+CLI session authenticated. Do not paste credentials into repository files.
+
+```sh
+vercel link --yes --project abirami-beauty --scope tarun-2f6a
+vercel pull --yes --environment=production --scope tarun-2f6a
+vercel build --prod --scope tarun-2f6a
+vercel deploy --prebuilt --prod --scope tarun-2f6a
+```
+
+Install the CLI first if necessary with npm install --global vercel, then
+vercel login. Pin the installed CLI version in your own CI setup rather than
+using an unreviewed floating version. Native connected Vercel deployment can
+also deploy the exact committed SHA without exposing any token.
+
+Repository: https://github.com/tarunpradeep6162/Abirami-beauty-
+Production: https://abirami-beauty.vercel.app
+Static output: dist. No backend has been added. No Vercel access controls need
+to be weakened to deploy this update.
+
+## Honest remaining gates
+
+There is no local Playwright Chromium installation in this workspace. A cloud
+browser can provide a limited smoke check, but not the automated four-width
+matrix or Lighthouse. Do not interpret CSS breakpoints as completed viewport tests. Browser CSP,
+axe, screenshots, Lighthouse, public validator scores, real-device performance
+and visual map checks remain to run. Owner content gaps are listed in
+OWNER-CHECKLIST-AND-SOCIAL.md. A static fallback image and directions link
+are provided, but a cross-origin iframe cannot reliably report every failure.
+
 ````
 
 ## gallery/index.html
 
 ````html
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Gallery | Abirami Natural Beauty Parlour</title><meta name="description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:title" content="Abirami Natural Beauty Parlour"><meta property="og:description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"}}</script><script type="module" src="/src/main.ts"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/services/">Services</a><a href="/gallery/" aria-current="page">Gallery</a><a href="/about/">About</a><a href="/book/">Book</a></nav></header><main id="main" tabindex="-1"><section class="page-intro"><p class="eyebrow">The gallery</p><h1 data-reveal>Beauty,<br><em>up close.</em></h1><p>A place for photographs from the salon. Client work will appear here with permission.</p></section><section class="section gallery" aria-label="Salon photo gallery"><figure><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A finishing touch." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">portrait.webp · photo to follow</span></div><figcaption>A finishing touch.</figcaption></figure><figure><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Our place on Rice Mill Road." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">salon.webp · photo to follow</span></div><figcaption>Our place on Rice Mill Road.</figcaption></figure><figure><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: The little details." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">detail.webp · photo to follow</span></div><figcaption>The little details.</figcaption></figure><figure><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A moment to pause." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">ritual.webp · photo to follow</span></div><figcaption>A moment to pause.</figcaption></figure></section><section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">03 / Before &amp; after</p><h2 data-reveal>A closer<br><em>look.</em></h2><p>Real results belong here. We will add a matched pair of photographs with the client’s permission.</p></div><div><div class="comparison" data-comparison data-approved="false"><img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy"><div class="after-photo"><img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy"></div><span class="comparison-label before">Before · placeholder</span><span class="comparison-label after">After · placeholder</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label><p class="comparison-status">Demonstration only. No client result is shown.</p></div></section><section class="section closing"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">closing.webp · photo to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" data-magnetic href="/book/" >Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p><a href="https://www.google.com/maps/search/?api=1&query=No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p>Instagram: [handle]</p></div><div class="map-shell" data-map data-query="No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer><div class="cursor" aria-hidden="true"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Salon &amp; Bridal Gallery | Abirami Natural Beauty</title><meta name="description" content="A place for approved salon and bridal photographs from Abirami Natural Beauty Parlour, Jalladiampet. Client images are published with permission."><link rel="canonical" href="https://abirami-beauty.vercel.app/gallery/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Salon &amp; Bridal Gallery | Abirami Natural Beauty"><meta property="og:description" content="A place for approved salon and bridal photographs from Abirami Natural Beauty Parlour, Jalladiampet. Client images are published with permission."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/gallery/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Salon &amp; Bridal Gallery | Abirami Natural Beauty"><meta name="twitter:description" content="A place for approved salon and bridal photographs from Abirami Natural Beauty Parlour, Jalladiampet. Client images are published with permission."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/gallery.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" aria-current="page">Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Gallery</span></nav><section class="page-intro"><p class="eyebrow">The gallery</p><h1 data-reveal>Beauty,<br><em>up close.</em></h1><p>Approved salon and client photographs will appear here with permission.</p></section><section class="section gallery" aria-label="Salon photo gallery"><figure><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A finishing touch." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><figcaption>A finishing touch.</figcaption></figure><figure><div class="photo photo-salon " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Our place on Rice Mill Road." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><figcaption>Our place on Rice Mill Road.</figcaption></figure><figure><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: The little details." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><figcaption>The little details.</figcaption></figure><figure><div class="photo photo-ritual " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A moment to pause." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><figcaption>A moment to pause.</figcaption></figure></section><section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">Bridal &amp; beauty gallery</p><h2 data-reveal>Still you.<br><em>Up close.</em></h2><p>Client photographs belong here only with permission. This demonstration does not show a client result.</p></div><div><div class="comparison" data-comparison data-approved="false"><img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy"><div class="after-photo"><img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy"></div><span class="comparison-label before">Before · placeholder</span><span class="comparison-label after">After · placeholder</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label></div></section><section class="section instagram-section"><div class="section-heading"><p class="eyebrow">Our Instagram journal</p><h2 data-reveal>The little<br><em>moments.</em></h2></div><p>Approved salon photographs and our confirmed Instagram handle will be added here.</p><div class="instagram-photos"><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Approved salon portrait for the Instagram journal" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Approved salon detail for the Instagram journal" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div></section><section class="section closing"><div class="photo photo-closing " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" href="/book/" data-magnetic>Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
 ````
 
 ## index.html
 
 ````html
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Beauty parlour in Medavakkam &amp; Jalladiampet | Abirami Natural Beauty Parlour</title><meta name="description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:title" content="Abirami Natural Beauty Parlour"><meta property="og:description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"}}</script><script type="module" src="/src/main.ts"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/services/">Services</a><a href="/gallery/">Gallery</a><a href="/about/">About</a><a href="/book/">Book</a></nav></header><main id="main" tabindex="-1"><section class="hero" data-fabric><div class="hero-media is-placeholder"><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Abirami Natural Beauty Parlour in Jalladiampet" width="1200" height="1500" fetchpriority="high" decoding="async" ></picture></div><div class="hero-shade"></div><p class="eyebrow">Abirami Natural Beauty Parlour · Chennai</p><h1 class="hero-title"><span>Beauty,</span><span>in your</span><span><em>own time.</em></span></h1><div><a class="button button-solid" data-magnetic href="/book/" >Book on WhatsApp</a></div><div class="hero-bottom"><p>Rice Mill Road.<br>Jalladiampet, Medavakkam.</p><p>Photo placeholder · hero.webp</p><span class="hero-number" aria-hidden="true">a.</span></div></section><section class="section story" data-story><div class="story-art"><div class="photo parallax-photo" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: The salon on Rice Mill Road" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">salon.webp · photo to follow</span></div><div class="photo story-inset" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A detail from the salon" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">detail.webp · photo to follow</span></div></div><div class="story-copy"><p class="eyebrow">01 / Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Abirami Natural Beauty Parlour is on Rice Mill Road, Jalladiampet. If you are looking for a beauty parlour in Medavakkam, come and talk to us about your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section><section class="section services-editorial"><div class="section-heading"><p class="eyebrow">02 / A little time for you</p><h2 data-reveal>Care, at<br>your pace.</h2></div><div class="service-layout"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Salon care and treatment details" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">services.webp · photo to follow</span></div><div><ol class="service-list"><li class="service-row"><p class="eyebrow">The service menu</p><h3>Details to follow.</h3><p>The confirmed service list will be added here. Please ask us about the care you have in mind.</p></li></ol><p class="fine-print service-note">Prices on consultation</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section><section class="horizontal-section" aria-labelledby="gallery-strip-title"><div class="horizontal-heading"><p class="eyebrow">The service edit</p><h2 id="gallery-strip-title" data-reveal>Time for you.</h2></div><div class="services-track"><article class="strip-item"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Your service, here." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">portrait.webp · photo to follow</span></div><h3>Your service, here.</h3><p class="fine-print">Confirmed service details to follow.</p><a class="text-link" href="/services/">View the service menu ↗</a></article><article class="strip-item"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Time for a visit." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">ritual.webp · photo to follow</span></div><h3>Time for a visit.</h3><p class="fine-print">Prices on consultation</p><a class="text-link" href="/services/">View the service menu ↗</a></article><article class="strip-item"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Let’s talk first." width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">detail.webp · photo to follow</span></div><h3>Let’s talk first.</h3><p class="fine-print">Ask about the care you have in mind.</p><a class="text-link" href="/services/">View the service menu ↗</a></article></div></section><section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">03 / Before &amp; after</p><h2 data-reveal>A closer<br><em>look.</em></h2><p>Real results belong here. We will add a matched pair of photographs with the client’s permission.</p></div><div><div class="comparison" data-comparison data-approved="false"><img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy"><div class="after-photo"><img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy"></div><span class="comparison-label before">Before · placeholder</span><span class="comparison-label after">After · placeholder</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label><p class="comparison-status">Demonstration only. No client result is shown.</p></div></section><section class="section reviews-section"><div class="section-heading"><p class="eyebrow">Kind words</p><h2 data-reveal>From our<br>neighbours.</h2></div><p>Client reviews will be added here when they are shared with us.</p></section><section class="section closing"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">closing.webp · photo to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" data-magnetic href="/book/" >Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p><a href="https://www.google.com/maps/search/?api=1&query=No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p>Instagram: [handle]</p></div><div class="map-shell" data-map data-query="No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer><div class="cursor" aria-hidden="true"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Beauty Parlour in Medavakkam | Abirami Natural Beauty</title><meta name="description" content="Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet, Medavakkam. Plan your visit and ask about appointments on WhatsApp."><link rel="canonical" href="https://abirami-beauty.vercel.app/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Beauty Parlour in Medavakkam | Abirami Natural Beauty"><meta property="og:description" content="Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet, Medavakkam. Plan your visit and ask about appointments on WhatsApp."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Beauty Parlour in Medavakkam | Abirami Natural Beauty"><meta name="twitter:description" content="Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet, Medavakkam. Plan your visit and ask about appointments on WhatsApp."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/home.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" aria-current="page">Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><section class="hero" data-fabric><div class="hero-media is-placeholder"><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Abirami Natural Beauty Parlour in Jalladiampet" width="1200" height="1500" fetchpriority="high" decoding="async" ></picture></div><div class="hero-shade"></div><p class="eyebrow">Abirami Natural Beauty Parlour · Chennai</p><h1 class="hero-title"><span>Beauty,</span><span>in your</span><span><em>own time.</em></span></h1><div><a class="button button-solid" href="/book/" data-magnetic>Book on WhatsApp</a></div><div class="hero-bottom"><p>Rice Mill Road.<br>Jalladiampet, Medavakkam.</p><p>Salon film and photographs to follow.</p><span class="hero-number" aria-hidden="true">a.</span></div></section><section class="section story" data-story><div class="story-art"><div class="photo photo-salon parallax-photo" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside the salon on Rice Mill Road" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div class="photo photo-detail story-inset" ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: A detail from the salon" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div class="story-copy"><p class="eyebrow">Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Find Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet. Tell us what you have in mind for your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section><section class="section promise"><p class="eyebrow">Our Promise</p><h2 data-reveal>Your face.<br>Your comfort.<br><em>Your choice.</em></h2><div class="promise-note"><p>Beauty should leave room for you. The look you like. The questions you want to ask. The things you would rather keep simple.</p><p>Before you book, let’s talk about what you have in mind.</p></div><span class="promise-signature" aria-hidden="true">Abirami.</span></section><section class="section services-editorial"><div class="section-heading"><p class="eyebrow">The service menu</p><h2 data-reveal>Care, at<br><em>your pace.</em></h2></div><div class="service-layout"><div class="photo photo-services " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Salon care and treatment details" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><ol class="service-list"><li class="service-row"><h3>Let’s talk first.</h3><p>Our confirmed service menu is being prepared. Ask about availability and prices before booking.</p></li></ol><p class="fine-print service-note">Prices on consultation</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section><section class="horizontal-section" aria-labelledby="strip-title"><div class="horizontal-heading"><p class="eyebrow">Before you book</p><h2 id="strip-title" data-reveal>A little<br><em>preparation.</em></h2><p class="fine-print">Planning guides. Please confirm service availability with the salon.</p></div><div class="services-track"><article class="strip-item"><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Bridal makeup planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Bridal makeup</h3><a class="text-link" href="/services/bridal-makeup/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-ritual " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Facials planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Facials</h3><a class="text-link" href="/services/facials/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Hair spa planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Hair spa</h3><a class="text-link" href="/services/hair-spa/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-services " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Threading planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Threading</h3><a class="text-link" href="/services/threading/">Read the guide ↗</a></article></div></section><section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">Bridal &amp; beauty gallery</p><h2 data-reveal>Still you.<br><em>Up close.</em></h2><p>Client photographs belong here only with permission. This demonstration does not show a client result.</p></div><div><div class="comparison" data-comparison data-approved="false"><img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy"><div class="after-photo"><img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy"></div><span class="comparison-label before">Before · placeholder</span><span class="comparison-label after">After · placeholder</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label></div></section><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section><section class="section instagram-section"><div class="section-heading"><p class="eyebrow">Our Instagram journal</p><h2 data-reveal>The little<br><em>moments.</em></h2></div><p>Approved salon photographs and our confirmed Instagram handle will be added here.</p><div class="instagram-photos"><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Approved salon portrait for the Instagram journal" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Approved salon detail for the Instagram journal" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div></section><section class="section closing"><div class="photo photo-closing " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" href="/book/" data-magnetic>Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
 ````
 
 ## package-lock.json
@@ -116,26 +361,46 @@ Vercel builds from the repository root using npm run build; output is dist.
 ````json
 {
   "name": "abirami-natural-beauty-parlour",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "abirami-natural-beauty-parlour",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "dependencies": {
-        "gsap": "^3.13.0",
-        "lenis": "^1.3.0",
-        "three": "^0.180.0"
+        "gsap": "3.15.0",
+        "lenis": "1.3.27",
+        "three": "0.180.0"
       },
       "devDependencies": {
-        "@types/node": "^24.0.0",
-        "@types/three": "^0.180.0",
-        "typescript": "^5.9.0",
-        "vite": "^7.1.0"
+        "@axe-core/playwright": "4.14.0",
+        "@fontsource/cormorant-garamond": "5.3.0",
+        "@fontsource/dm-sans": "5.3.0",
+        "@playwright/test": "1.64.1",
+        "@types/node": "24.19.2",
+        "@types/three": "0.180.0",
+        "typescript": "5.9.3",
+        "vite": "7.3.7"
       },
       "engines": {
         "node": ">=22.12"
+      }
+    },
+    "node_modules/@axe-core/playwright": {
+      "version": "4.14.0",
+      "resolved": "https://registry.npmjs.org/@axe-core/playwright/-/playwright-4.14.0.tgz",
+      "integrity": "sha512-SGUhG5PIHd2eMdpgBF2PyQLOhX+qyDR2PT4cmoS4Qk2ak+jX/rrSvst9l0PGv5WTHolKpUMvVmoHpr4cZgf1RQ==",
+      "dev": true,
+      "license": "MPL-2.0",
+      "dependencies": {
+        "axe-core": "~4.14.0"
+      },
+      "engines": {
+        "node": ">=22.12.0"
+      },
+      "peerDependencies": {
+        "playwright-core": ">= 1.0.0"
       }
     },
     "node_modules/@dimforge/rapier3d-compat": {
@@ -587,6 +852,26 @@ Vercel builds from the repository root using npm run build; output is dist.
         "node": ">=18"
       }
     },
+    "node_modules/@fontsource/cormorant-garamond": {
+      "version": "5.3.0",
+      "resolved": "https://registry.npmjs.org/@fontsource/cormorant-garamond/-/cormorant-garamond-5.3.0.tgz",
+      "integrity": "sha512-weuGsCirGVWBWqpt6YUp0yLThTe4G8YO45noq8wxeJCRvEpq5lFrxNMFSTxcyOyV5k5otzJ8guDzYegdYlcLMQ==",
+      "dev": true,
+      "license": "OFL-1.1",
+      "funding": {
+        "url": "https://github.com/sponsors/ayuhito"
+      }
+    },
+    "node_modules/@fontsource/dm-sans": {
+      "version": "5.3.0",
+      "resolved": "https://registry.npmjs.org/@fontsource/dm-sans/-/dm-sans-5.3.0.tgz",
+      "integrity": "sha512-lYJtMXXO28q1z+yz+z8XKd0s4hXaa9QdkETzkyD760sidCv5heI86weYA0sx0Nc4pAMAQTUuyf4gO44cYKKS9g==",
+      "dev": true,
+      "license": "OFL-1.1",
+      "funding": {
+        "url": "https://github.com/sponsors/ayuhito"
+      }
+    },
     "node_modules/@napi-rs/lzma-linux-x64-gnu": {
       "version": "1.5.1",
       "resolved": "https://registry.npmjs.org/@napi-rs/lzma-linux-x64-gnu/-/lzma-linux-x64-gnu-1.5.1.tgz",
@@ -602,6 +887,22 @@ Vercel builds from the repository root using npm run build; output is dist.
       ],
       "engines": {
         "node": "^22.20 || ^24.12 || >=25"
+      }
+    },
+    "node_modules/@playwright/test": {
+      "version": "1.64.1",
+      "resolved": "https://registry.npmjs.org/@playwright/test/-/test-1.64.1.tgz",
+      "integrity": "sha512-IaYGml/nSOiZWROfPtuIL7neuu9qDOZ3TNvNljUIrhDMxiGTgPjzj/g9p9RxpS2tSepPDRY+UwAaEeiKtUvIAg==",
+      "dev": true,
+      "license": "Apache-2.0",
+      "dependencies": {
+        "playwright": "1.64.1"
+      },
+      "bin": {
+        "playwright": "cli.js"
+      },
+      "engines": {
+        "node": ">=20"
       }
     },
     "node_modules/@rollup/rollup-android-arm-eabi": {
@@ -1015,6 +1316,16 @@ Vercel builds from the repository root using npm run build; output is dist.
       "dev": true,
       "license": "BSD-3-Clause"
     },
+    "node_modules/axe-core": {
+      "version": "4.14.0",
+      "resolved": "https://registry.npmjs.org/axe-core/-/axe-core-4.14.0.tgz",
+      "integrity": "sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==",
+      "dev": true,
+      "license": "MPL-2.0",
+      "engines": {
+        "node": ">=4"
+      }
+    },
     "node_modules/esbuild": {
       "version": "0.28.2",
       "resolved": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.2.tgz",
@@ -1178,6 +1489,35 @@ Vercel builds from the repository root using npm run build; output is dist.
       },
       "funding": {
         "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    },
+    "node_modules/playwright": {
+      "version": "1.64.1",
+      "resolved": "https://registry.npmjs.org/playwright/-/playwright-1.64.1.tgz",
+      "integrity": "sha512-HCrVhHr5QQuwYoswEUGTb7gGp522yflbv/ST8nF4sFWGuLjQCt17Q/EubpGGSNKYn1tsTCPZxqHhHCfVURu7UA==",
+      "dev": true,
+      "license": "Apache-2.0",
+      "dependencies": {
+        "playwright-core": "1.64.1"
+      },
+      "bin": {
+        "playwright": "cli.js"
+      },
+      "engines": {
+        "node": ">=20"
+      }
+    },
+    "node_modules/playwright-core": {
+      "version": "1.64.1",
+      "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.64.1.tgz",
+      "integrity": "sha512-BC4s8y6SEVA6Q1rSxZTto8hI1KUI3xXlHGZgvGqP4IqPdI/a6FX9H29IDNz7vKo9l21b6LfYosScPL6M3xxyDQ==",
+      "dev": true,
+      "license": "Apache-2.0",
+      "bin": {
+        "playwright-core": "cli.js"
+      },
+      "engines": {
+        "node": ">=20"
       }
     },
     "node_modules/postcss": {
@@ -1395,7 +1735,7 @@ Vercel builds from the repository root using npm run build; output is dist.
 {
   "name": "abirami-natural-beauty-parlour",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "engines": {
     "node": ">=22.12"
@@ -1410,20 +1750,247 @@ Vercel builds from the repository root using npm run build; output is dist.
     "images": "node scripts/rust.mjs images",
     "wasm": "node scripts/rust.mjs wasm",
     "source": "node scripts/source.mjs",
-    "test": "node --test scripts/media.test.mjs scripts/noise.test.mjs"
+    "test": "node --test scripts/media.test.mjs scripts/noise.test.mjs",
+    "qa:browser": "node scripts/browser-qa.mjs"
   },
   "dependencies": {
-    "gsap": "^3.13.0",
-    "lenis": "^1.3.0",
-    "three": "^0.180.0"
+    "gsap": "3.15.0",
+    "lenis": "1.3.27",
+    "three": "0.180.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "@types/three": "^0.180.0",
-    "typescript": "^5.9.0",
-    "vite": "^7.1.0"
+    "@axe-core/playwright": "4.14.0",
+    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/dm-sans": "5.3.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "@types/three": "0.180.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
   }
 }
+
+````
+
+## public/.well-known/security.txt
+
+````txt
+Contact: https://github.com/tarunpradeep6162/Abirami-beauty-/issues
+Expires: 2027-10-17T00:00:00Z
+Preferred-Languages: en
+Canonical: https://abirami-beauty.vercel.app/.well-known/security.txt
+
+````
+
+## public/assets/fonts/cormorant-garamond-LICENSE.txt
+
+````txt
+Copyright 2015 The Cormorant Project Authors (github.com/CatharsisFonts/Cormorant) CormorantGaramond-Italic[wght].ttf: Copyright 2015 The Cormorant Project Authors (github.com/CatharsisFonts/Cormorant)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+````
+
+## public/assets/fonts/dm-sans-LICENSE.txt
+
+````txt
+Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts) DMSans-Italic[opsz,wght].ttf: Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+````
+
+## public/assets/img/grain.svg
+
+````svg
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/></filter><path fill="#c8a899" filter="url(#grain)" d="M0 0h180v180H0z" opacity=".4"/></svg>
+
+````
+
+## public/assets/img/location-card.svg
+
+````svg
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="#e7ddcf"/><path d="M0 90h800M0 250h800M0 410h800M150 0v500M400 0v500M650 0v500" stroke="#c8a899" stroke-width="2"/><circle cx="400" cy="250" r="58" fill="#253e34"/><path d="M400 218c-33 0-39 39 0 70 39-31 33-70 0-70Z" fill="none" stroke="#f2ecdf" stroke-width="3"/><circle cx="400" cy="242" r="7" fill="#ac8e58"/><rect x="155" y="340" width="490" height="86" fill="#f2ecdf"/><text x="400" y="375" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#253e34">Jalladiampet · Medavakkam</text><text x="400" y="404" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#5d6659">Location illustration · Get Directions for a live map</text></svg>
 
 ````
 
@@ -1444,6 +2011,13 @@ Vercel builds from the repository root using npm run build; output is dist.
   <path d="M9 88L40 13L71 88M24 62H56" stroke="#ac8e58" stroke-width="2.5"/>
   <path d="M40 13C63 35 58 56 40 66C29 43 32 28 40 13Z" fill="#ac8e58"/>
 </svg>
+
+````
+
+## public/assets/img/photo-colours.css
+
+````css
+/* Supplied photos will add colour and preview backgrounds here. */
 
 ````
 
@@ -1469,15 +2043,144 @@ Vercel builds from the repository root using npm run build; output is dist.
 
 ````
 
+## public/data/schema/404.html.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Page not found","item":"https://abirami-beauty.vercel.app/404.html"}]}]}
+````
+
+## public/data/schema/about.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"About","item":"https://abirami-beauty.vercel.app/about/"}]}]}
+````
+
+## public/data/schema/book.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Contact & book","item":"https://abirami-beauty.vercel.app/book/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/gallery.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Gallery","item":"https://abirami-beauty.vercel.app/gallery/"}]}]}
+````
+
+## public/data/schema/home.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/services-bridal-makeup.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://abirami-beauty.vercel.app/services/"},{"@type":"ListItem","position":3,"name":"Bridal makeup guide","item":"https://abirami-beauty.vercel.app/services/bridal-makeup/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/services-facials.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://abirami-beauty.vercel.app/services/"},{"@type":"ListItem","position":3,"name":"Facials guide","item":"https://abirami-beauty.vercel.app/services/facials/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/services-hair-spa.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://abirami-beauty.vercel.app/services/"},{"@type":"ListItem","position":3,"name":"Hair spa guide","item":"https://abirami-beauty.vercel.app/services/hair-spa/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/services-threading.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://abirami-beauty.vercel.app/services/"},{"@type":"ListItem","position":3,"name":"Threading guide","item":"https://abirami-beauty.vercel.app/services/threading/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/data/schema/services.json
+
+````json
+{"@context":"https://schema.org","@graph":[{"@type":["BeautySalon","LocalBusiness"],"@id":"https://abirami-beauty.vercel.app/#salon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"priceRange":"Prices on consultation","sameAs":[]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://abirami-beauty.vercel.app/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://abirami-beauty.vercel.app/services/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Abirami Natural Beauty Parlour?","acceptedAnswer":{"@type":"Answer","text":"Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route."}},{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added."}},{"@type":"Question","name":"Where can I check prices and service availability?","acceptedAnswer":{"@type":"Answer","text":"Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans."}},{"@type":"Question","name":"Are the photographs and reviews shown here real client work?","acceptedAnswer":{"@type":"Answer","text":"Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders."}}]}]}
+````
+
+## public/routes.json
+
+````json
+[
+  {
+    "route": "/",
+    "label": "Home"
+  },
+  {
+    "route": "/services/",
+    "label": "Services"
+  },
+  {
+    "route": "/gallery/",
+    "label": "Gallery"
+  },
+  {
+    "route": "/about/",
+    "label": "About"
+  },
+  {
+    "route": "/book/",
+    "label": "Contact & book"
+  },
+  {
+    "route": "/services/bridal-makeup/",
+    "label": "Bridal makeup guide"
+  },
+  {
+    "route": "/services/facials/",
+    "label": "Facials guide"
+  },
+  {
+    "route": "/services/hair-spa/",
+    "label": "Hair spa guide"
+  },
+  {
+    "route": "/services/threading/",
+    "label": "Threading guide"
+  }
+]
+````
+
+## public/site.webmanifest
+
+````webmanifest
+{
+  "name": "Abirami Natural Beauty Parlour",
+  "short_name": "Abirami",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#253e34",
+  "background_color": "#f2ecdf",
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
+````
+
 ## README.md
 
 ````md
-# Abirami Natural Beauty Parlour — stages 1 and 2
+# Abirami Natural Beauty Parlour — luxury, security and local SEO
 
 Canonical repository: https://github.com/tarunpradeep6162/Abirami-beauty-
 Use this repository for future updates.
 
-Five prerendered pages, Vite + vanilla TypeScript, plain CSS, GSAP, Lenis and
+Ten prerendered pages (including four planning guides and a custom 404), Vite + vanilla TypeScript, plain CSS, GSAP, Lenis and
 optional Three.js shaders. Stage 2 adds a Rust image CLI and a wasm-bindgen
 noise module. Everything deployed is static. There is no server, API, database,
 admin page or enquiry storage.
@@ -1715,14 +2418,13 @@ null. Phone must be an international number beginning with + and digits only
 thereafter. Instagram is a username without @ or a URL. Services accept name,
 description and price; reviews accept name and text. Only publish reviews you
 have actually been given permission to use. No rating or testimonial is invented.
-Use the final HTTPS origin for siteUrl when ready to launch; null retains
-noindex/robots Disallow. This setting also controls canonical URLs and sitemap.
+Use the final HTTPS origin for siteUrl when ready to launch; the canonical origin is already configured. indexable=false retains noindex until owner approval; robots permits crawlers to read that instruction.
 
 Until a valid phone is provided, call/WhatsApp links are absent and the enquiry
 form is disabled. When connected, it opens a message in WhatsApp for the visitor
 to send. Appointment confirmation still comes from the salon. No browser form
-data is sent to a server or stored. The Google map connects only after a click.
-External Google Fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
+data is sent to a server or stored. The Google map is lazy-loaded near the footer and includes a manual static fallback.
+Self-hosted WOFF2 fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
 is used unchanged in the header, footer, curtain and browser icon. CSS removes
 only excess surrounding space from the displayed header/footer frame.
 
@@ -1759,6 +2461,28 @@ Official setup references:
 - https://rust-lang.org/tools/install/
 - https://rustwasm.github.io/docs/wasm-pack/commands/build.html
 - https://docs.rs/image/latest/image/codecs/avif/struct.AvifEncoder.html
+
+
+## Current audit and upgrade
+
+See docs/AUDIT.md for the ranked baseline findings, docs/OWNER-CHECKLIST-AND-SOCIAL.md
+for missing facts and publishable social drafts, and docs/VERIFICATION-AND-DEPLOY.md
+for all verification and Vercel commands. Font WOFF2 files and their OFL licenses
+are committed locally; no Google Fonts requests are made by the site.
+
+CSP is enforced with self-hosted resources, no authored inline scripts/styles,
+no unsafe-inline, and only www.google.com frames. Same-origin JSON-LD files are
+loaded into a non-executable data block by external JavaScript. GSAP still uses
+runtime CSSOM changes for animation. Browser CSP checks remain necessary.
+
+No phone, hours, coordinates, opening year, Google Profile or Instagram handle
+has been invented. Trust figures and Service schema are conditional on verified
+business records. The public guides are general preparation copy, not a claim
+that those services are currently offered. noindex remains until owner approval.
+
+Use npm run qa:browser on a machine with Playwright Chromium installed. The
+managed authoring environment has no local Playwright Chromium installation. No actual
+Lighthouse score or Core Web Vitals measurement is claimed.
 
 ````
 
@@ -2009,19 +2733,169 @@ mod tests {
 
 ````
 
+## scripts/browser-qa.mjs
+
+````mjs
+import { chromium } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+
+const base = process.env.QA_BASE_URL ?? 'https://abirami-beauty.vercel.app';
+const routes = JSON.parse(await readFile('public/routes.json', 'utf8'));
+const widths = [360, 768, 1280, 1920];
+await mkdir('qa-results', { recursive: true });
+const browser = await chromium.launch();
+const results = [];
+try {
+  for (const width of widths) {
+    const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
+    for (const { route } of routes) {
+      const page = await context.newPage();
+      const errors = [];
+      page.on('pageerror', error => errors.push(error.message));
+      await page.addInitScript(() => {
+        window.__cspViolations = [];
+        document.addEventListener('securitypolicyviolation', event => window.__cspViolations.push({ directive: event.violatedDirective, blocked: event.blockedURI }));
+      });
+      const response = await page.goto(new URL(route, base).href, { waitUntil: 'domcontentloaded' });
+      await page.locator('h1').waitFor();
+      await page.waitForTimeout(1200);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+      const h1Count = await page.locator('h1').count();
+      await page.locator('.skip-link').focus();
+      await page.keyboard.press('Enter');
+      const skipWorks = await page.evaluate(() => document.activeElement?.id === 'main');
+      if (width < 768) { await page.locator('.menu-toggle').click(); await page.locator('.site-nav').getByRole('link', { name: 'Home', exact: true }).waitFor({ state: 'visible' }); await page.keyboard.press('Escape'); }
+      const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+      const csp = await page.evaluate(() => window.__cspViolations);
+      const slug = route === '/' ? 'home' : route.replaceAll('/', '-');
+      await page.screenshot({ path: `qa-results/${width}-${slug}.png`, fullPage: true });
+      results.push({ width, route, status: response?.status(), overflow, h1Count, skipWorks, csp, errors, accessibility: axe.violations.map(issue => ({ id: issue.id, impact: issue.impact, targets: issue.nodes.map(node => node.target) })) });
+      await page.close();
+    }
+    await context.close();
+  }
+  // Exercise motion, pinning and shader code separately from the calm screenshots.
+  const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'no-preference' });
+  const page = await context.newPage();
+  const motionErrors = [];
+  page.on('pageerror', error => motionErrors.push(error.message));
+  await page.addInitScript(() => { window.__cspViolations = []; document.addEventListener('securitypolicyviolation', event => window.__cspViolations.push({ directive: event.violatedDirective, blocked: event.blockedURI })); });
+  await page.goto(base, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(2500);
+  for (const section of await page.locator('main > section').all()) { await section.scrollIntoViewIfNeeded(); await page.waitForTimeout(1200); }
+  const csp = await page.evaluate(() => window.__cspViolations);
+  results.push({ width: 1280, route: '/', motion: true, csp, errors: motionErrors });
+  await context.close();
+} finally { await browser.close(); }
+await writeFile('qa-results/results.json', JSON.stringify(results, null, 2));
+const failed = results.filter(item => item.status && item.status !== 200 || item.overflow || item.h1Count !== undefined && item.h1Count !== 1 || item.skipWorks === false || item.csp.length || item.errors.length || item.accessibility?.length);
+console.log(`${results.length} checks; ${failed.length} need review. See qa-results/results.json.`);
+if (failed.length) process.exitCode = 1;
+
+````
+
+## scripts/business.mjs
+
+````mjs
+export function validateBusiness(business) {
+  const fail = text => { throw new Error(`Business configuration: ${text}`); };
+  for (const field of ['name', 'address', 'prices']) if (typeof business[field] !== 'string' || !business[field].trim()) fail(`${field} must be text`);
+  if (business.phone !== null && !/^\+[1-9]\d{7,14}$/.test(business.phone)) fail('phone must be an international +number');
+  if (business.instagram !== null && !/^[A-Za-z0-9._]{1,30}$/.test(business.instagram)) fail('Instagram must be a username');
+  for (const field of ['siteUrl', 'googleProfile']) if (business[field]) {
+    const url = new URL(business[field]);
+    if (url.protocol !== 'https:' || url.username || url.password) fail(`${field} must be a credential-free HTTPS URL`);
+    if (field === 'siteUrl' && url.origin !== business[field].replace(/\/$/, '')) fail('siteUrl must be an origin without a path');
+  }
+  if (!Array.isArray(business.services) || !Array.isArray(business.reviews)) fail('services and reviews must be arrays');
+  for (const service of business.services) if (typeof service.name !== 'string' || !service.name.trim() || typeof service.description !== 'string') fail('each confirmed service needs a name and description');
+  for (const review of business.reviews) if (typeof review.name !== 'string' || typeof review.text !== 'string' || !review.text.trim()) fail('each supplied review needs a name and text');
+  if (business.geo && (!Number.isFinite(business.geo.latitude) || Math.abs(business.geo.latitude) > 90 || !Number.isFinite(business.geo.longitude) || Math.abs(business.geo.longitude) > 180)) fail('coordinates are outside their valid ranges');
+  if (business.googleRating !== null && (!Number.isFinite(business.googleRating) || business.googleRating < 1 || business.googleRating > 5)) fail('rating must be 1–5');
+  if (business.googleReviewCount !== null && (!Number.isInteger(business.googleReviewCount) || business.googleReviewCount < 1)) fail('review count must be a positive integer');
+  if (business.openedYear !== null && business.openedYear !== undefined && (!Number.isInteger(business.openedYear) || business.openedYear < 1900 || business.openedYear > new Date().getFullYear())) fail('opening year is invalid');
+  const days = new Set(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
+  for (const hours of business.openingHoursSchema ?? []) {
+    if (hours['@type'] !== 'OpeningHoursSpecification' || !Array.isArray(hours.dayOfWeek) || !hours.dayOfWeek.every(day => days.has(day))) fail('structured hours need real weekdays');
+    for (const field of ['opens', 'closes']) if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(hours[field])) fail('structured hours must use HH:MM');
+  }
+}
+
+````
+
+## scripts/content.mjs
+
+````mjs
+export const faqs = [
+  { question: 'Where is Abirami Natural Beauty Parlour?', answer: 'Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.' },
+  { question: 'How do I book an appointment?', answer: 'Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.' },
+  { question: 'Where can I check prices and service availability?', answer: 'Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.' },
+  { question: 'Are the photographs and reviews shown here real client work?', answer: 'Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.' }
+];
+
+export const guides = [
+  {
+    slug: 'bridal-makeup', name: 'Bridal makeup', title: 'Bridal Makeup Planning in Medavakkam | Abirami',
+    description: 'Planning bridal makeup in Medavakkam? Read what to discuss about your outfit, timing and preferred finish before confirming a salon appointment.',
+    image: 'portrait', heading: 'Still you.<br><em>On your day.</em>',
+    paragraphs: [
+      'If you are planning bridal makeup in Medavakkam, begin with the day itself. What time do you need to be ready? Where will you be getting dressed? Is there a morning ceremony, an evening reception, or both? Write those details down before asking about an appointment. A clear schedule makes the conversation easier and gives you space to explain what matters most to you.',
+      'Bring a few reference photographs, rather than a long collection of different looks. Say what you like in each one: the eye definition, the lip colour, the finish of the skin, or the way the hair sits with the jewellery. A photograph is a starting point for a discussion. It is not a promise that the same finish will suit every face, outfit or lighting condition.',
+      'Your outfit and accessories deserve a place in that conversation. Mention your saree or dress colour, the neckline, the flowers you plan to wear and any head jewellery. If you wear glasses or contact lenses, say so. Ask which parts of the preparation are included and whether a separate trial can be discussed. Availability, products, travel and timings must all be confirmed directly with the salon.',
+      'Before agreeing to a date, ask for the full price and the appointment details in writing on WhatsApp. Do not assume that a reference image includes every accessory or service shown. Share any product concerns privately during consultation, and avoid sending sensitive personal information through a public form. This is a planning guide, not a confirmed bridal package. Ask Abirami about current service availability before you book.'
+    ]
+  },
+  {
+    slug: 'facials', name: 'Facials', title: 'Facial Appointment Guide in Medavakkam | Abirami',
+    description: 'A simple guide to asking about a facial in Medavakkam: discuss your preferences, products and appointment details before confirming your visit.',
+    image: 'ritual', heading: 'A pause.<br><em>For yourself.</em>',
+    paragraphs: [
+      'Thinking about a facial near Jalladiampet? Start by saying what you want from the appointment in ordinary words. You may want a quiet break, help understanding the available options, or a simple conversation about what is included. You do not need to arrive knowing product names. Ask the salon to explain the current service menu before you choose anything.',
+      'A salon facial is a beauty service, not a medical consultation. This website does not diagnose skin conditions or promise a particular result. If you have a current skin problem or have been advised to avoid certain products or procedures, speak with an appropriate qualified professional before deciding on a service. Keep any sensitive details for a private conversation rather than a public comment or review.',
+      'When you contact the salon, ask about the steps included, the products proposed, the expected appointment length and the total price. Mention whether you have a date or event in mind, so that your timing can be discussed rather than assumed. Ask any questions before the appointment is confirmed. A familiar product name alone does not explain a complete service or establish whether it is appropriate for you.',
+      'Leave yourself enough time to arrive without rushing. Confirm the location on Rice Mill Road and keep the WhatsApp conversation with the agreed details. After the appointment, follow the guidance you are actually given for the products used; do not rely on generic promises from a website. This page is a planning guide. Facial availability, suitability and prices must be confirmed with Abirami Natural Beauty Parlour before booking.'
+    ]
+  },
+  {
+    slug: 'hair-spa', name: 'Hair spa', title: 'Hair Spa Visit Guide in Medavakkam | Abirami',
+    description: 'Planning a hair spa visit in Medavakkam? Here are the questions to ask about your hair, the service steps, timing and price before booking.',
+    image: 'detail', heading: 'Take it<br><em>slowly.</em>',
+    paragraphs: [
+      'If a hair spa is on your mind, begin with a conversation about your hair and the time you have available. Ask what the salon currently offers and what each option includes. The words hair spa can describe different appointment steps, so it is sensible to ask for a plain explanation rather than choosing from a name alone. Confirm availability before travelling to the parlour.',
+      'Tell the salon about recent colour, straightening or other salon work that may affect the discussion. You can also describe your usual routine and the finish you prefer. You do not need to share photographs or personal details publicly. This website makes no promise to treat hair loss, scalp disease or any medical condition. Those concerns require advice from an appropriately qualified professional rather than a beauty-service description.',
+      'Ask whether washing, conditioning, drying or styling is included in the proposed appointment. Check whether the price depends on hair length or the specific option you discuss. A clear quotation is more useful than an estimated price copied from another salon. If you need to leave by a particular time, say that when you enquire. The salon can then confirm whether the available appointment suits your plans.',
+      'For a visit from Medavakkam or Jalladiampet, use the directions link and check the appointment details in your WhatsApp conversation. Bring any questions you want answered before the service begins. Follow only the aftercare explained for the products actually used. This page offers questions to help you plan; it does not announce a confirmed hair spa package. Ask Abirami Natural Beauty Parlour for the current options and prices.'
+    ]
+  },
+  {
+    slug: 'threading', name: 'Threading', title: 'Threading Visit Guide near Jalladiampet | Abirami',
+    description: 'A practical threading appointment guide near Jalladiampet and Medavakkam: discuss your preferred shape, appointment time and price before you visit.',
+    image: 'services', heading: 'The small<br><em>details.</em>',
+    paragraphs: [
+      'Small appointments deserve a clear conversation too. If you are looking for threading near Jalladiampet, ask the salon about current availability before setting out. Say what you would like to discuss and whether you have a preferred time. The service menu is still awaiting confirmation on this website, so the salon’s direct reply is the place to check what can be booked.',
+      'For eyebrow shaping, a reference can help explain your preference, but your own description is just as useful. Say whether you want to keep the existing shape or discuss a change. Avoid assuming that a photograph means the same shape is suitable for everyone. Ask questions before work begins, and be clear about any areas you do not want changed. Your preference should be part of the conversation.',
+      'Confirm which areas are included and ask for the total price. If you are combining the visit with another service, mention that in the first message so that the timing can be discussed. Tell the salon privately about any relevant product or skin concerns. This page cannot assess suitability, diagnose a condition or promise that a particular method will be right for you.',
+      'The address is No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the map link to plan your route rather than relying on an unverified landmark. Keep your confirmed time in the WhatsApp conversation and allow a little room for your journey. This is a practical planning guide, not a statement of guaranteed service availability. Ask Abirami Natural Beauty Parlour about threading and the current consultation price before you visit.'
+    ]
+  }
+];
+
+````
+
 ## scripts/finalize.mjs
 
 ````mjs
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, readdir } from 'node:fs/promises';
 const business = JSON.parse(await readFile('src/business.json', 'utf8'));
-if (business.siteUrl) {
-  const urls = ['/', '/services/', '/gallery/', '/about/', '/book/'].map(path => `<url><loc>${new URL(path, business.siteUrl).href.replace(/&/g, '&amp;')}</loc></url>`).join('');
-  await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`);
-  await writeFile('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${new URL('/sitemap.xml', business.siteUrl).href}\n`);
-} else {
-  await writeFile('dist/robots.txt', 'User-agent: *\nDisallow: /\n');
-  console.log('Preview stays noindex until siteUrl is set.');
-}
+const origin = business.siteUrl ?? 'https://abirami-beauty.vercel.app';
+const routes = JSON.parse(await readFile('public/routes.json', 'utf8'));
+const urls = routes.map(({ route }) => `<url><loc>${new URL(route, origin).href.replace(/&/g, '&amp;')}</loc></url>`).join('');
+await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`);
+await writeFile('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
+if (!business.indexable) console.log('Owner content gate: noindex remains on HTML pages. Crawlers can read that instruction.');
+const bundles = await readdir('dist/assets');
+if (bundles.some(name => name.endsWith('.map'))) throw new Error('Production source maps must not be published');
 
 ````
 
@@ -2070,7 +2944,7 @@ test('responsive manifest reaches hero, editorial images, comparison and shader 
   const root = await mkdtemp(join(tmpdir(), 'abirami-media-'));
   try {
     for (const dir of ['scripts', 'src', 'public/assets/img/generated']) await mkdir(join(root, dir), { recursive: true });
-    for (const name of ['prerender.mjs', 'media.mjs']) await copyFile(new URL(name, import.meta.url), join(root, 'scripts', name));
+    for (const name of ['prerender.mjs', 'media.mjs', 'content.mjs', 'business.mjs']) await copyFile(new URL(name, import.meta.url), join(root, 'scripts', name));
     const business = JSON.parse(await readFile(new URL('../src/business.json', import.meta.url), 'utf8'));
     business.comparisonApproved = true;
     await writeFile(join(root, 'src/business.json'), JSON.stringify(business));
@@ -2093,8 +2967,10 @@ test('responsive manifest reaches hero, editorial images, comparison and shader 
     assert.match(html, /hero-480\.avif 480w/);
     assert.match(html, /hero-1600\.webp 1600w/);
     assert.match(html, /fetchpriority="high"/);
-    assert.match(html, /background-color:#253e34/);
-    assert.match(html, /data:image\/webp;base64,UklGRg==/);
+    const colours = await readFile(join(root, 'public/assets/img/photo-colours.css'), 'utf8');
+    assert.match(colours, /background-color:#253e34/);
+    assert.match(colours, /data:image\/webp;base64,UklGRg==/);
+    assert.ok(!html.includes(' style='));
     assert.match(html, /data-alt="\/assets\/img\/generated\/service-alt-960.webp"/);
     assert.match(html, /data-approved="true"/);
     assert.match(html, /before-480\.avif/);
@@ -2157,68 +3033,95 @@ test('noise uses async WASM and falls back on failed, invalid or cross-origin mo
 import { mkdir, writeFile, readFile, access } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { readImages } from './media.mjs';
+import { faqs, guides } from './content.mjs';
+import { validateBusiness } from './business.mjs';
 
 const root = resolve(import.meta.dirname, '..');
-const business = JSON.parse(await readFile(resolve(root, 'src/business.json'), 'utf8'));
-const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const exists = async path => access(resolve(root, 'public', path.replace(/^\//, ''))).then(() => true).catch(() => false);
+const b = JSON.parse(await readFile(resolve(root, 'src/business.json'), 'utf8'));
+validateBusiness(b);
+const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+const origin = b.siteUrl ?? 'https://abirami-beauty.vercel.app';
+if (new URL(origin).protocol !== 'https:') throw new Error('siteUrl must use HTTPS');
+if (b.name !== 'Abirami Natural Beauty Parlour' || b.address !== 'No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100') throw new Error('Confirm any NAP change with the owner');
+const exists = async url => access(resolve(root, 'public', url.replace(/^\//, ''))).then(() => true).catch(() => false);
 const media = await readImages(resolve(root, 'public'));
+const names = ['hero', 'salon', 'detail', 'services', 'service-alt', 'portrait', 'ritual', 'closing', 'before', 'after'];
+const assets = Object.fromEntries(await Promise.all(names.map(async name => [name, Boolean(media[name]) || await exists(`/assets/img/${name}.webp`)])));
 const imageUrl = (name, width = 960) => media[name]?.variants.find(item => item.width === width)?.webp ?? `/assets/img/${name}.webp`;
-const assets = {};
-for (const name of ['hero', 'salon', 'detail', 'services', 'service-alt', 'portrait', 'ritual', 'closing', 'before', 'after']) {
-  assets[name] = Boolean(media[name]) || await exists(`/assets/img/${name}.webp`);
-}
-const phone = /^\+[1-9]\d{7,14}$/.test(business.phone ?? '') ? business.phone : null;
-const whatsapp = phone ? `https://wa.me/${phone.slice(1)}?text=${encodeURIComponent('Hello Abirami, I would like to ask about an appointment.')}` : null;
-const instagram = /^[A-Za-z0-9._]{1,30}$/.test(business.instagram ?? '') ? `https://www.instagram.com/${business.instagram}/` : null;
-const mapQuery = encodeURIComponent(business.address);
-const directions = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
-const confirmedServices = business.services;
+const phone = /^\+[1-9]\d{7,14}$/.test(b.phone ?? '') ? b.phone : null;
+const fragments = phone ? phone.slice(1).match(/.{1,3}/g).reverse().join(':') : '';
+const instagram = /^[A-Za-z0-9._]{1,30}$/.test(b.instagram ?? '') ? `https://www.instagram.com/${b.instagram}/` : null;
+const external = 'target="_blank" rel="noopener noreferrer"';
+const directions = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(b.name + ', ' + b.address);
+const embed = 'https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&output=embed';
+const schemaPath = route => `/data/schema/${route === '/' ? 'home' : route.replace(/^\/|\/$/g, '').replaceAll('/', '-')}.json`;
+const photoCss = Object.entries(media).map(([name, image]) => `.photo-${name}{background-color:${image.dominant};background-image:url('${image.placeholder}');background-size:cover}`).join('\n');
+await writeFile(resolve(root, 'public/assets/img/photo-colours.css'), photoCss || '/* Supplied photos will add colour and preview backgrounds here. */\n');
+await mkdir(resolve(root, 'public/data/schema'), { recursive: true });
+
 const picture = (name, alt, priority = false, extra = '') => {
-  const entry = media[name];
-  const src = assets[name] ? imageUrl(name, priority ? 1600 : 960) : '/assets/img/photo-placeholder.svg';
+  const image = media[name];
   const sizes = priority ? '100vw' : '(max-width: 767px) 90vw, 50vw';
-  const avif = entry ? `<source type="image/avif" srcset="${entry.variants.map(item => `${item.avif} ${item.width}w`).join(', ')}" sizes="${sizes}">` : assets[`${name}-avif`] ? `<source type="image/avif" srcset="/assets/img/${name}.avif">` : '';
-  const srcset = entry ? ` srcset="${entry.variants.map(item => `${item.webp} ${item.width}w`).join(', ')}" sizes="${sizes}"` : '';
-  return `<picture>${avif}<img src="${src}"${srcset} alt="${escape(assets[name] ? alt : `Photo placeholder: ${alt}`)}" width="${entry?.width ?? 1200}" height="${entry?.height ?? 1500}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" ${extra}></picture>`;
+  const avif = image ? `<source type="image/avif" srcset="${image.variants.map(v => `${v.avif} ${v.width}w`).join(', ')}" sizes="${sizes}">` : '';
+  const srcset = image ? ` srcset="${image.variants.map(v => `${v.webp} ${v.width}w`).join(', ')}" sizes="${sizes}"` : '';
+  return `<picture>${avif}<img src="${assets[name] ? imageUrl(name, priority ? 1600 : 960) : '/assets/img/photo-placeholder.svg'}"${srcset} alt="${esc(assets[name] ? alt : 'Photo placeholder: ' + alt)}" width="${image?.width ?? 1200}" height="${image?.height ?? 1500}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" ${extra}></picture>`;
 };
-const backdrop = name => media[name] ? ` style="background-color:${media[name].dominant};background-image:url('${media[name].placeholder}');background-size:cover"` : '';
-for (const name of Object.keys(assets)) assets[`${name}-avif`] = await exists(`/assets/img/${name}.avif`);
-const photo = (name, alt, extra = '') => `<div class="photo ${extra}"${backdrop(name)} ${name === 'services' && assets[name] && assets['service-alt'] ? 'data-liquid' : ''}>${picture(name, alt, false, name === 'services' && assets['service-alt'] ? `data-alt="${imageUrl('service-alt')}"` : '')}${assets[name] ? '' : `<span class="photo-caption">${escape(name)}.webp · photo to follow</span>`}</div>`;
-const bookButton = (label = 'Book on WhatsApp', light = false) => `<a class="button${light ? ' button-solid' : ''}" data-magnetic href="${escape(whatsapp ?? '/book/')}" ${whatsapp ? 'target="_blank" rel="noopener noreferrer"' : ''}>${label}</a>`;
+const photo = (name, alt, extra = '') => `<div class="photo photo-${name} ${extra}" ${name === 'services' && assets[name] && assets['service-alt'] ? 'data-liquid' : ''}>${picture(name, alt, false, name === 'services' && assets['service-alt'] ? `data-alt="${imageUrl('service-alt')}"` : '')}${assets[name] ? '' : `<span class="photo-caption">Salon photograph to follow</span>`}</div>`;
+const booking = (text = 'Book on WhatsApp', solid = false) => phone ? `<a class="button ${solid ? 'button-solid' : ''}" href="/book/" data-contact-action="whatsapp" data-magnetic>${text}</a>` : `<a class="button ${solid ? 'button-solid' : ''}" href="/book/" data-magnetic>${text}</a>`;
 const nav = [['Home', '/'], ['Services', '/services/'], ['Gallery', '/gallery/'], ['About', '/about/'], ['Book', '/book/']];
-const header = route => `<a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation">${nav.map(([name, href]) => `<a href="${href}"${href === route ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav></header>`;
-const footer = `<footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>${escape(business.address)}</p><p><a href="${directions}" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: ${escape(business.hours ?? '[hours]')}</p><p>${phone ? `<a href="tel:${phone}">${escape(phone)}</a><br><a href="${escape(whatsapp)}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>` : 'Phone / WhatsApp: [number]'}</p><p>${instagram ? `<a href="${instagram}" target="_blank" rel="noopener noreferrer">@${escape(business.instagram)}</a>` : 'Instagram: [handle]'}</p></div><div class="map-shell" data-map data-query="${mapQuery}"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer>${whatsapp ? `<a class="floating-whatsapp" href="${escape(whatsapp)}" target="_blank" rel="noopener noreferrer" aria-label="Book an appointment on WhatsApp">WhatsApp ↗</a>` : ''}<div class="cursor" aria-hidden="true"></div>`;
-const intro = (label, title, description) => `<section class="page-intro"><p class="eyebrow">${label}</p><h1 data-reveal>${title}</h1><p>${description}</p></section>`;
-const serviceRows = confirmedServices.length ? confirmedServices.map((service, i) => `<li class="service-row"><details><summary><span class="service-number">${String(i + 1).padStart(2, '0')}</span><h3>${escape(service.name)}</h3></summary><p>${escape(service.description ?? '')}</p><p>${escape(service.price ?? business.prices)}</p></details></li>`).join('') : `<li class="service-row"><p class="eyebrow">The service menu</p><h3>Details to follow.</h3><p>The confirmed service list will be added here. Please ask us about the care you have in mind.</p></li>`;
-const services = `<section class="section services-editorial"><div class="section-heading"><p class="eyebrow">02 / A little time for you</p><h2 data-reveal>Care, at<br>your pace.</h2></div><div class="service-layout">${photo('services', 'Salon care and treatment details')}<div><ol class="service-list">${serviceRows}</ol><p class="fine-print service-note">${escape(business.prices)}</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section>`;
-const stripItems = confirmedServices.length ? confirmedServices.map((service, i) => ({ image: ['portrait', 'ritual', 'detail'][i % 3], title: service.name, text: service.price ?? business.prices })) : [{ image: 'portrait', title: 'Your service, here.', text: 'Confirmed service details to follow.' }, { image: 'ritual', title: 'Time for a visit.', text: business.prices }, { image: 'detail', title: 'Let’s talk first.', text: 'Ask about the care you have in mind.' }];
-const strip = `<section class="horizontal-section" aria-labelledby="gallery-strip-title"><div class="horizontal-heading"><p class="eyebrow">The service edit</p><h2 id="gallery-strip-title" data-reveal>Time for you.</h2></div><div class="services-track">${stripItems.map(item => `<article class="strip-item">${photo(item.image, item.title)}<h3>${escape(item.title)}</h3><p class="fine-print">${escape(item.text)}</p><a class="text-link" href="/services/">View the service menu ↗</a></article>`).join('')}</div></section>`;
-const comparisonReady = business.comparisonApproved && assets.before && assets.after;
-const comparison = `<section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">03 / Before &amp; after</p><h2 data-reveal>A closer<br><em>look.</em></h2><p>${comparisonReady ? 'Move the slider to compare these photographs.' : 'Real results belong here. We will add a matched pair of photographs with the client’s permission.'}</p></div><div><div class="comparison" data-comparison data-approved="${comparisonReady}">${comparisonReady ? picture('before', 'Before the salon appointment') : '<img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy">'}<div class="after-photo">${comparisonReady ? picture('after', 'After the salon appointment') : '<img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy">'}</div><span class="comparison-label before">Before${comparisonReady ? '' : ' · placeholder'}</span><span class="comparison-label after">After${comparisonReady ? '' : ' · placeholder'}</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label>${comparisonReady ? '' : '<p class="comparison-status">Demonstration only. No client result is shown.</p>'}</div></section>`;
-const reviews = `<section class="section reviews-section"><div class="section-heading"><p class="eyebrow">Kind words</p><h2 data-reveal>From our<br>neighbours.</h2></div>${business.reviews.length ? `<div data-reviews>${business.reviews.map((review, i) => `<article data-review${i ? ' hidden' : ''}><blockquote class="review-quote">“${escape(review.text)}”</blockquote><p class="review-meta">${escape(review.name)}</p></article>`).join('')}<div class="review-controls"><button type="button" data-review-prev aria-label="Previous review">←</button><span data-review-count>1 / ${business.reviews.length}</span><button type="button" data-review-next aria-label="Next review">→</button><button type="button" data-review-pause aria-pressed="false">Pause</button></div><p class="sr-only" data-review-announcement aria-live="polite"></p></div>${Number.isFinite(business.googleRating) && Number.isInteger(business.googleReviewCount) ? `<p class="review-meta">${escape(business.googleRating)} from ${escape(business.googleReviewCount)} Google reviews</p>` : ''}` : '<p>Client reviews will be added here when they are shared with us.</p>'}</section>`;
-const closing = `<section class="section closing">${photo('closing', 'Inside Abirami Natural Beauty Parlour')}<div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2>${bookButton('Let’s plan your visit', true)}</div></section>`;
-const story = `<section class="section story" data-story><div class="story-art">${photo('salon', 'The salon on Rice Mill Road', 'parallax-photo')}${photo('detail', 'A detail from the salon', 'story-inset')}</div><div class="story-copy"><p class="eyebrow">01 / Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Abirami Natural Beauty Parlour is on Rice Mill Road, Jalladiampet. If you are looking for a beauty parlour in Medavakkam, come and talk to us about your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section>`;
-const hero = `<section class="hero" data-fabric><div class="hero-media${assets.hero ? '' : ' is-placeholder'}">${picture('hero', 'Abirami Natural Beauty Parlour in Jalladiampet', true)}${await exists('/assets/video/hero.mp4') ? `<video muted loop playsinline preload="none" poster="${assets.hero ? imageUrl('hero', 1600) : '/assets/img/photo-placeholder.svg'}" data-hero-video><source data-src="/assets/video/hero.mp4" type="video/mp4"></video>` : ''}</div><div class="hero-shade"></div><p class="eyebrow">Abirami Natural Beauty Parlour · Chennai</p><h1 class="hero-title"><span>Beauty,</span><span>in your</span><span><em>own time.</em></span></h1><div>${bookButton('Book on WhatsApp', true)}</div><div class="hero-bottom"><p>Rice Mill Road.<br>Jalladiampet, Medavakkam.</p><p>${assets.hero ? 'A little time for you.' : 'Photo placeholder · hero.webp'}</p><span class="hero-number" aria-hidden="true">a.</span></div></section>`;
+const header = route => `<a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="${esc(b.name)} home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation">${nav.map(([name, url]) => `<a href="${url}" ${url === route ? 'aria-current="page"' : ''}>${name}</a>`).join('')}${instagram ? `<a href="${instagram}" ${external} aria-label="Abirami on Instagram">Instagram</a>` : ''}</nav></header>`;
+const map = `<div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="${esc(embed)}" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div>`;
+const contactLinks = phone ? `<p><a href="/book/" data-contact-action="call">Call the salon</a> · <a href="/book/" data-contact-action="whatsapp">WhatsApp us</a></p>` : '<p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p>';
+const footer = `<footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="${esc(b.name)} home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>${esc(b.address)}</p><p>Hours: ${esc(b.hours ?? 'Please confirm before visiting.')}</p>${contactLinks}<p>${instagram ? `<a href="${instagram}" ${external}>@${esc(b.instagram)}</a>` : 'Instagram handle to follow.'}</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: ${esc(b.landmark ?? 'to be confirmed')}</p><a class="button" href="${directions}" ${external}>Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div>${map}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${esc(b.name)}</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer>${phone ? '<a class="floating-whatsapp" href="/book/" data-contact-action="whatsapp">Book on WhatsApp ↗</a>' : '<a class="floating-whatsapp" href="/book/">Booking information ↗</a>'}<div class="cursor" aria-hidden="true"></div>`;
+const intro = (label, title, text) => `<section class="page-intro"><p class="eyebrow">${label}</p><h1 data-reveal>${title}</h1><p>${text}</p></section>`;
+const story = `<section class="section story" data-story><div class="story-art">${photo('salon', 'Inside the salon on Rice Mill Road', 'parallax-photo')}${photo('detail', 'A detail from the salon', 'story-inset')}</div><div class="story-copy"><p class="eyebrow">Here, in Jalladiampet</p><h2 data-reveal>Natural.<br>Personal.<br><em>Abirami.</em></h2><p data-story-text>Some time for yourself. A familiar place, close to home.</p><p>Find Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet. Tell us what you have in mind for your next visit.</p><a class="text-link" href="/about/">A little about us ↗</a></div></section>`;
+const promise = `<section class="section promise"><p class="eyebrow">Our Promise</p><h2 data-reveal>Your face.<br>Your comfort.<br><em>Your choice.</em></h2><div class="promise-note"><p>Beauty should leave room for you. The look you like. The questions you want to ask. The things you would rather keep simple.</p><p>Before you book, let’s talk about what you have in mind.</p></div><span class="promise-signature" aria-hidden="true">Abirami.</span></section>`;
+const serviceRows = b.services.length ? b.services.map((service, i) => `<li class="service-row"><details><summary><span class="service-number">${String(i + 1).padStart(2, '0')}</span><span class="service-title">${esc(service.name)}</span></summary><p>${esc(service.description)}</p><p>${esc(service.price ?? b.prices)}</p></details></li>`).join('') : '<li class="service-row"><h3>Let’s talk first.</h3><p>Our confirmed service menu is being prepared. Ask about availability and prices before booking.</p></li>';
+const services = `<section class="section services-editorial"><div class="section-heading"><p class="eyebrow">The service menu</p><h2 data-reveal>Care, at<br><em>your pace.</em></h2></div><div class="service-layout">${photo('services', 'Salon care and treatment details')}<div><ol class="service-list">${serviceRows}</ol><p class="fine-print service-note">${esc(b.prices)}</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section>`;
+const strip = `<section class="horizontal-section" aria-labelledby="strip-title"><div class="horizontal-heading"><p class="eyebrow">Before you book</p><h2 id="strip-title" data-reveal>A little<br><em>preparation.</em></h2><p class="fine-print">Planning guides. Please confirm service availability with the salon.</p></div><div class="services-track">${guides.map(guide => `<article class="strip-item">${photo(guide.image, guide.name + ' planning guide')}<h3>${guide.name}</h3><a class="text-link" href="/services/${guide.slug}/">Read the guide ↗</a></article>`).join('')}</div></section>`;
+const approved = Boolean(b.comparisonApproved && assets.before && assets.after);
+const comparison = `<section class="section comparison-section"><div class="comparison-copy"><p class="eyebrow">Bridal &amp; beauty gallery</p><h2 data-reveal>Still you.<br><em>Up close.</em></h2><p>${approved ? 'Move the slider to compare the approved photographs.' : 'Client photographs belong here only with permission. This demonstration does not show a client result.'}</p></div><div><div class="comparison" data-comparison data-approved="${approved}">${approved ? picture('before', 'Before the salon appointment') : '<img src="/assets/img/photo-placeholder.svg" alt="Before photo placeholder" width="1200" height="1500" loading="lazy">'}<div class="after-photo">${approved ? picture('after', 'After the salon appointment') : '<img src="/assets/img/photo-placeholder.svg" alt="After photo placeholder" width="1200" height="1500" loading="lazy">'}</div><span class="comparison-label before">Before${approved ? '' : ' · placeholder'}</span><span class="comparison-label after">After${approved ? '' : ' · placeholder'}</span><div class="comparison-line"></div></div><label class="comparison-control" for="comparison-range">Compare before and after<input id="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext="50 percent after photo"></label></div></section>`;
+const trustData = [Number.isFinite(b.googleRating) && Number.isInteger(b.googleReviewCount) ? `${b.googleRating} from ${b.googleReviewCount} Google reviews` : null, Number.isInteger(b.openedYear) && b.openedYear <= new Date().getFullYear() ? `Open since ${b.openedYear}` : null, b.services.length ? `${b.services.length} confirmed services` : null].filter(Boolean);
+const trust = trustData.length ? `<aside class="trust-strip" aria-label="Confirmed salon information">${trustData.map(value => `<p>${esc(value)}</p>`).join('')}</aside>` : '';
+const reviews = b.reviews.length ? `<section class="section reviews-section"><div class="section-heading"><p class="eyebrow">Kind words</p><h2 data-reveal>From our<br><em>neighbours.</em></h2></div><div data-reviews>${b.reviews.map((review, i) => `<article data-review ${i ? 'hidden' : ''}><blockquote class="review-quote">“${esc(review.text)}”</blockquote><p class="review-meta">${esc(review.name)}</p></article>`).join('')}<div class="review-controls"><button type="button" data-review-prev aria-label="Previous review">←</button><span data-review-count>1 / ${b.reviews.length}</span><button type="button" data-review-next aria-label="Next review">→</button><button type="button" data-review-pause aria-pressed="false">Pause</button></div><p class="sr-only" data-review-announcement aria-live="polite"></p></div></section>` : '';
+const faq = `<section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div>${faqs.map(item => `<details class="faq-item"><summary>${esc(item.question)}</summary><p>${esc(item.answer)}</p></details>`).join('')}</div></section>`;
+const instagramSection = `<section class="section instagram-section"><div class="section-heading"><p class="eyebrow">${instagram ? 'As seen on Instagram' : 'Our Instagram journal'}</p><h2 data-reveal>The little<br><em>moments.</em></h2></div><p>${instagram ? `<a href="${instagram}" ${external}>Follow @${esc(b.instagram)} ↗</a>` : 'Approved salon photographs and our confirmed Instagram handle will be added here.'}</p><div class="instagram-photos">${photo('portrait', 'Approved salon portrait for the Instagram journal')}${photo('detail', 'Approved salon detail for the Instagram journal')}</div></section>`;
+const closing = `<section class="section closing">${photo('closing', 'Inside Abirami Natural Beauty Parlour')}<div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2>${booking('Let’s plan your visit', true)}</div></section>`;
+const hero = `<section class="hero" data-fabric><div class="hero-media ${assets.hero ? '' : 'is-placeholder'}">${picture('hero', 'Abirami Natural Beauty Parlour in Jalladiampet', true)}${await exists('/assets/video/hero.mp4') ? `<video muted loop playsinline preload="none" poster="${assets.hero ? imageUrl('hero', 1600) : '/assets/img/photo-placeholder.svg'}" data-hero-video><source data-src="/assets/video/hero.mp4" type="video/mp4"></video>` : ''}</div><div class="hero-shade"></div><p class="eyebrow">Abirami Natural Beauty Parlour · Chennai</p><h1 class="hero-title"><span>Beauty,</span><span>in your</span><span><em>own time.</em></span></h1><div>${booking('Book on WhatsApp', true)}</div><div class="hero-bottom"><p>Rice Mill Road.<br>Jalladiampet, Medavakkam.</p><p>${assets.hero ? 'A little time for you.' : 'Salon film and photographs to follow.'}</p><span class="hero-number" aria-hidden="true">a.</span></div></section>`;
 const gallery = `<section class="section gallery" aria-label="Salon photo gallery">${[['portrait', 'A finishing touch.'], ['salon', 'Our place on Rice Mill Road.'], ['detail', 'The little details.'], ['ritual', 'A moment to pause.']].map(([name, caption]) => `<figure>${photo(name, caption)}<figcaption>${caption}</figcaption></figure>`).join('')}</section>`;
-const form = `<section class="section book-layout"><div class="book-details"><h2>Say hello.</h2><p>${escape(business.address)}</p><p>Hours: ${escape(business.hours ?? '[hours]')}</p>${phone ? `<p><a href="tel:${phone}">Call ${escape(phone)}</a></p>` : '<p>Phone / WhatsApp: [number]</p>'}<p class="fine-print">${phone ? 'Your message opens in WhatsApp. Your appointment is confirmed only after we reply.' : 'Online enquiries will open when the salon’s phone number is added. This form does not store or send your details.'}</p></div><form class="enquiry-form"><label for="guest-name">Your name<input id="guest-name" name="name" autocomplete="given-name" maxlength="80" required></label><label for="guest-service">What would you like to ask about?<input id="guest-service" name="service" maxlength="120" required></label><label for="guest-date">Preferred date, if you have one<input id="guest-date" name="date" type="date"></label><label for="guest-note">Anything you would like us to know?<textarea id="guest-note" name="note" maxlength="800"></textarea></label><label class="consent"><input type="checkbox" name="consent" required><span>I’m happy to share these details with the salon through WhatsApp.</span></label><p class="fine-print">Please leave out medical or other sensitive details.</p><p class="form-status" role="status">${phone ? 'We will open your message in WhatsApp.' : 'Booking is not connected yet. Phone number required.'}</p><button class="button" type="submit" ${phone ? '' : 'disabled'}>Continue to WhatsApp</button></form></section>`;
+const form = `<section class="section book-layout"><div class="book-details"><h2>Say hello.</h2><p>${esc(b.address)}</p><p>Hours: ${esc(b.hours ?? 'Please confirm before visiting.')}</p>${contactLinks}<p>Nearby landmark: ${esc(b.landmark ?? 'to be confirmed')}</p><p class="fine-print">${phone ? 'Your message opens in WhatsApp. The salon confirms your appointment after replying.' : 'WhatsApp booking will open when the verified salon number is added. Your details are not sent or stored.'}</p><a class="button" href="${directions}" ${external}>Get Directions</a></div><form class="enquiry-form" action="/book/" method="get"><label for="guest-name">Your name<input id="guest-name" name="name" autocomplete="given-name" maxlength="80" required></label><label for="guest-service">What would you like to ask about?<input id="guest-service" name="service" maxlength="120" required></label><label for="guest-date">Preferred date<input id="guest-date" name="date" type="date"></label><label for="guest-note">Anything else?<textarea id="guest-note" name="note" maxlength="800"></textarea></label><label class="consent"><input type="checkbox" name="consent" required><span>I’m happy to share these details with the salon through WhatsApp.</span></label><p class="fine-print">Please leave out medical or other sensitive details.</p><p class="form-status" role="status">${phone ? 'We will open your message in WhatsApp.' : 'The verified WhatsApp number is awaiting confirmation.'}</p><button class="button" type="submit" disabled data-book-submit>Continue to WhatsApp</button><noscript><p>Please enable JavaScript to prepare your WhatsApp message. This form does not submit to a server.</p></noscript></form></section>`;
 const pages = [
-  { route: '/', title: 'Beauty parlour in Medavakkam & Jalladiampet', body: hero + story + services + strip + comparison + reviews + closing },
-  { route: '/services/', title: 'Services', body: intro('Our service menu', 'A little care.<br><em>A little time.</em>', 'Tell us what you have in mind. We can talk through the details before you book.') + services + closing },
-  { route: '/gallery/', title: 'Gallery', body: intro('The gallery', 'Beauty,<br><em>up close.</em>', 'A place for photographs from the salon. Client work will appear here with permission.') + gallery + comparison + closing },
-  { route: '/about/', title: 'About our Jalladiampet parlour', body: intro('Abirami, close to home', 'On Rice<br><em>Mill Road.</em>', 'A neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai.') + story + closing },
-  { route: '/book/', title: 'Contact & book', body: intro('Come by. Say hello.', 'Let’s make<br><em>some time.</em>', 'Ask about a service, a date, or your next visit to Abirami Natural Beauty Parlour.') + form }
+  { route: '/', label: 'Home', title: 'Beauty Parlour in Medavakkam | Abirami Natural Beauty', description: 'Abirami Natural Beauty Parlour on Rice Mill Road, Jalladiampet, Medavakkam. Plan your visit and ask about appointments on WhatsApp.', body: hero + trust + story + promise + services + strip + comparison + reviews + faq + instagramSection + closing, faq: true },
+  { route: '/services/', label: 'Services', title: 'Services & Planning Guides | Abirami Natural Beauty', description: 'Read practical beauty appointment guides and ask Abirami Natural Beauty Parlour in Medavakkam about current services and consultation prices.', body: intro('Services & planning', 'A little care.<br><em>A little time.</em>', 'Ask about our current service menu. These guides help you prepare for a conversation; they do not confirm availability.') + services + strip + faq + closing, faq: true },
+  { route: '/gallery/', label: 'Gallery', title: 'Salon & Bridal Gallery | Abirami Natural Beauty', description: 'A place for approved salon and bridal photographs from Abirami Natural Beauty Parlour, Jalladiampet. Client images are published with permission.', body: intro('The gallery', 'Beauty,<br><em>up close.</em>', 'Approved salon and client photographs will appear here with permission.') + gallery + comparison + instagramSection + closing },
+  { route: '/about/', label: 'About', title: 'About Our Jalladiampet Parlour | Abirami Natural Beauty', description: 'Find Abirami Natural Beauty Parlour on Rice Mill Road in Jalladiampet, Medavakkam, Chennai. Natural beauty, close to home.', body: intro('Abirami, close to home', 'On Rice<br><em>Mill Road.</em>', 'A neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai.') + story + promise + closing },
+  { route: '/book/', label: 'Contact & book', title: 'WhatsApp Booking & Directions | Abirami Natural Beauty', description: 'Plan a visit to Abirami Natural Beauty Parlour, No.1/11, Rice Mill Road, Jalladiampet, Medavakkam. Find directions and WhatsApp booking information.', body: intro('Come by. Say hello.', 'Let’s make<br><em>some time.</em>', 'Ask about a service, a date, or your next visit.') + form + faq, faq: true },
+  ...guides.map(guide => ({ route: `/services/${guide.slug}/`, label: guide.name + ' guide', title: guide.title, description: guide.description, body: intro('Planning guide · confirm availability', guide.heading, 'Please ask the salon whether this service is currently available. Prices on consultation.') + `<article class="section service-guide"><div>${photo(guide.image, guide.name + ' planning guide')}</div><div><h2>${guide.name}: before you book</h2>${guide.paragraphs.map(p => `<p>${esc(p)}</p>`).join('')}${booking('Ask about availability')}</div></article>` + faq, faq: true })),
+  { route: '/404.html', label: 'Page not found', title: 'Page Not Found | Abirami Natural Beauty', description: 'That page is not here. Return to Abirami Natural Beauty Parlour or find our address and booking information.', body: intro('Page not found', 'A different<br><em>turn.</em>', 'This page is not here. <a href="/">Return home</a> or <a href="/book/">find our address</a>.'), notFound: true }
 ];
+
+await writeFile(resolve(root, 'public/routes.json'), JSON.stringify(pages.filter(p => !p.notFound).map(({ route, label }) => ({ route, label })), null, 2));
 for (const page of pages) {
-  const description = `${business.name}, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. ${page.route === '/book/' ? 'Find our address and ask about an appointment.' : 'Natural beauty, close to home. Prices on consultation.'}`;
-  const siteUrl = business.siteUrl ? new URL(page.route, business.siteUrl).href : null;
-  const schema = { '@context': 'https://schema.org', '@type': 'BeautySalon', name: business.name, address: { '@type': 'PostalAddress', streetAddress: 'No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', postalCode: '600100', addressCountry: 'IN' }, ...(phone ? { telephone: phone } : {}), ...(siteUrl ? { url: siteUrl } : {}) };
-  let html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>${escape(page.title)} | ${escape(business.name)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(business.name)}"><meta property="og:description" content="${escape(description)}"><meta property="og:type" content="website">${siteUrl ? `<link rel="canonical" href="${escape(siteUrl)}"><meta property="og:url" content="${escape(siteUrl)}">` : '<meta name="robots" content="noindex, nofollow">'}${business.siteUrl && assets.hero ? `<meta property="og:image" content="${escape(new URL(imageUrl('hero', 1600), business.siteUrl).href)}">` : ''}<link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script><script type="module" src="/src/main.ts"></script></head><body>${header(page.route)}<main id="main" tabindex="-1">${page.body}</main>${footer}</body></html>`;
-  const target = resolve(root, page.route === '/' ? 'index.html' : `${page.route.slice(1)}index.html`);
+  const url = new URL(page.route, origin).href;
+  const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' }];
+  if (page.route !== '/') {
+    if (page.route.startsWith('/services/') && page.route !== '/services/') crumbs.push({ '@type': 'ListItem', position: 2, name: 'Services', item: origin + '/services/' });
+    crumbs.push({ '@type': 'ListItem', position: crumbs.length + 1, name: page.label, item: url });
+  }
+  const businessSchema = { '@type': ['BeautySalon', 'LocalBusiness'], '@id': origin + '/#salon', name: b.name, url: origin + '/', address: { '@type': 'PostalAddress', streetAddress: 'No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam', addressLocality: 'Chennai', addressRegion: 'Tamil Nadu', postalCode: '600100', addressCountry: 'IN' }, priceRange: b.prices, ...(phone ? { telephone: phone } : {}), ...(b.geo && Number.isFinite(b.geo.latitude) && Number.isFinite(b.geo.longitude) ? { geo: { '@type': 'GeoCoordinates', ...b.geo } } : {}), ...(b.openingHoursSchema?.length ? { openingHoursSpecification: b.openingHoursSchema } : {}), sameAs: [instagram, /^https:\/\//.test(b.googleProfile ?? '') ? b.googleProfile : null].filter(Boolean) };
+  if (b.reviews.length && Number.isFinite(b.googleRating) && Number.isInteger(b.googleReviewCount)) businessSchema.aggregateRating = { '@type': 'AggregateRating', ratingValue: b.googleRating, reviewCount: b.googleReviewCount };
+  const graph = [businessSchema, { '@type': 'BreadcrumbList', itemListElement: crumbs }];
+  if (page.faq) graph.push({ '@type': 'FAQPage', mainEntity: faqs.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) });
+  if (page.route === '/services/') b.services.forEach(service => graph.push({ '@type': 'Service', name: service.name, description: service.description, provider: { '@id': origin + '/#salon' }, areaServed: 'Medavakkam, Jalladiampet, Chennai' }));
+  await writeFile(resolve(root, 'public', schemaPath(page.route).slice(1)), JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }));
+  const breadcrumb = page.route === '/' || page.notFound ? '' : `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${page.route.startsWith('/services/') && page.route !== '/services/' ? '<a href="/services/">Services</a><span aria-hidden="true">/</span>' : ''}<span aria-current="page">${esc(page.label)}</span></nav>`;
+  const preloadImage = page.route === '/' && assets.hero ? `<link rel="preload" as="image" href="${imageUrl('hero', 1600)}" ${media.hero ? `imagesrcset="${media.hero.variants.map(v => `${v.webp} ${v.width}w`).join(', ')}" imagesizes="100vw"` : ''}>` : '';
+  const html = `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>${esc(page.title)}</title><meta name="description" content="${esc(page.description)}"><link rel="canonical" href="${url}">${!b.indexable || page.notFound ? '<meta name="robots" content="noindex, follow">' : ''}<meta property="og:site_name" content="${esc(b.name)}"><meta property="og:locale" content="en_IN"><meta property="og:title" content="${esc(page.title)}"><meta property="og:description" content="${esc(page.description)}"><meta property="og:type" content="website"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(page.title)}"><meta name="twitter:description" content="${esc(page.description)}"><meta name="twitter:image" content="${origin}/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin>${preloadImage}<link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="${schemaPath(page.route)}" data-contact="${fragments}">${header(page.route)}<main id="main" tabindex="-1">${breadcrumb}${page.body}</main>${footer}</body></html>`;
+  const target = resolve(root, page.notFound ? '404.html' : page.route === '/' ? 'index.html' : page.route.slice(1) + 'index.html');
   await mkdir(resolve(target, '..'), { recursive: true });
   await writeFile(target, html);
 }
-console.log('Prerendered 5 pages. Unconfirmed business fields remain unset.');
+console.log(`Prerendered ${pages.length} pages; unknown business details remain unfilled.`);
 
 ````
 
@@ -2279,14 +3182,14 @@ import { resolve, relative, extname } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const files = [];
-const excluded = new Set(['node_modules', 'dist', 'target', '.git', '.vercel', 'photos-original', 'generated']);
+const excluded = new Set(['node_modules', 'dist', 'target', '.git', '.vercel', 'photos-original', 'generated', 'qa-results']);
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
-    if (excluded.has(entry.name) || entry.name === 'COMPLETE-SOURCE.md' || entry.name === '.env') continue;
+    if (excluded.has(entry.name) || entry.name === 'COMPLETE-SOURCE.md' || /^\.env(?:\.|$)/.test(entry.name)) continue;
     const path = resolve(directory, entry.name);
     if (entry.isDirectory()) await walk(path);
-    else if (entry.isFile() && !/\.(wasm|webp|avif|png|jpe?g|mp4)$/i.test(entry.name)) files.push(path);
+    else if (entry.isFile() && !/\.(wasm|woff2?|ttf|webp|avif|png|jpe?g|mp4)$/i.test(entry.name)) files.push(path);
   }
 }
 await walk(root);
@@ -2305,65 +3208,151 @@ console.log(`Complete source: ${files.length} files, no abbreviated code.`);
 ## scripts/verify.mjs
 
 ````mjs
-import { readFile, access } from 'node:fs/promises';
+import { readFile, access, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { readImages } from './media.mjs';
+import { guides } from './content.mjs';
 
+const business = JSON.parse(await readFile('src/business.json', 'utf8'));
+const routes = JSON.parse(await readFile('dist/routes.json', 'utf8'));
 const images = await readImages('dist');
+const titles = new Set(), descriptions = new Set();
+for (const { route } of [...routes, { route: '/404.html' }]) {
+  const path = route === '/404.html' ? 'dist/404.html' : `dist${route}index.html`;
+  const html = await readFile(path, 'utf8');
+  const title = html.match(/<title>(.*?)<\/title>/s)?.[1];
+  const description = html.match(/name="description" content="([^"]+)"/)?.[1];
+  assert.ok(title && title.length < 60, `${route}: title under 60 (${title?.length})`);
+  assert.ok(description && description.length < 155, `${route}: description under 155 (${description?.length})`);
+  assert.ok(!titles.has(title)); titles.add(title);
+  assert.ok(!descriptions.has(description)); descriptions.add(description);
+  assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1, `${route}: one h1`);
+  assert.ok(html.includes('<main ') && html.includes('class="skip-link"'));
+  assert.ok(html.includes(business.address));
+  assert.ok(html.includes(`rel="canonical" href="${business.siteUrl}${route}"`));
+  assert.ok(!/<style[\s>]|\sstyle\s*=|\son\w+\s*=/i.test(html), `${route}: no inline CSS or handlers`);
+  for (const script of html.matchAll(/<script([^>]*)>(.*?)<\/script>/gs)) { assert.ok(script[1].includes('src=')); assert.equal(script[2].trim(), ''); }
+  for (const anchor of html.matchAll(/<a\s[^>]*href="https?:\/\/[^>]+>/g)) assert.ok(anchor[0].includes('rel="noopener noreferrer"'), `${route}: safe external link`);
+  assert.ok(!html.includes('fonts.googleapis') && !html.includes('fonts.gstatic'));
+  for (const token of ['og:title', 'og:description', 'og:image', 'twitter:card', 'twitter:image']) assert.ok(html.includes(token));
+  const schemaPath = html.match(/data-schema="([^"]+)"/)?.[1];
+  const schema = JSON.parse(await readFile(`dist${schemaPath}`, 'utf8'));
+  assert.equal(schema['@context'], 'https://schema.org');
+  assert.equal(schema['@graph'][0].name, business.name);
+  assert.ok(schema['@graph'][0]['@type'].includes('BeautySalon'));
+  assert.ok(schema['@graph'].some(item => item['@type'] === 'BreadcrumbList'));
+  if (!business.phone) assert.ok(!JSON.stringify(schema).includes('telephone'));
+  assert.ok(!html.includes('wa.me/null'));
+  for (const match of html.matchAll(/(?:src|href)="(\/[^"?#]*)"/g)) {
+    const url = match[1];
+    await access(`dist${url}${url.endsWith('/') ? 'index.html' : ''}`);
+  }
+  for (const match of html.matchAll(/srcset="([^"]+)"/g)) for (const candidate of match[1].split(',')) {
+    const url = candidate.trim().split(/\s+/)[0]; if (url.startsWith('/')) await access(`dist${url}`);
+  }
+}
+for (const guide of guides) assert.ok(guide.paragraphs.join(' ').split(/\s+/).length >= 200, `${guide.slug}: 200+ original words`);
 for (const [name, photo] of Object.entries(images)) {
   const tiny = Buffer.from(photo.placeholder.split(',')[1], 'base64');
-  assert.equal(tiny.toString('ascii', 0, 4), 'RIFF', `${name}: placeholder RIFF header`);
-  assert.equal(tiny.toString('ascii', 8, 12), 'WEBP', `${name}: placeholder WebP header`);
+  assert.equal(tiny.toString('ascii', 0, 4), 'RIFF'); assert.equal(tiny.toString('ascii', 8, 12), 'WEBP');
   for (const variant of photo.variants) {
-    const webp = await readFile(`dist${variant.webp}`);
-    const avif = await readFile(`dist${variant.avif}`);
-    assert.equal(webp.toString('ascii', 0, 4), 'RIFF');
-    assert.equal(webp.toString('ascii', 8, 12), 'WEBP');
-    assert.equal(avif.toString('ascii', 4, 8), 'ftyp');
-    assert.ok(avif.subarray(8, 40).includes(Buffer.from('avif')), `${name}: AVIF brand`);
+    const webp = await readFile(`dist${variant.webp}`), avif = await readFile(`dist${variant.avif}`);
+    assert.equal(webp.toString('ascii', 0, 4), 'RIFF'); assert.equal(webp.toString('ascii', 8, 12), 'WEBP');
+    assert.equal(avif.toString('ascii', 4, 8), 'ftyp'); assert.ok(avif.subarray(8, 40).includes(Buffer.from('avif')), `${name}: AVIF`);
   }
 }
 const wasm = JSON.parse(await readFile('dist/assets/wasm/manifest.json', 'utf8'));
 assert.equal(wasm.version, 1);
 if (wasm.module !== null) {
   assert.equal(wasm.module, '/assets/wasm/noise_wasm.js');
-  const glue = await readFile(`dist${wasm.module}`, 'utf8');
-  assert.ok(glue.includes('flow_field'), 'WASM glue exports flow_field');
+  assert.ok((await readFile(`dist${wasm.module}`, 'utf8')).includes('flow_field'));
   const bytes = await readFile('dist/assets/wasm/noise_wasm_bg.wasm');
   assert.deepEqual([...bytes.subarray(0, 8)], [0, 97, 115, 109, 1, 0, 0, 0]);
-} else console.log('WASM absent: built site uses automatic JS noise fallback.');
-
-const routes = ['index.html', 'services/index.html', 'gallery/index.html', 'about/index.html', 'book/index.html'];
-for (const route of routes) {
-  const html = await readFile(`dist/${route}`, 'utf8');
-  assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1, `${route}: one h1`);
-  assert.ok(html.includes('<main '), `${route}: main landmark`);
-  assert.ok(html.includes('No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100'), `${route}: exact address`);
-  assert.ok(!html.includes('aggregateRating'), `${route}: no invented rating`);
-  assert.ok(!html.includes('wa.me/null'), `${route}: no invalid WhatsApp link`);
-  const schema = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)?.[1];
-  assert.equal(JSON.parse(schema)['@type'], 'BeautySalon');
-  for (const match of html.matchAll(/(?:src|href)="(\/[^"?#]*)"/g)) {
-    const path = match[1];
-    if (path.startsWith('//')) continue;
-    await access(`dist${path}${path.endsWith('/') ? 'index.html' : ''}`);
-  }
-  for (const match of html.matchAll(/srcset="([^"]+)"/g)) {
-    for (const candidate of match[1].split(',')) {
-      const url = candidate.trim().split(/\s+/)[0];
-      if (url.startsWith('/')) await access(`dist${url}`);
-    }
-  }
 }
-assert.ok((await readFile('dist/robots.txt', 'utf8')).includes('User-agent: *'));
-console.log(`PASS: 5 routes, responsive image targets, ${Object.keys(images).length} image manifest entries, WASM descriptor, schema and business-data guards.`);
+const config = JSON.parse(await readFile('vercel.json', 'utf8'));
+const headers = Object.fromEntries(config.headers.find(rule => rule.source === '/(.*)').headers.map(header => [header.key, header.value]));
+for (const name of ['Content-Security-Policy', 'Strict-Transport-Security', 'X-Content-Type-Options', 'Referrer-Policy', 'Permissions-Policy', 'Cross-Origin-Opener-Policy']) assert.ok(headers[name]);
+assert.ok(headers['Content-Security-Policy'].includes("style-src 'self'"));
+assert.ok(!headers['Content-Security-Policy'].includes('unsafe-inline'));
+assert.ok(headers['Permissions-Policy'].includes('payment=()'));
+assert.ok(!(await readdir('dist/assets')).some(name => name.endsWith('.map')));
+for (const font of ['display-regular', 'display-italic', 'body-regular', 'body-medium', 'body-semibold']) assert.equal((await readFile(`dist/assets/fonts/${font}.woff2`)).toString('ascii', 0, 4), 'wOF2');
+const og = await readFile('dist/assets/img/social-preview.png');
+assert.equal(og.readUInt32BE(16), 1200); assert.equal(og.readUInt32BE(20), 630);
+const sitemap = await readFile('dist/sitemap.xml', 'utf8');
+assert.equal((sitemap.match(/<url>/g) ?? []).length, routes.length);
+await access('dist/.well-known/security.txt'); await access('dist/site.webmanifest');
+const pkg = JSON.parse(await readFile('package.json', 'utf8'));
+for (const section of ['dependencies', 'devDependencies']) for (const version of Object.values(pkg[section])) assert.match(version, /^\d+\.\d+\.\d+$/);
+console.log(`PASS: ${routes.length + 1} pages; metadata, schema, guide copy, assets, fonts, security config and pinned dependencies.`);
+console.log('Runtime CSP, viewport rendering, Lighthouse and field CWV require a browser. Static checks do not establish those results.');
 
+````
+
+## services/bridal-makeup/index.html
+
+````html
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Bridal Makeup Planning in Medavakkam | Abirami</title><meta name="description" content="Planning bridal makeup in Medavakkam? Read what to discuss about your outfit, timing and preferred finish before confirming a salon appointment."><link rel="canonical" href="https://abirami-beauty.vercel.app/services/bridal-makeup/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Bridal Makeup Planning in Medavakkam | Abirami"><meta property="og:description" content="Planning bridal makeup in Medavakkam? Read what to discuss about your outfit, timing and preferred finish before confirming a salon appointment."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/services/bridal-makeup/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Bridal Makeup Planning in Medavakkam | Abirami"><meta name="twitter:description" content="Planning bridal makeup in Medavakkam? Read what to discuss about your outfit, timing and preferred finish before confirming a salon appointment."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/services-bridal-makeup.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Bridal makeup guide</span></nav><section class="page-intro"><p class="eyebrow">Planning guide · confirm availability</p><h1 data-reveal>Still you.<br><em>On your day.</em></h1><p>Please ask the salon whether this service is currently available. Prices on consultation.</p></section><article class="section service-guide"><div><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Bridal makeup planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div><h2>Bridal makeup: before you book</h2><p>If you are planning bridal makeup in Medavakkam, begin with the day itself. What time do you need to be ready? Where will you be getting dressed? Is there a morning ceremony, an evening reception, or both? Write those details down before asking about an appointment. A clear schedule makes the conversation easier and gives you space to explain what matters most to you.</p><p>Bring a few reference photographs, rather than a long collection of different looks. Say what you like in each one: the eye definition, the lip colour, the finish of the skin, or the way the hair sits with the jewellery. A photograph is a starting point for a discussion. It is not a promise that the same finish will suit every face, outfit or lighting condition.</p><p>Your outfit and accessories deserve a place in that conversation. Mention your saree or dress colour, the neckline, the flowers you plan to wear and any head jewellery. If you wear glasses or contact lenses, say so. Ask which parts of the preparation are included and whether a separate trial can be discussed. Availability, products, travel and timings must all be confirmed directly with the salon.</p><p>Before agreeing to a date, ask for the full price and the appointment details in writing on WhatsApp. Do not assume that a reference image includes every accessory or service shown. Share any product concerns privately during consultation, and avoid sending sensitive personal information through a public form. This is a planning guide, not a confirmed bridal package. Ask Abirami about current service availability before you book.</p><a class="button " href="/book/" data-magnetic>Ask about availability</a></div></article><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
+````
+
+## services/facials/index.html
+
+````html
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Facial Appointment Guide in Medavakkam | Abirami</title><meta name="description" content="A simple guide to asking about a facial in Medavakkam: discuss your preferences, products and appointment details before confirming your visit."><link rel="canonical" href="https://abirami-beauty.vercel.app/services/facials/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Facial Appointment Guide in Medavakkam | Abirami"><meta property="og:description" content="A simple guide to asking about a facial in Medavakkam: discuss your preferences, products and appointment details before confirming your visit."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/services/facials/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Facial Appointment Guide in Medavakkam | Abirami"><meta name="twitter:description" content="A simple guide to asking about a facial in Medavakkam: discuss your preferences, products and appointment details before confirming your visit."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/services-facials.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Facials guide</span></nav><section class="page-intro"><p class="eyebrow">Planning guide · confirm availability</p><h1 data-reveal>A pause.<br><em>For yourself.</em></h1><p>Please ask the salon whether this service is currently available. Prices on consultation.</p></section><article class="section service-guide"><div><div class="photo photo-ritual " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Facials planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div><h2>Facials: before you book</h2><p>Thinking about a facial near Jalladiampet? Start by saying what you want from the appointment in ordinary words. You may want a quiet break, help understanding the available options, or a simple conversation about what is included. You do not need to arrive knowing product names. Ask the salon to explain the current service menu before you choose anything.</p><p>A salon facial is a beauty service, not a medical consultation. This website does not diagnose skin conditions or promise a particular result. If you have a current skin problem or have been advised to avoid certain products or procedures, speak with an appropriate qualified professional before deciding on a service. Keep any sensitive details for a private conversation rather than a public comment or review.</p><p>When you contact the salon, ask about the steps included, the products proposed, the expected appointment length and the total price. Mention whether you have a date or event in mind, so that your timing can be discussed rather than assumed. Ask any questions before the appointment is confirmed. A familiar product name alone does not explain a complete service or establish whether it is appropriate for you.</p><p>Leave yourself enough time to arrive without rushing. Confirm the location on Rice Mill Road and keep the WhatsApp conversation with the agreed details. After the appointment, follow the guidance you are actually given for the products used; do not rely on generic promises from a website. This page is a planning guide. Facial availability, suitability and prices must be confirmed with Abirami Natural Beauty Parlour before booking.</p><a class="button " href="/book/" data-magnetic>Ask about availability</a></div></article><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
+````
+
+## services/hair-spa/index.html
+
+````html
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Hair Spa Visit Guide in Medavakkam | Abirami</title><meta name="description" content="Planning a hair spa visit in Medavakkam? Here are the questions to ask about your hair, the service steps, timing and price before booking."><link rel="canonical" href="https://abirami-beauty.vercel.app/services/hair-spa/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Hair Spa Visit Guide in Medavakkam | Abirami"><meta property="og:description" content="Planning a hair spa visit in Medavakkam? Here are the questions to ask about your hair, the service steps, timing and price before booking."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/services/hair-spa/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Hair Spa Visit Guide in Medavakkam | Abirami"><meta name="twitter:description" content="Planning a hair spa visit in Medavakkam? Here are the questions to ask about your hair, the service steps, timing and price before booking."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/services-hair-spa.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Hair spa guide</span></nav><section class="page-intro"><p class="eyebrow">Planning guide · confirm availability</p><h1 data-reveal>Take it<br><em>slowly.</em></h1><p>Please ask the salon whether this service is currently available. Prices on consultation.</p></section><article class="section service-guide"><div><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Hair spa planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div><h2>Hair spa: before you book</h2><p>If a hair spa is on your mind, begin with a conversation about your hair and the time you have available. Ask what the salon currently offers and what each option includes. The words hair spa can describe different appointment steps, so it is sensible to ask for a plain explanation rather than choosing from a name alone. Confirm availability before travelling to the parlour.</p><p>Tell the salon about recent colour, straightening or other salon work that may affect the discussion. You can also describe your usual routine and the finish you prefer. You do not need to share photographs or personal details publicly. This website makes no promise to treat hair loss, scalp disease or any medical condition. Those concerns require advice from an appropriately qualified professional rather than a beauty-service description.</p><p>Ask whether washing, conditioning, drying or styling is included in the proposed appointment. Check whether the price depends on hair length or the specific option you discuss. A clear quotation is more useful than an estimated price copied from another salon. If you need to leave by a particular time, say that when you enquire. The salon can then confirm whether the available appointment suits your plans.</p><p>For a visit from Medavakkam or Jalladiampet, use the directions link and check the appointment details in your WhatsApp conversation. Bring any questions you want answered before the service begins. Follow only the aftercare explained for the products actually used. This page offers questions to help you plan; it does not announce a confirmed hair spa package. Ask Abirami Natural Beauty Parlour for the current options and prices.</p><a class="button " href="/book/" data-magnetic>Ask about availability</a></div></article><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
 ````
 
 ## services/index.html
 
 ````html
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Services | Abirami Natural Beauty Parlour</title><meta name="description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:title" content="Abirami Natural Beauty Parlour"><meta property="og:description" content="Abirami Natural Beauty Parlour, a neighbourhood beauty parlour in Jalladiampet, Medavakkam, Chennai 600100. Natural beauty, close to home. Prices on consultation."><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/assets/img/abirami-logo.png" type="image/png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","address":{"@type":"PostalAddress","streetAddress":"No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"}}</script><script type="module" src="/src/main.ts"></script></head><body><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/services/" aria-current="page">Services</a><a href="/gallery/">Gallery</a><a href="/about/">About</a><a href="/book/">Book</a></nav></header><main id="main" tabindex="-1"><section class="page-intro"><p class="eyebrow">Our service menu</p><h1 data-reveal>A little care.<br><em>A little time.</em></h1><p>Tell us what you have in mind. We can talk through the details before you book.</p></section><section class="section services-editorial"><div class="section-heading"><p class="eyebrow">02 / A little time for you</p><h2 data-reveal>Care, at<br>your pace.</h2></div><div class="service-layout"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Salon care and treatment details" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">services.webp · photo to follow</span></div><div><ol class="service-list"><li class="service-row"><p class="eyebrow">The service menu</p><h3>Details to follow.</h3><p>The confirmed service list will be added here. Please ask us about the care you have in mind.</p></li></ol><p class="fine-print service-note">Prices on consultation</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section><section class="section closing"><div class="photo " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">closing.webp · photo to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" data-magnetic href="/book/" >Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy" decoding="async"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p><a href="https://www.google.com/maps/search/?api=1&query=No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get directions ↗</a></p></div><div><h3>Plan your visit.</h3><p>Hours: [hours]</p><p>Phone / WhatsApp: [number]</p><p>Instagram: [handle]</p></div><div class="map-shell" data-map data-query="No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100"><p>Find us on Rice Mill Road.</p><button class="button" type="button" data-load-map>Load Google map</button><p class="fine-print">Loading the map connects to Google.</p></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><span>Jalladiampet · Medavakkam · Chennai</span></div></footer><div class="cursor" aria-hidden="true"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Services &amp; Planning Guides | Abirami Natural Beauty</title><meta name="description" content="Read practical beauty appointment guides and ask Abirami Natural Beauty Parlour in Medavakkam about current services and consultation prices."><link rel="canonical" href="https://abirami-beauty.vercel.app/services/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Services &amp; Planning Guides | Abirami Natural Beauty"><meta property="og:description" content="Read practical beauty appointment guides and ask Abirami Natural Beauty Parlour in Medavakkam about current services and consultation prices."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/services/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Services &amp; Planning Guides | Abirami Natural Beauty"><meta name="twitter:description" content="Read practical beauty appointment guides and ask Abirami Natural Beauty Parlour in Medavakkam about current services and consultation prices."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/services.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" aria-current="page">Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Services</span></nav><section class="page-intro"><p class="eyebrow">Services & planning</p><h1 data-reveal>A little care.<br><em>A little time.</em></h1><p>Ask about our current service menu. These guides help you prepare for a conversation; they do not confirm availability.</p></section><section class="section services-editorial"><div class="section-heading"><p class="eyebrow">The service menu</p><h2 data-reveal>Care, at<br><em>your pace.</em></h2></div><div class="service-layout"><div class="photo photo-services " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Salon care and treatment details" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><ol class="service-list"><li class="service-row"><h3>Let’s talk first.</h3><p>Our confirmed service menu is being prepared. Ask about availability and prices before booking.</p></li></ol><p class="fine-print service-note">Prices on consultation</p><p class="service-note"><a class="text-link" href="/book/">Ask about an appointment ↗</a></p></div></div></section><section class="horizontal-section" aria-labelledby="strip-title"><div class="horizontal-heading"><p class="eyebrow">Before you book</p><h2 id="strip-title" data-reveal>A little<br><em>preparation.</em></h2><p class="fine-print">Planning guides. Please confirm service availability with the salon.</p></div><div class="services-track"><article class="strip-item"><div class="photo photo-portrait " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Bridal makeup planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Bridal makeup</h3><a class="text-link" href="/services/bridal-makeup/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-ritual " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Facials planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Facials</h3><a class="text-link" href="/services/facials/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-detail " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Hair spa planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Hair spa</h3><a class="text-link" href="/services/hair-spa/">Read the guide ↗</a></article><article class="strip-item"><div class="photo photo-services " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Threading planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><h3>Threading</h3><a class="text-link" href="/services/threading/">Read the guide ↗</a></article></div></section><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section><section class="section closing"><div class="photo photo-closing " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Inside Abirami Natural Beauty Parlour" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div><div><p class="eyebrow">Your next visit</p><h2 data-reveal>Come as<br><em>you are.</em></h2><a class="button button-solid" href="/book/" data-magnetic>Let’s plan your visit</a></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
+````
+
+## services/threading/index.html
+
+````html
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#253e34"><title>Threading Visit Guide near Jalladiampet | Abirami</title><meta name="description" content="A practical threading appointment guide near Jalladiampet and Medavakkam: discuss your preferred shape, appointment time and price before you visit."><link rel="canonical" href="https://abirami-beauty.vercel.app/services/threading/"><meta name="robots" content="noindex, follow"><meta property="og:site_name" content="Abirami Natural Beauty Parlour"><meta property="og:locale" content="en_IN"><meta property="og:title" content="Threading Visit Guide near Jalladiampet | Abirami"><meta property="og:description" content="A practical threading appointment guide near Jalladiampet and Medavakkam: discuss your preferred shape, appointment time and price before you visit."><meta property="og:type" content="website"><meta property="og:url" content="https://abirami-beauty.vercel.app/services/threading/"><meta property="og:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abirami Natural Beauty Parlour, Jalladiampet, Medavakkam"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Threading Visit Guide near Jalladiampet | Abirami"><meta name="twitter:description" content="A practical threading appointment guide near Jalladiampet and Medavakkam: discuss your preferred shape, appointment time and price before you visit."><meta name="twitter:image" content="https://abirami-beauty.vercel.app/assets/img/social-preview.png"><link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/assets/img/icon-180.png"><link rel="manifest" href="/site.webmanifest"><link rel="preload" href="/assets/fonts/display-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/body-regular.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/img/photo-colours.css"><script type="module" src="/src/main.ts"></script></head><body data-schema="/data/schema/services-threading.json" data-contact=""><a class="skip-link" href="#main">Skip to content</a><div class="curtain" aria-hidden="true"><img src="/assets/img/abirami-logo.png" alt="" width="1536" height="1536"></div><header class="site-header"><a class="wordmark" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" decoding="async"></a><button class="menu-toggle" aria-controls="site-nav" aria-expanded="false">Menu</button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="/" >Home</a><a href="/services/" >Services</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/book/" >Book</a></nav></header><main id="main" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Threading guide</span></nav><section class="page-intro"><p class="eyebrow">Planning guide · confirm availability</p><h1 data-reveal>The small<br><em>details.</em></h1><p>Please ask the salon whether this service is currently available. Prices on consultation.</p></section><article class="section service-guide"><div><div class="photo photo-services " ><picture><img src="/assets/img/photo-placeholder.svg" alt="Photo placeholder: Threading planning guide" width="1200" height="1500" loading="lazy" decoding="async" ></picture><span class="photo-caption">Salon photograph to follow</span></div></div><div><h2>Threading: before you book</h2><p>Small appointments deserve a clear conversation too. If you are looking for threading near Jalladiampet, ask the salon about current availability before setting out. Say what you would like to discuss and whether you have a preferred time. The service menu is still awaiting confirmation on this website, so the salon’s direct reply is the place to check what can be booked.</p><p>For eyebrow shaping, a reference can help explain your preference, but your own description is just as useful. Say whether you want to keep the existing shape or discuss a change. Avoid assuming that a photograph means the same shape is suitable for everyone. Ask questions before work begins, and be clear about any areas you do not want changed. Your preference should be part of the conversation.</p><p>Confirm which areas are included and ask for the total price. If you are combining the visit with another service, mention that in the first message so that the timing can be discussed. Tell the salon privately about any relevant product or skin concerns. This page cannot assess suitability, diagnose a condition or promise that a particular method will be right for you.</p><p>The address is No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the map link to plan your route rather than relying on an unverified landmark. Keep your confirmed time in the WhatsApp conversation and allow a little room for your journey. This is a practical planning guide, not a statement of guaranteed service availability. Ask Abirami Natural Beauty Parlour about threading and the current consultation price before you visit.</p><a class="button " href="/book/" data-magnetic>Ask about availability</a></div></article><section class="section faq-section"><div><p class="eyebrow">A few things to know</p><h2 data-reveal>Before<br><em>you visit.</em></h2></div><div><details class="faq-item"><summary>Where is Abirami Natural Beauty Parlour?</summary><p>Find us at No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100. Use the directions link for your route.</p></details><details class="faq-item"><summary>How do I book an appointment?</summary><p>Booking is through WhatsApp. Send your name, the service you want to ask about and a preferred date. Your appointment is confirmed only after the salon replies. The booking link will appear when the verified number is added.</p></details><details class="faq-item"><summary>Where can I check prices and service availability?</summary><p>Prices are on consultation. Please confirm the service, price and available time directly with the salon before making plans.</p></details><details class="faq-item"><summary>Are the photographs and reviews shown here real client work?</summary><p>Only approved photographs and supplied reviews will be published as client work. Any empty image spaces are clearly marked as placeholders.</p></details></div></section></main><footer class="site-footer"><div class="footer-grid"><div><a class="footer-brand" href="/" aria-label="Abirami Natural Beauty Parlour home"><img src="/assets/img/abirami-logo.png" alt="Abirami Beauty Parlour" width="1536" height="1536" loading="lazy"></a><p>No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100</p><p>Hours: Please confirm before visiting.</p><p class="fine-print">The salon’s verified phone number is awaiting confirmation.</p><p>Instagram handle to follow.</p></div><div><h2 class="footer-title">Close to home.</h2><p>A beauty parlour in Medavakkam, near Jalladiampet.</p><p>Nearby landmark: to be confirmed</p><a class="button" href="https://www.google.com/maps/search/?api=1&query=Abirami%20Natural%20Beauty%20Parlour%2C%20No.1%2F11%2C%20Rice%20Mill%20Rd%2C%20Jalladiampet%2C%20Medavakkam%2C%20Chennai%20600100" target="_blank" rel="noopener noreferrer">Get Directions</a><p><a href="/book/">Contact and booking</a></p></div><div><div class="location-map" data-map><img class="map-fallback" src="/assets/img/location-card.svg" alt="Decorative location card. Use Get Directions for an actual street map." width="800" height="500" loading="lazy"><iframe src="https://www.google.com/maps?q=Abirami+Natural+Beauty+Parlour,+Rice+Mill+Rd,+Jalladiampet,+Medavakkam,+Chennai+600100&amp;output=embed" title="Google map to Abirami Natural Beauty Parlour, Jalladiampet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><button class="map-toggle" type="button" data-map-toggle>Show location card</button><p class="map-status" role="status">If the map is unavailable, use Get Directions below.</p></div></div></div><div class="footer-bottom"><span>© 2026 Abirami Natural Beauty Parlour</span><a href="/.well-known/security.txt">Security contact</a><button type="button" class="share-link" data-share>Share on WhatsApp</button></div></footer><a class="floating-whatsapp" href="/book/">Booking information ↗</a><div class="cursor" aria-hidden="true"></div></body></html>
+````
+
+## src/booking.ts
+
+````ts
+export function connectBooking() {
+  const fragments = document.body.dataset.contact;
+  const digits = fragments?.split(':').reverse().join('') ?? '';
+  const phone = /^[1-9]\d{7,14}$/.test(digits) ? digits : null;
+  const message = 'Hello Abirami, I would like to ask about an appointment.';
+  const link = (text: string) => `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  if (phone) document.querySelectorAll<HTMLAnchorElement>('[data-contact-action]').forEach(anchor => {
+    if (anchor.dataset.contactAction === 'call') anchor.textContent = `Call +${phone}`;
+    anchor.href = anchor.dataset.contactAction === 'call' ? `tel:+${phone}` : link(message);
+    if (anchor.dataset.contactAction === 'whatsapp') { anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; }
+  });
+  const form = document.querySelector<HTMLFormElement>('.enquiry-form');
+  if (!form) return;
+  const submit = form.querySelector<HTMLButtonElement>('[data-book-submit]')!;
+  submit.disabled = !phone;
+  const clean = (value: FormDataEntryValue | null, limit: number) => String(value ?? '').normalize('NFC').replace(/[\u0000-\u001f\u007f\ud800-\udfff]/g, ' ').trim().slice(0, limit);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!phone || !form.reportValidity()) return;
+    const data = new FormData(form);
+    const name = clean(data.get('name'), 80);
+    const service = clean(data.get('service'), 120);
+    if (!name || !service) { form.querySelector('.form-status')!.textContent = 'Please add your name and what you would like to ask about.'; return; }
+    const date = clean(data.get('date'), 10);
+    const note = clean(data.get('note'), 800);
+    location.assign(link(`Hello Abirami, I’m ${name}.\nI’d like to ask about: ${service}.\nPreferred date: ${/^\d{4}-\d{2}-\d{2}$/.test(date) ? date : 'Let’s discuss'}.\n${note}`));
+  });
+  const date = form.querySelector<HTMLInputElement>('input[type=date]');
+  if (date) { const today = new Date(); date.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`; }
+}
+
 ````
 
 ## src/business.json
@@ -2375,14 +3364,20 @@ console.log(`PASS: 5 routes, responsive image targets, ${Object.keys(images).len
   "phone": null,
   "hours": null,
   "instagram": null,
-  "siteUrl": null,
+  "siteUrl": "https://abirami-beauty.vercel.app",
   "wasmUrl": null,
   "prices": "Prices on consultation",
   "services": [],
   "reviews": [],
   "googleRating": null,
   "googleReviewCount": null,
-  "comparisonApproved": false
+  "comparisonApproved": false,
+  "indexable": false,
+  "geo": null,
+  "openedYear": null,
+  "landmark": null,
+  "googleProfile": null,
+  "openingHoursSchema": []
 }
 
 ````
@@ -2390,7 +3385,11 @@ console.log(`PASS: 5 routes, responsive image targets, ${Object.keys(images).len
 ## src/css/base.css
 
 ````css
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+@font-face { font-family: 'Cormorant Garamond'; src: url('/assets/fonts/display-regular.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('/assets/fonts/display-italic.woff2') format('woff2'); font-style: italic; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('/assets/fonts/body-regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('/assets/fonts/body-medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('/assets/fonts/body-semibold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
 
 :root {
   --ivory: #f2ecdf;
@@ -2399,7 +3398,8 @@ console.log(`PASS: 5 routes, responsive image targets, ${Object.keys(images).len
   --brass: #9b7b46;
   --ink: #28372e;
   --muted: #5d6659;
-  --line: #253e3438;
+  --line: #9b7b4660;
+  --film-ease: cubic-bezier(.22,1,.36,1);
   --display: 'Cormorant Garamond', Georgia, serif;
   --body: 'DM Sans', Arial, sans-serif;
   --gutter: clamp(22px, 5.2vw, 96px);
@@ -2448,10 +3448,10 @@ em { font-weight: 400; }
 .photo-caption { position: absolute; left: 15px; bottom: 15px; padding: 7px 10px; background: var(--ivory); color: var(--moss); font-size: 10px; letter-spacing: .06em; z-index: 2; }
 .photo canvas, .hero > canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero > canvas { z-index: -2; opacity: .6; }
-.photo canvas { opacity: 0; transition: opacity .6s; }
+.photo canvas { opacity: 0; transition: opacity 1.2s var(--film-ease); }
 .photo.gl-ready canvas { opacity: 1; }
 .curtain { display: none; position: fixed; inset: 0; z-index: 80; background: var(--ivory); color: var(--moss); place-items: center; pointer-events: none; }
-.curtain.is-active { display: grid; animation: curtain-away 1.3s .2s cubic-bezier(.76,0,.24,1) both; }
+.curtain.is-active { display: grid; animation: curtain-away 1.4s .2s var(--film-ease) both; }
 .curtain img { width: 240px; height: 240px; object-fit: contain; animation: mark-in .8s both; }
 @keyframes curtain-away { 0%, 30% { transform: translateY(0); } 100% { transform: translateY(-101%); } }
 @keyframes mark-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -2485,8 +3485,8 @@ em { font-weight: 400; }
 .form-status { margin: 20px 0; font-size: 13px; }
 .native-transitions { view-transition-name: root; }
 @view-transition { navigation: auto; }
-::view-transition-old(root) { animation: page-out .22s both; }
-::view-transition-new(root) { animation: page-in .4s both; }
+::view-transition-old(root) { animation: page-out 1s var(--film-ease) both; }
+::view-transition-new(root) { animation: page-in 1.1s var(--film-ease) both; }
 @keyframes page-out { to { opacity: 0; } }
 @keyframes page-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
@@ -2496,10 +3496,82 @@ em { font-weight: 400; }
 
 ````
 
+## src/css/editorial.css
+
+````css
+.site-nav a, .menu-toggle, .text-link, .footer-bottom a, .share-link { min-height: 44px; display: inline-flex; align-items: center; }
+.site-nav a, .menu-toggle { padding: 9px 5px; }
+.footer-title { font: 400 30px/1.2 var(--display); margin: 25px 0; letter-spacing: -.02em; }
+.site-footer { padding-bottom: 100px; }
+.footer-bottom { align-items: center; }
+.share-link { background: none; border: 0; padding: 8px 0; color: var(--ink); font-size: 11px; cursor: pointer; }
+.floating-whatsapp { border-radius: 50px; min-height: 48px; display: flex; align-items: center; padding: 12px 22px; }
+.button { transition: background-color 1.1s var(--film-ease), color 1.1s var(--film-ease), border-color 1.1s var(--film-ease); }
+.button:hover { background-color: var(--rose); border-color: var(--rose); color: var(--moss); }
+.review-quote { margin: 0; }
+.review-controls button[data-review-pause] { border-radius: 0; width: auto; padding: 0 16px; }
+.hero-shade { background: radial-gradient(ellipse at 65% 30%, transparent 10%, #1d302960 100%), linear-gradient(90deg, #1d3029dd, #1d302940), linear-gradient(0deg, #1d3029bb, transparent 60%); }
+.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .12; pointer-events: none; background-image: url('/assets/img/grain.svg'); }
+.hero-title span { animation: title-arrive 1.2s var(--film-ease) both; }
+.hero-title span:nth-child(2) { animation-delay: .12s; }
+.hero-title span:nth-child(3) { animation-delay: .24s; }
+@keyframes title-arrive { from { opacity: .75; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.promise { position: relative; overflow: hidden; background: var(--moss); color: var(--ivory); padding-top: 120px; padding-bottom: 130px; }
+.promise h2 { max-width: 11ch; margin-top: 38px; position: relative; z-index: 1; }
+.promise-note { margin: 60px 0 0 51%; }
+.promise-note p + p { margin-top: 20px; }
+.promise-signature { position: absolute; font: italic 400 clamp(120px, 23vw, 360px)/1 var(--display); bottom: -35px; left: 5%; color: #f2ecdf0c; pointer-events: none; }
+.trust-strip { display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between; padding: 28px var(--gutter); border-bottom: 1px solid var(--brass); }
+.trust-strip p { font-size: 13px; }
+.faq-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 9vw; }
+.faq-section h2 { margin-top: 25px; }
+.faq-item { border-top: 1px solid var(--line); padding: 10px 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-item summary { min-height: 55px; cursor: pointer; display: flex; align-items: center; gap: 20px; padding: 9px 0; list-style: none; font-size: 15px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; color: var(--muted); margin-left: auto; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding: 8px 20px 24px 0; font-size: 14px; }
+.service-title { font: 400 clamp(29px, 3.6vw, 51px)/1.1 var(--display); }
+.service-row summary { min-height: 48px; }
+.instagram-section { background: #e7ddcf; }
+.instagram-photos { display: grid; grid-template-columns: 1.2fr .7fr; align-items: start; gap: 11%; margin-top: 45px; }
+.instagram-photos .photo { aspect-ratio: 4/5; }
+.instagram-photos .photo:nth-child(2) { margin-top: 90px; }
+.service-guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 9vw; align-items: start; padding-top: 0; }
+.service-guide .photo { aspect-ratio: 4/5; }
+.service-guide h2 { font-size: clamp(36px, 4.5vw, 65px); line-height: 1.1; margin-bottom: 35px; }
+.service-guide p { margin-bottom: 24px; max-width: 64ch; }
+.breadcrumbs { padding: 26px var(--gutter) 0; display: flex; flex-wrap: wrap; gap: 14px; font-size: 11px; }
+.breadcrumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+.breadcrumbs span { display: flex; align-items: center; }
+.location-map { position: relative; min-height: 300px; border: 1px solid var(--line); padding-bottom: 75px; background: #ded8c9; }
+.map-fallback { position: absolute; inset: 0 0 75px; width: 100%; height: calc(100% - 75px); object-fit: cover; }
+.location-map iframe { position: relative; border: 0; width: 100%; height: 250px; display: block; filter: saturate(.42) sepia(.18); }
+.location-map.map-unavailable iframe { visibility: hidden; pointer-events: none; }
+.map-toggle { position: absolute; bottom: 29px; left: 12px; min-height: 44px; border: 0; padding: 8px 12px; background: var(--ivory); color: var(--moss); font-size: 11px; }
+.map-status { position: absolute; bottom: 6px; left: 12px; right: 12px; color: var(--moss); font-size: 10px; line-height: 1.25; }
+@media (min-width: 1920px) { .section, .page-intro, .site-footer { padding-left: max(var(--gutter), calc((100vw - 1720px) / 2)); padding-right: max(var(--gutter), calc((100vw - 1720px) / 2)); } }
+@media (max-width: 767px) {
+  .promise { padding-top: 82px; padding-bottom: 85px; }
+  .promise-note { margin: 42px 0 0 13%; }
+  .faq-section, .service-guide { grid-template-columns: 1fr; gap: 38px; }
+  .service-guide > div:first-child { margin-right: 17%; }
+  .instagram-photos { gap: 7%; }
+  .instagram-photos .photo:nth-child(2) { margin-top: 55px; }
+  .site-nav a { width: 100%; }
+  .map-status { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-title span { animation: none; } }
+
+.site-nav { gap: clamp(10px, 1.7vw, 26px); }
+
+````
+
 ## src/css/layout.css
 
 ````css
-.site-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; min-height: 120px; padding: 4px var(--gutter); border-bottom: 1px solid var(--line); background: var(--ivory); transition: transform .35s; }
+.site-header { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; min-height: 120px; padding: 4px var(--gutter); border-bottom: 1px solid var(--line); background: var(--ivory); transition: transform 1s var(--film-ease); }
 .site-header.is-away { transform: translateY(-105%); }
 .wordmark { text-decoration: none; display: grid; place-items: center; width: 174px; height: 112px; overflow: hidden; flex-shrink: 0; }
 .wordmark img { width: 174px; height: 174px; object-fit: contain; max-width: none; }
@@ -2633,7 +3705,7 @@ import { makeFlowField } from './noise';
 
 type Mode = 'fabric' | 'liquid' | 'wipe';
 type Disposable = { dispose(): void };
-const desktop = matchMedia('(pointer: fine)').matches;
+const desktop = matchMedia('(pointer: fine) and (min-width: 768px)').matches && navigator.maxTouchPoints === 0;
 const loader = new THREE.TextureLoader();
 
 class Surface {
@@ -2649,6 +3721,7 @@ class Surface {
   private visible = false;
   private dead = false;
   private elapsed = 0;
+  private documentTop = 0;
   private last = 0;
   private mixTarget = .5;
   private pointer = new THREE.Vector2(.5, .5);
@@ -2725,8 +3798,16 @@ class Surface {
   async loadImages() {
     if (this.mode === 'fabric') return;
     const images = this.host.querySelectorAll<HTMLImageElement>('img');
-    const urls = this.mode === 'wipe' ? [images[0].currentSrc || images[0].src, images[1].currentSrc || images[1].src] : [images[0].currentSrc || images[0].src, images[0].dataset.alt!];
-    const results = await Promise.allSettled(urls.map(url => loader.loadAsync(url)));
+    const fromElement = async (image: HTMLImageElement) => {
+      image.loading = 'eager';
+      await image.decode();
+      const texture = new THREE.Texture(image);
+      texture.needsUpdate = true;
+      return texture;
+    };
+    const results = await Promise.allSettled(this.mode === 'wipe'
+      ? [fromElement(images[0]), fromElement(images[1])]
+      : [fromElement(images[0]), loader.loadAsync(images[0].dataset.alt!)]);
     const textures = results.flatMap(result => result.status === 'fulfilled' ? [result.value] : []);
     if (this.dead || textures.length !== 2) { textures.forEach(texture => texture.dispose()); throw new Error('Images unavailable'); }
     this.owned.push(...textures);
@@ -2740,7 +3821,8 @@ class Surface {
 
   private resize() {
     if (this.dead) return;
-    const { width, height } = this.host.getBoundingClientRect();
+    const { width, height, top } = this.host.getBoundingClientRect();
+    this.documentTop = top + scrollY;
     const w = Math.max(1, Math.round(width));
     const h = Math.max(1, Math.round(height));
     this.renderer.setSize(w, h, false);
@@ -2763,7 +3845,7 @@ class Surface {
     this.uniforms.uTime.value = this.elapsed;
     this.post.uniforms.uTime.value = this.elapsed;
     this.uniforms.uMix.value = this.mode === 'wipe' ? this.mixTarget : THREE.MathUtils.damp(this.uniforms.uMix.value, this.mixTarget, 4, delta);
-    this.uniforms.uScroll.value = Math.min(2, Math.max(0, -this.host.getBoundingClientRect().top / innerHeight));
+    this.uniforms.uScroll.value = Math.min(2, Math.max(0, (scrollY - this.documentTop) / innerHeight));
     this.renderer.setRenderTarget(this.target);
     this.renderer.render(this.scene, this.camera);
     this.renderer.setRenderTarget(null);
@@ -2814,7 +3896,10 @@ export async function startExperience() {
     });
   }, { rootMargin: '160px' });
   document.querySelectorAll<HTMLElement>('[data-fabric], [data-liquid], [data-comparison][data-approved="true"]').forEach(host => observer.observe(host));
-  addEventListener('pagehide', () => { observer.disconnect(); surfaces.forEach(surface => surface.dispose()); noise.dispose(); }, { once: true });
+  let disposed = false;
+  const dispose = () => { if (disposed) return; disposed = true; observer.disconnect(); surfaces.forEach(surface => surface.dispose()); noise.dispose(); };
+  addEventListener('pagehide', dispose, { once: true });
+  return dispose;
 }
 
 ````
@@ -3006,7 +4091,11 @@ void main() {
 import './css/base.css';
 import './css/layout.css';
 import './css/components.css';
-import business from './business.json';
+import './css/editorial.css';
+import { connectBooking } from './booking';
+import { loadStructuredData } from './structured-data';
+connectBooking();
+void loadStructuredData();
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
@@ -3016,12 +4105,16 @@ function closeMenu() {
   nav.classList.remove('is-open');
   menuButton.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('menu-open');
+  document.querySelector<HTMLElement>('main')!.inert = false;
+  document.querySelector<HTMLElement>('footer')!.inert = false;
 }
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
   menuButton.setAttribute('aria-expanded', String(open));
   nav.classList.toggle('is-open', open);
   document.body.classList.toggle('menu-open', open);
+  document.querySelector<HTMLElement>('main')!.inert = open;
+  document.querySelector<HTMLElement>('footer')!.inert = open;
 });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); menuButton.focus(); }
@@ -3041,7 +4134,7 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
       if (openedByHover && !details.contains(document.activeElement)) details.open = false;
       openedByHover = false;
     });
-    details.querySelector('summary')?.addEventListener('click', () => { openedByHover = false; });
+    details.querySelector('summary')?.addEventListener('click', event => { if (openedByHover) event.preventDefault(); openedByHover = false; });
   });
 }
 header.addEventListener('focusin', () => header.classList.remove('is-away'));
@@ -3062,15 +4155,22 @@ try {
 } catch { /* Private browsing can block storage. */ }
 
 document.querySelectorAll<HTMLElement>('[data-map]').forEach(shell => {
-  shell.querySelector('button')?.addEventListener('click', () => {
-    const frame = document.createElement('iframe');
-    frame.title = 'Map to Abirami Natural Beauty Parlour';
-    frame.loading = 'lazy';
-    frame.referrerPolicy = 'no-referrer';
-    frame.src = `https://maps.google.com/maps?q=${shell.dataset.query}&output=embed`;
-    shell.replaceChildren(frame);
+  const frame = shell.querySelector<HTMLIFrameElement>('iframe')!;
+  const button = shell.querySelector<HTMLButtonElement>('[data-map-toggle]')!;
+  const status = shell.querySelector<HTMLElement>('.map-status')!;
+  const fallback = () => { shell.classList.add('map-unavailable'); button.textContent = 'Try the map again'; status.textContent = 'Use Get Directions for a live map and route.'; };
+  frame.addEventListener('error', fallback);
+  frame.addEventListener('load', () => { status.textContent = 'If the map does not display, use Get Directions below.'; });
+  button.addEventListener('click', () => {
+    if (!shell.classList.contains('map-unavailable')) fallback();
+    else { shell.classList.remove('map-unavailable'); button.textContent = 'Show location card'; frame.src = frame.src; }
   });
 });
+document.querySelectorAll<HTMLButtonElement>('[data-share]').forEach(button => button.addEventListener('click', () => {
+  const url = document.querySelector<HTMLLinkElement>('link[rel=canonical]')?.href;
+  if (!url || new URL(url).origin !== location.origin) return;
+  window.open('https://wa.me/?text=' + encodeURIComponent(document.title + '\n' + url), '_blank', 'noopener,noreferrer');
+}));
 
 document.querySelectorAll<HTMLElement>('[data-comparison]').forEach(box => {
   const input = box.parentElement!.querySelector<HTMLInputElement>('input[type=range]')!;
@@ -3081,21 +4181,6 @@ document.querySelectorAll<HTMLElement>('[data-comparison]').forEach(box => {
     box.dispatchEvent(new CustomEvent('comparisonchange', { detail: Number(input.value) / 100 }));
   });
 });
-
-const form = document.querySelector<HTMLFormElement>('.enquiry-form');
-form?.addEventListener('submit', event => {
-  event.preventDefault();
-  const phone = business.phone as string | null;
-  if (!phone || !/^\+[1-9]\d{7,14}$/.test(phone) || !form.reportValidity()) return;
-  const fields = new FormData(form);
-  const message = `Hello Abirami, I’m ${String(fields.get('name')).trim()}.\nI’d like to ask about: ${String(fields.get('service')).trim()}.\nPreferred date: ${fields.get('date') || 'Let’s discuss'}.\n${String(fields.get('note') || '').trim()}`;
-  location.assign(`https://wa.me/${phone.slice(1)}?text=${encodeURIComponent(message)}`);
-});
-const date = form?.querySelector<HTMLInputElement>('input[type=date]');
-if (date) {
-  const today = new Date();
-  date.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-}
 
 const reviews = Array.from(document.querySelectorAll<HTMLElement>('[data-review]'));
 if (reviews.length) {
@@ -3114,6 +4199,7 @@ if (reviews.length) {
   };
   const setPause = () => { pause.textContent = paused ? 'Play' : 'Pause'; pause.setAttribute('aria-pressed', String(paused)); };
   setPause();
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) { paused = true; setPause(); } });
   region.querySelector('[data-review-prev]')!.addEventListener('click', () => show(index - 1, true));
   region.querySelector('[data-review-next]')!.addEventListener('click', () => show(index + 1, true));
   pause.addEventListener('click', () => { paused = !paused; setPause(); });
@@ -3125,17 +4211,29 @@ if (reviews.length) {
   addEventListener('pagehide', () => clearInterval(timer), { once: true });
 }
 
+let generation = 0;
+let stopMotion: (() => void) | undefined;
+let stopGraphics: (() => void) | undefined;
 const startEnhancements = () => {
+  const token = ++generation;
   if (reducedMotion.matches) return;
-  import('./motion').then(module => module.startMotion()).catch(() => { /* Static pages stay usable. */ });
+  import('./motion').then(module => { if (!reducedMotion.matches && token === generation) stopMotion = module.startMotion(); }).catch(() => { /* Static pages stay usable. */ });
   const navInfo = navigator as Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
   const lowPower = (navInfo.deviceMemory ?? 8) <= 4 || (navigator.hardwareConcurrency || 8) <= 4 || navInfo.connection?.saveData;
-  if (!lowPower) import('./gl/experience').then(module => module.startExperience()).catch(() => { /* Keep image fallbacks. */ });
+  if (!lowPower && document.querySelector('[data-fabric], [data-liquid], [data-comparison][data-approved="true"]')) import('./gl/experience').then(async module => { if (!reducedMotion.matches && token === generation) { const dispose = await module.startExperience(); if (token === generation && !reducedMotion.matches) stopGraphics = dispose; else dispose(); } }).catch(() => { /* Keep image fallbacks. */ });
 };
-if ('requestIdleCallback' in window) window.requestIdleCallback(startEnhancements, { timeout: 1800 });
-else setTimeout(startEnhancements, 400);
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  if ('requestIdleCallback' in window) window.requestIdleCallback(startEnhancements, { timeout: 1800 });
+  else setTimeout(startEnhancements, 400);
+}));
 
-reducedMotion.addEventListener('change', () => location.reload());
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) { generation++; stopMotion?.(); stopGraphics?.(); curtain?.classList.remove('is-active'); }
+  else startEnhancements();
+});
+addEventListener('pageshow', event => { if (event.persisted) startEnhancements(); });
+
+addEventListener('pagehide', () => { generation++; stopMotion?.(); stopGraphics?.(); });
 
 ````
 
@@ -3157,7 +4255,11 @@ export function startMotion() {
     gsap.ticker.add(tick);
     cleanups.push(() => { gsap.ticker.remove(tick); lenis.destroy(); });
   }
-  gsap.from('.hero-title span', { yPercent: 35, opacity: 0, duration: 1.3, stagger: .13, ease: 'power3.out', clearProps: 'all' });
+  const filmEase = (x: number) => {
+    let lo = 0, hi = 1;
+    for (let i = 0; i < 14; i++) { const t = (lo + hi) / 2; const value = 3 * (1 - t) ** 2 * t * .22 + 3 * (1 - t) * t ** 2 * .36 + t ** 3; if (value < x) lo = t; else hi = t; }
+    return 1 - (1 - (lo + hi) / 2) ** 3;
+  };
   gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(title => {
     gsap.from(title, { y: 35, opacity: .3, duration: 1.1, clearProps: 'all', scrollTrigger: { trigger: title, start: 'top 94%', once: true } });
   });
@@ -3191,9 +4293,9 @@ export function startMotion() {
     document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach(button => {
       const move = (event: PointerEvent) => {
         const rect = button.getBoundingClientRect();
-        gsap.to(button, { x: (event.clientX - rect.left - rect.width / 2) * .12, y: (event.clientY - rect.top - rect.height / 2) * .14, duration: .35 });
+        gsap.to(button, { x: (event.clientX - rect.left - rect.width / 2) * .12, y: (event.clientY - rect.top - rect.height / 2) * .14, duration: 1.1 });
       };
-      const reset = () => gsap.to(button, { x: 0, y: 0, duration: .6, ease: 'elastic.out(1,.5)' });
+      const reset = () => gsap.to(button, { x: 0, y: 0, duration: 1.1, ease: filmEase });
       button.addEventListener('pointermove', move);
       button.addEventListener('pointerleave', reset);
       cleanups.push(() => { button.removeEventListener('pointermove', move); button.removeEventListener('pointerleave', reset); });
@@ -3213,10 +4315,47 @@ export function startMotion() {
     document.addEventListener('visibilitychange', visibility);
     cleanups.push(() => { observer.disconnect(); video.pause(); document.removeEventListener('visibilitychange', visibility); });
   }
+  const focusTrack = (event: FocusEvent) => {
+    const item = (event.target as HTMLElement).closest<HTMLElement>('.strip-item');
+    const track = document.querySelector<HTMLElement>('.services-track');
+    const trigger = ScrollTrigger.getAll().find(entry => entry.trigger?.classList.contains('horizontal-section'));
+    if (item && track && trigger) { const distance = Math.max(1, track.scrollWidth - innerWidth); window.scrollTo({ top: trigger.start + Math.min(distance, item.offsetLeft) }); }
+  };
+  document.addEventListener('focusin', focusTrack);
+  cleanups.push(() => document.removeEventListener('focusin', focusTrack));
   const refresh = () => ScrollTrigger.refresh();
   void document.fonts.ready.then(refresh);
   document.querySelectorAll('img').forEach(image => { if (!image.complete) image.addEventListener('load', refresh, { once: true }); });
-  addEventListener('pagehide', () => { match.revert(); ScrollTrigger.getAll().forEach(trigger => trigger.kill()); cleanups.forEach(clean => clean()); }, { once: true });
+  let disposed = false;
+  const dispose = () => {
+    if (disposed) return; disposed = true;
+    match.revert(); ScrollTrigger.getAll().forEach(trigger => trigger.kill(true));
+    gsap.killTweensOf('*');
+    gsap.set('.hero-title span, [data-reveal], [data-story-text], .parallax-photo img, .services-track, [data-magnetic]', { clearProps: 'all' });
+    document.querySelector('.cursor')?.classList.remove('is-visible');
+    cleanups.forEach(clean => clean());
+  };
+  addEventListener('pagehide', dispose, { once: true });
+  return dispose;
+}
+
+````
+
+## src/structured-data.ts
+
+````ts
+export async function loadStructuredData() {
+  const path = document.body.dataset.schema;
+  if (!path || !/^\/data\/schema\/[a-z0-9.-]+\.json$/.test(path)) return;
+  try {
+    const response = await fetch(path, { credentials: 'same-origin' });
+    if (!response.ok) return;
+    const data = await response.json();
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data).replace(/</g, '\\u003c');
+    document.head.append(script);
+  } catch { /* The static page remains readable if structured data cannot load. */ }
 }
 
 ````
@@ -3245,13 +4384,52 @@ export function startMotion() {
   "cleanUrls": true,
   "trailingSlash": true,
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-      { "key": "X-Frame-Options", "value": "DENY" }
-    ] }
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:file([^/]+-[A-Za-z0-9_-]{8,}\\.(?:js|css))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }
 
@@ -3262,12 +4440,15 @@ export function startMotion() {
 ````ts
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
+const routes: Array<{route: string}> = JSON.parse(readFileSync(resolve(import.meta.dirname, 'public/routes.json'), 'utf8'));
 
 export default defineConfig({
   build: {
     target: 'es2022',
+    sourcemap: false,
     rollupOptions: {
-      input: Object.fromEntries(['index', 'services/index', 'gallery/index', 'about/index', 'book/index']
+      input: Object.fromEntries([...routes.map(item => item.route === '/' ? 'index' : item.route.slice(1) + 'index'), '404']
         .map(name => [name, resolve(import.meta.dirname, `${name}.html`)]))
     }
   }

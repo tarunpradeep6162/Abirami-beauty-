@@ -1,9 +1,9 @@
-# Abirami Natural Beauty Parlour — stages 1 and 2
+# Abirami Natural Beauty Parlour — luxury, security and local SEO
 
 Canonical repository: https://github.com/tarunpradeep6162/Abirami-beauty-
 Use this repository for future updates.
 
-Five prerendered pages, Vite + vanilla TypeScript, plain CSS, GSAP, Lenis and
+Ten prerendered pages (including four planning guides and a custom 404), Vite + vanilla TypeScript, plain CSS, GSAP, Lenis and
 optional Three.js shaders. Stage 2 adds a Rust image CLI and a wasm-bindgen
 noise module. Everything deployed is static. There is no server, API, database,
 admin page or enquiry storage.
@@ -241,14 +241,13 @@ null. Phone must be an international number beginning with + and digits only
 thereafter. Instagram is a username without @ or a URL. Services accept name,
 description and price; reviews accept name and text. Only publish reviews you
 have actually been given permission to use. No rating or testimonial is invented.
-Use the final HTTPS origin for siteUrl when ready to launch; null retains
-noindex/robots Disallow. This setting also controls canonical URLs and sitemap.
+Use the final HTTPS origin for siteUrl when ready to launch; the canonical origin is already configured. indexable=false retains noindex until owner approval; robots permits crawlers to read that instruction.
 
 Until a valid phone is provided, call/WhatsApp links are absent and the enquiry
 form is disabled. When connected, it opens a message in WhatsApp for the visitor
 to send. Appointment confirmation still comes from the salon. No browser form
-data is sent to a server or stored. The Google map connects only after a click.
-External Google Fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
+data is sent to a server or stored. The Google map is lazy-loaded near the footer and includes a manual static fallback.
+Self-hosted WOFF2 fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
 is used unchanged in the header, footer, curtain and browser icon. CSS removes
 only excess surrounding space from the displayed header/footer frame.
 
@@ -285,3 +284,25 @@ Official setup references:
 - https://rust-lang.org/tools/install/
 - https://rustwasm.github.io/docs/wasm-pack/commands/build.html
 - https://docs.rs/image/latest/image/codecs/avif/struct.AvifEncoder.html
+
+
+## Current audit and upgrade
+
+See docs/AUDIT.md for the ranked baseline findings, docs/OWNER-CHECKLIST-AND-SOCIAL.md
+for missing facts and publishable social drafts, and docs/VERIFICATION-AND-DEPLOY.md
+for all verification and Vercel commands. Font WOFF2 files and their OFL licenses
+are committed locally; no Google Fonts requests are made by the site.
+
+CSP is enforced with self-hosted resources, no authored inline scripts/styles,
+no unsafe-inline, and only www.google.com frames. Same-origin JSON-LD files are
+loaded into a non-executable data block by external JavaScript. GSAP still uses
+runtime CSSOM changes for animation. Browser CSP checks remain necessary.
+
+No phone, hours, coordinates, opening year, Google Profile or Instagram handle
+has been invented. Trust figures and Service schema are conditional on verified
+business records. The public guides are general preparation copy, not a claim
+that those services are currently offered. noindex remains until owner approval.
+
+Use npm run qa:browser on a machine with Playwright Chromium installed. The
+managed authoring environment has no local Playwright Chromium installation. No actual
+Lighthouse score or Core Web Vitals measurement is claimed.

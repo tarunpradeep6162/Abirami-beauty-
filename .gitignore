@@ -1,6 +1,7 @@
 node_modules/
 dist/
-.env
+.env*
+!.env.example
 .DS_Store
 
 rust/**/target/
@@ -8,3 +9,6 @@ photos-original/*
 !photos-original/README.md
 
 .vercel/
+
+qa-results/
+lighthouse-report.html

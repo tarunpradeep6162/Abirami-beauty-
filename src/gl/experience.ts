@@ -10,7 +10,7 @@ import { makeFlowField } from './noise';
 
 type Mode = 'fabric' | 'liquid' | 'wipe';
 type Disposable = { dispose(): void };
-const desktop = matchMedia('(pointer: fine)').matches;
+const desktop = matchMedia('(pointer: fine) and (min-width: 768px)').matches && navigator.maxTouchPoints === 0;
 const loader = new THREE.TextureLoader();
 
 class Surface {
@@ -26,6 +26,7 @@ class Surface {
   private visible = false;
   private dead = false;
   private elapsed = 0;
+  private documentTop = 0;
   private last = 0;
   private mixTarget = .5;
   private pointer = new THREE.Vector2(.5, .5);
@@ -102,8 +103,16 @@ class Surface {
   async loadImages() {
     if (this.mode === 'fabric') return;
     const images = this.host.querySelectorAll<HTMLImageElement>('img');
-    const urls = this.mode === 'wipe' ? [images[0].currentSrc || images[0].src, images[1].currentSrc || images[1].src] : [images[0].currentSrc || images[0].src, images[0].dataset.alt!];
-    const results = await Promise.allSettled(urls.map(url => loader.loadAsync(url)));
+    const fromElement = async (image: HTMLImageElement) => {
+      image.loading = 'eager';
+      await image.decode();
+      const texture = new THREE.Texture(image);
+      texture.needsUpdate = true;
+      return texture;
+    };
+    const results = await Promise.allSettled(this.mode === 'wipe'
+      ? [fromElement(images[0]), fromElement(images[1])]
+      : [fromElement(images[0]), loader.loadAsync(images[0].dataset.alt!)]);
     const textures = results.flatMap(result => result.status === 'fulfilled' ? [result.value] : []);
     if (this.dead || textures.length !== 2) { textures.forEach(texture => texture.dispose()); throw new Error('Images unavailable'); }
     this.owned.push(...textures);
@@ -117,7 +126,8 @@ class Surface {
 
   private resize() {
     if (this.dead) return;
-    const { width, height } = this.host.getBoundingClientRect();
+    const { width, height, top } = this.host.getBoundingClientRect();
+    this.documentTop = top + scrollY;
     const w = Math.max(1, Math.round(width));
     const h = Math.max(1, Math.round(height));
     this.renderer.setSize(w, h, false);
@@ -140,7 +150,7 @@ class Surface {
     this.uniforms.uTime.value = this.elapsed;
     this.post.uniforms.uTime.value = this.elapsed;
     this.uniforms.uMix.value = this.mode === 'wipe' ? this.mixTarget : THREE.MathUtils.damp(this.uniforms.uMix.value, this.mixTarget, 4, delta);
-    this.uniforms.uScroll.value = Math.min(2, Math.max(0, -this.host.getBoundingClientRect().top / innerHeight));
+    this.uniforms.uScroll.value = Math.min(2, Math.max(0, (scrollY - this.documentTop) / innerHeight));
     this.renderer.setRenderTarget(this.target);
     this.renderer.render(this.scene, this.camera);
     this.renderer.setRenderTarget(null);
@@ -191,5 +201,8 @@ export async function startExperience() {
     });
   }, { rootMargin: '160px' });
   document.querySelectorAll<HTMLElement>('[data-fabric], [data-liquid], [data-comparison][data-approved="true"]').forEach(host => observer.observe(host));
-  addEventListener('pagehide', () => { observer.disconnect(); surfaces.forEach(surface => surface.dispose()); noise.dispose(); }, { once: true });
+  let disposed = false;
+  const dispose = () => { if (disposed) return; disposed = true; observer.disconnect(); surfaces.forEach(surface => surface.dispose()); noise.dispose(); };
+  addEventListener('pagehide', dispose, { once: true });
+  return dispose;
 }

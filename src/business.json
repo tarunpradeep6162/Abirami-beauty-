@@ -4,12 +4,18 @@
   "phone": null,
   "hours": null,
   "instagram": null,
-  "siteUrl": null,
+  "siteUrl": "https://abirami-beauty.vercel.app",
   "wasmUrl": null,
   "prices": "Prices on consultation",
   "services": [],
   "reviews": [],
   "googleRating": null,
   "googleReviewCount": null,
-  "comparisonApproved": false
+  "comparisonApproved": false,
+  "indexable": false,
+  "geo": null,
+  "openedYear": null,
+  "landmark": null,
+  "googleProfile": null,
+  "openingHoursSchema": []
 }
