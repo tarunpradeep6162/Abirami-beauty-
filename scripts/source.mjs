@@ -14,7 +14,7 @@ async function walk(directory) {
   }
 }
 await walk(root);
-const sections = ['# Abirami — stages 1 and 2: complete source', '', 'Static frontend, Rust image CLI, noise WASM and build tooling. Compiled output and private originals are excluded from this source listing.', '', '## File tree', '', '```text', ...files.map(path => relative(root, path).replaceAll('\\', '/')), '```', ''];
+const sections = ['# Abirami — complete upgraded source', '', 'Static frontend, Rust image CLI, noise WASM and build tooling. Compiled output and private originals are excluded from this source listing.', '', '## File tree', '', '```text', ...files.map(path => relative(root, path).replaceAll('\\', '/')), '```', ''];
 for (const path of files) {
   const content = await readFile(path, 'utf8');
   const runs = content.match(/`+/g) ?? [];

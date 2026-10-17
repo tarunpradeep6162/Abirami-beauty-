@@ -181,6 +181,10 @@ class Surface {
 }
 
 export async function startExperience() {
+  const probe = document.createElement('canvas');
+  const context = probe.getContext('webgl2', { failIfMajorPerformanceCaveat: true, powerPreference: 'low-power' });
+  if (!context) return () => {};
+  context.getExtension('WEBGL_lose_context')?.loseContext();
   const pixels = await makeFlowField();
   const noise = new THREE.DataTexture(pixels, 128, 128, THREE.RGBAFormat);
   noise.wrapS = noise.wrapT = THREE.RepeatWrapping;
