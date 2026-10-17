@@ -10,7 +10,7 @@ const scripts = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(mat
 if (!style || scripts.length !== 2) throw new Error('Expected one stylesheet, one JSON-LD block and one application script');
 const hash = text => `'sha256-${createHash('sha256').update(text).digest('base64')}'`;
 const config = JSON.parse(await readFile('vercel.json', 'utf8'));
-const policy = ["default-src 'self'", `script-src 'self' ${scripts.map(hash).join(' ')}`, `style-src 'self' https://fonts.googleapis.com ${hash(style)}`, "img-src 'self' data: https://images.unsplash.com", "font-src 'self' https://fonts.gstatic.com", "frame-src https://www.google.com", "connect-src 'self'", "media-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self' https://wa.me", "frame-ancestors 'none'", 'upgrade-insecure-requests'].join('; ');
+const policy = ["default-src 'self'", `script-src 'self' ${scripts.map(hash).join(' ')}`, `style-src 'self' ${hash(style)}`, "img-src 'self' data: https://images.unsplash.com", "font-src 'self' data:", "frame-src https://www.google.com", "connect-src 'self'", "media-src 'self'", "object-src 'none'", "base-uri 'self'", "form-action 'self' https://wa.me", "frame-ancestors 'none'", 'upgrade-insecure-requests'].join('; ');
 const security = config.headers.find(rule => rule.source === '/(.*)');
 security.headers.find(header => header.key === 'Content-Security-Policy').value = policy;
 config.headers = [security];
@@ -25,6 +25,7 @@ await rm('dist', { recursive: true, force: true });
 await mkdir('dist/assets/img', { recursive: true });
 await mkdir('dist/.well-known', { recursive: true });
 await copyFile('index.html', 'dist/index.html');
+await copyFile('FONT-LICENSES.txt', 'dist/FONT-LICENSES.txt');
 await copyFile('public/assets/img/social-preview.png', 'dist/assets/img/social-preview.png');
 await copyFile('public/.well-known/security.txt', 'dist/.well-known/security.txt');
 await writeFile('dist/robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://abirami-beauty.vercel.app/sitemap.xml\n');

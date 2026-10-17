@@ -8,7 +8,7 @@ technology or device.
 
 Exercised the mobile menu, skip link, treatment tab keyboard navigation,
 service-specific booking drawer, Escape close, slider arrow keys, review
-navigation and native FAQ disclosures. A separate motion-enabled pass confirmed
+navigation, native FAQ disclosures and full-screen gallery navigation. A separate motion-enabled pass confirmed
 the curtain exits and scroll reveals complete. Hero and booking screenshots
 were inspected at mobile and desktop sizes.
 
@@ -20,7 +20,7 @@ appointment or message was sent to the salon.
 Build, source verification and npm audit passed. npm audit reported zero known
 vulnerabilities at the time checked. Exact inline CSS/JS hashes were regenerated
 for the Vercel CSP. Tests used a local server with the production headers and an
-exact-response cache of the real Unsplash/Google Fonts resources because the
+exact-response cache of the real Unsplash resources because the
 local headless browser could not directly reach those origins. Actual image
 URLs were downloaded successfully through the available network transport.
 
@@ -31,3 +31,12 @@ for the new content and security policy.
 
 Business data and review excerpts are owner-supplied. Editorial images remain
 labelled; the comparison shows different people and does not claim client results.
+
+## Additional design pass
+
+Embedded four WOFF2 font faces (Cormorant regular/italic and Jakarta 400/600),
+removed runtime Google Fonts requests, integrated the approved monogram,
+increased text sizes and added the image viewer. Browser coverage now includes
+its Escape/arrow-key controls and an axe check while open. The decorative footer
+wordmark was adjusted to meet large-text contrast after the first check found
+it too faint. All six checks passed after that correction: four viewport passes, a motion pass and an intercepted booking-flow pass.

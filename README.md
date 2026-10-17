@@ -6,8 +6,9 @@ Live site: https://abirami-beauty.vercel.app/
 index.html is the complete current site: semantic markup, embedded CSS, embedded
 JavaScript and the approved logo embedded as a data URL. No framework, server,
 JavaScript CDN, API key or runtime build process is needed to open the file.
-Internet access is needed for the explicitly requested Unsplash photographs,
-Google Fonts, Google Maps and WhatsApp. The file can be opened directly in a
+Internet access is needed for the requested Unsplash photographs, Google Maps
+and WhatsApp. Cormorant Garamond and Plus Jakarta Sans WOFF2 fonts are embedded
+in the file, with their SIL Open Font licences included. The file can be opened directly in a
 browser or served by any static host.
 
 ## Content
@@ -44,8 +45,8 @@ The small build script copies the standalone file into dist, creates a real
 404 page and refreshes exact CSP SHA-256 hashes in vercel.json. It does not
 require Rust or bundle the legacy frontend. Commit refreshed vercel.json
 whenever editing index.html. Hash authorization permits the requested embedded
-CSS/JavaScript without unsafe-inline or unsafe-eval. Only the requested image,
-font and map origins are allowed.
+CSS/JavaScript without unsafe-inline or unsafe-eval. Only the requested image and
+map origins are allowed; embedded fonts use data URLs.
 
 ```sh
 vercel link --yes --project abirami-beauty --scope tarun-2f6a
@@ -98,3 +99,23 @@ PLAYWRIGHT_EXECUTABLE_PATH optionally selects a preinstalled Chromium binary.
 QA_ASSET_CACHE optionally points to a JSON mapping of exact resource URLs to
 locally cached response files for restricted-network runners; this must contain
 unmodified provider responses. Image/cache tests do not measure real 4G load time.
+
+## Art-direction refinement
+
+The approved logo is reused as one embedded image for the header crest,
+opening curtain and full footer seal. Body text and treatment information use a
+larger, more readable scale. Uneven gallery sizes and longer treatment images
+break the repeated split-section rhythm. The floating booking control steps
+aside while the hero, closing invitation or contact section is in view.
+
+Bridal journal images open a native full-screen dialog with captions, previous/
+next controls and arrow-key navigation. Escape closes it and returns focus.
+The images remain editorial references. Hero drift pauses when the hero leaves
+the viewport or the tab is hidden. The scroll position indicator and gentle
+hero parallax do not require a library. Reduced motion keeps a calm fallback.
+
+The browser check now covers the image viewer, its keyboard controls and
+accessibility, in addition to the existing booking and responsive checks.
+Font licences are also available in FONT-LICENSES.txt and inside index.html.
+The two Jakarta weights are Latin subsets with punctuation, arrows and the
+rupee sign. Serif Latin subsets come from the installed Fontsource package.

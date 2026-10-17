@@ -9,7 +9,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-1Xy+WB8AMhM9JzuHrokRSJgIB5IMTpQvrPL13zNJY8E=' 'sha256-IF0l5JHPNfuabF4n1iaPRGRIT64wS3ROvdnKCbm5SLQ='; style-src 'self' https://fonts.googleapis.com 'sha256-J1xvd7hmrzushry6Ms8VEhDH91+8OyQdLrFeeCsiEEs='; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-1Xy+WB8AMhM9JzuHrokRSJgIB5IMTpQvrPL13zNJY8E=' 'sha256-UTr2LC2VfGi2V249g4rUBrS/0XjYn5TKMQw+zG+Um00='; style-src 'self' 'sha256-KnABCEJlmmxpNpKKLG7pB+rneKfwT3Qj2ULUEjSgYO4='; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",

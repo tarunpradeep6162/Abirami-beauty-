@@ -57,6 +57,19 @@ try {
     assert.equal(await page.getByRole('slider').inputValue(), '51');
     await page.getByRole('button', { name: 'Next review', exact: true }).click();
     assert.equal(await page.locator('.review-slide:not([hidden]) .review-author').textContent(), 'Al Thenmozhi');
+    await page.getByRole('button', { name: 'View Silk and jewellery photograph', exact: true }).click();
+    assert.equal(await page.locator('#gallery-dialog').isVisible(), true);
+    await page.locator('#viewer-image').evaluate(image => image.decode());
+    await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
+    assert.equal(await page.locator('#photo-counter').textContent(), '2 / 3');
+    await page.locator('#gallery-dialog').press('ArrowLeft');
+    assert.equal(await page.locator('#photo-counter').textContent(), '1 / 3');
+    const beforeGalleryAxe = await page.evaluate(() => window.cspViolations.slice());
+    const galleryAxe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    assert.deepEqual(galleryAxe.violations.map(issue => ({ id: issue.id, nodes: issue.nodes.map(node => ({ target: node.target, summary: node.failureSummary })) })), [], 'Gallery accessibility');
+    await page.evaluate(prior => { window.cspViolations = prior; }, beforeGalleryAxe);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#gallery-dialog').isVisible(), false);
     await page.locator('summary').first().click();
     assert.notEqual(await page.locator('details').first().getAttribute('open'), null);
     for (const image of await page.locator('main img:visible').all()) {
@@ -77,12 +90,10 @@ try {
   motionPage.on('pageerror', error => motionErrors.push(error.message));
   await motionPage.goto(base, { waitUntil: 'networkidle' });
   await motionPage.waitForFunction(() => document.querySelector('.curtain').getBoundingClientRect().bottom <= 0);
-  for (const section of await motionPage.locator('main > section').all()) {
-    await section.scrollIntoViewIfNeeded();
-    await motionPage.waitForFunction(() => [...document.querySelectorAll('.reveal.waiting')].every(element => {
-      const rect = element.getBoundingClientRect();
-      return rect.bottom <= 0 || rect.top >= innerHeight;
-    }));
+  const reveals = await motionPage.locator('.reveal').all();
+  for (const [index, element] of reveals.entries()) {
+    await element.scrollIntoViewIfNeeded();
+    await motionPage.waitForFunction(i => !document.querySelectorAll('.reveal')[i].classList.contains('waiting'), index);
   }
   await motionPage.locator('.closing-invitation').screenshot({ path: 'qa-results/closing-invitation.png' });
   results.push({ motion: 'Curtain and scroll reveals completed', errors: motionErrors });
