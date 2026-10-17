@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.DS_Store
+
+rust/**/target/
+photos-original/*
+!photos-original/README.md
+
+.vercel/
