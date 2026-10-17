@@ -248,8 +248,9 @@ Until a valid phone is provided, call/WhatsApp links are absent and the enquiry
 form is disabled. When connected, it opens a message in WhatsApp for the visitor
 to send. Appointment confirmation still comes from the salon. No browser form
 data is sent to a server or stored. The Google map connects only after a click.
-External Google Fonts have Georgia/Arial fallbacks. The small editable mark.svg
-is a simple A/petal mark; it is not a tracing of the earlier generated logo.
+External Google Fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
+is used unchanged in the header, footer, curtain and browser icon. CSS removes
+only excess surrounding space from the displayed header/footer frame.
 
 ## Checks
 

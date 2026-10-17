@@ -9,9 +9,9 @@
 .hero > canvas { z-index: -2; opacity: .6; }
 .photo canvas { opacity: 0; transition: opacity .6s; }
 .photo.gl-ready canvas { opacity: 1; }
-.curtain { display: none; position: fixed; inset: 0; z-index: 80; background: var(--moss); color: var(--ivory); place-items: center; pointer-events: none; }
+.curtain { display: none; position: fixed; inset: 0; z-index: 80; background: var(--ivory); color: var(--moss); place-items: center; pointer-events: none; }
 .curtain.is-active { display: grid; animation: curtain-away 1.3s .2s cubic-bezier(.76,0,.24,1) both; }
-.curtain img { width: 75px; height: 90px; animation: mark-in .8s both; }
+.curtain img { width: 240px; height: 240px; object-fit: contain; animation: mark-in .8s both; }
 @keyframes curtain-away { 0%, 30% { transform: translateY(0); } 100% { transform: translateY(-101%); } }
 @keyframes mark-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 .cursor { display: none; }
