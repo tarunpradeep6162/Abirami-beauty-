@@ -64,3 +64,37 @@ placeholders, four treatment panels, safe external links, section targets,
 valid application JavaScript and the embedded blocks' CSP hashes. Live image
 availability still depends on the third-party providers. Browser checks and
 measured performance results must not be inferred from static build success.
+
+## Current polish and regression checks
+
+Responsive image candidates reduce transfers on phones. The booking drawer
+refreshes its Chennai date limit whenever opened or submitted, rejects times
+that have passed, and enforces bridal-only Sundays. Inputs use 16px text to
+avoid automatic mobile browser zoom. Keyboard-selected treatment tabs scroll
+into view. The gallery is keyboard scrollable, the FAQ uses native disclosures,
+and the map keeps a separate directions link available.
+
+To run the interactive checks, start a static server in one terminal:
+
+```sh
+npm run build
+npm run preview -- --port 4173
+```
+
+Then in another terminal:
+
+```sh
+npx playwright install chromium
+npm run qa
+```
+
+The check covers 360, 768, 1280 and 1920px, keyboard navigation, modal focus,
+service selection, slider, reviews, FAQ, decoded images, axe WCAG AA checks and
+WhatsApp message encoding. WhatsApp requests are intercepted locally; no test
+appointment is sent. Results and screenshots are written to qa-results.
+Set QA_BASE_URL to test a deployed URL. Local preview does not apply Vercel
+headers; check CSP against production or a local server with vercel.json headers.
+PLAYWRIGHT_EXECUTABLE_PATH optionally selects a preinstalled Chromium binary.
+QA_ASSET_CACHE optionally points to a JSON mapping of exact resource URLs to
+locally cached response files for restricted-network runners; this must contain
+unmodified provider responses. Image/cache tests do not measure real 4G load time.

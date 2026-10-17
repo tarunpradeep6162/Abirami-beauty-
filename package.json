@@ -14,7 +14,8 @@
     "preview": "vite preview --host 0.0.0.0",
     "source": "node scripts/source.mjs",
     "images": "node scripts/rust.mjs images",
-    "wasm": "node scripts/rust.mjs wasm"
+    "wasm": "node scripts/rust.mjs wasm",
+    "qa": "node scripts/browser-qa.mjs"
   },
   "dependencies": {
     "gsap": "3.15.0",
