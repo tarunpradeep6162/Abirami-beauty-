@@ -1,21 +1,60 @@
 {
   "name": "Abirami Natural Beauty Parlour",
-  "address": "No.1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai 600100",
-  "phone": null,
-  "hours": null,
+  "address": "No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai, Tamil Nadu 600100",
+  "phone": "+919840638981",
+  "hours": "Monday – Saturday: 9:30 AM – 8:30 PM | Sunday: By Bridal Appointment Only",
   "instagram": null,
   "siteUrl": "https://abirami-beauty.vercel.app",
   "wasmUrl": null,
   "prices": "Prices on consultation",
-  "services": [],
-  "reviews": [],
-  "googleRating": null,
+  "services": [
+    {
+      "name": "Bridal Couture & Muhurtham Styling",
+      "description": "HD Airbrush Finish, Kanjeevaram Saree Draping, Traditional Floral Veni Setting",
+      "price": "₹8,500+",
+      "duration": "3.5 hrs"
+    },
+    {
+      "name": "Botanical & Gold Radiance Facials",
+      "description": "24K Gold Leaf Rejuvenation, Turmeric & Saffron Skin Brightening, Deep Hydration Pore Clarifying",
+      "price": "₹1,800+",
+      "duration": "60 mins"
+    },
+    {
+      "name": "Ayurvedic Hair & Scalp Rituals",
+      "description": "Warm Herbal Oil Scalp Infusion, Deep Keratin & Moisture Mask, Anti-Dandruff Herbal Cleansing",
+      "price": "₹1,500+",
+      "duration": "75 mins"
+    },
+    {
+      "name": "Precision Grooming & Hand/Foot Spa",
+      "description": "Micro-Precision Brow Threading, Organic Peel Waxing, Rose & Milk Pedicure",
+      "price": "₹600+",
+      "duration": "45 mins"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Vijayalakshmi Kandasamy",
+      "text": "Nice service, and great tips for hair care and face care. The personalized attention makes all the difference."
+    },
+    {
+      "name": "Al Thenmozhi",
+      "text": "Exceptional threading and brow shaping. Very hygienic, gentle, and peaceful atmosphere."
+    },
+    {
+      "name": "Heartlin Fernando",
+      "text": "A true hidden gem in Medavakkam for bridal makeup and herbal skin care."
+    }
+  ],
+  "googleRating": 5.0,
   "googleReviewCount": null,
   "comparisonApproved": false,
-  "indexable": false,
+  "indexable": true,
   "geo": null,
   "openedYear": null,
   "landmark": null,
-  "googleProfile": null,
-  "openingHoursSchema": []
+  "googleProfile": "https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5",
+  "openingHoursSchema": [],
+  "tagline": "The Art of Natural Radiance & Bespoke Bridal Artistry"
 }

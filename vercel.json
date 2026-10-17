@@ -9,7 +9,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: blob:; media-src 'self'; font-src 'self'; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-1Xy+WB8AMhM9JzuHrokRSJgIB5IMTpQvrPL13zNJY8E=' 'sha256-jC6EcFrlmgzavKodpl37MJaRW9iTyqxWul1s201zpUM='; style-src 'self' https://fonts.googleapis.com 'sha256-EiyspOWSG1SPC6IA1wkJSsC/Lw+rKUFrlpqIKN2Zfmo='; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
@@ -40,15 +40,28 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/services/:path*",
+      "destination": "/#treatments",
+      "permanent": true
     },
     {
-      "source": "/assets/:file([^/]+-[A-Za-z0-9_-]{8,}\\.(?:js|css))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "source": "/gallery/:path*",
+      "destination": "/#bridal",
+      "permanent": true
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "/#sanctuary",
+      "permanent": true
+    },
+    {
+      "source": "/book/:path*",
+      "destination": "/#visit",
+      "permanent": true
     }
   ]
 }

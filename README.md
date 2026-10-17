@@ -1,308 +1,66 @@
-# Abirami Natural Beauty Parlour — luxury, security and local SEO
+# Abirami Natural Beauty Parlour — standalone flagship
 
 Canonical repository: https://github.com/tarunpradeep6162/Abirami-beauty-
-Use this repository for future updates.
+Live site: https://abirami-beauty.vercel.app/
 
-Ten prerendered pages (including four planning guides and a custom 404), Vite + vanilla TypeScript, plain CSS, GSAP, Lenis and
-optional Three.js shaders. Stage 2 adds a Rust image CLI and a wasm-bindgen
-noise module. Everything deployed is static. There is no server, API, database,
-admin page or enquiry storage.
+index.html is the complete current site: semantic markup, embedded CSS, embedded
+JavaScript and the approved logo embedded as a data URL. No framework, server,
+JavaScript CDN, API key or runtime build process is needed to open the file.
+Internet access is needed for the explicitly requested Unsplash photographs,
+Google Fonts, Google Maps and WhatsApp. The file can be opened directly in a
+browser or served by any static host.
 
-## Install on macOS
+## Content
 
-Install Node.js 22.12 or newer from https://nodejs.org/en/download first.
-Open Terminal. Install Apple command-line tools if not already installed:
+The owner supplied the phone, hours, address, menu, prices, Google Maps link,
+rating statement and review excerpts on 17 October 2026. They are used as
+supplied, with salon attribution for rating/review information. The Maps link
+resolved successfully during checking; every supplied photo ID returned a valid
+image. No total Google review count has been invented or used in rating schema.
+
+Editorial Unsplash photographs are not Abirami premises or client work. Some
+supplied URLs depict a different subject than their prompt descriptions; alt
+text describes the actual visible photograph. The comparison shows different
+people and is explicitly labelled as a style comparison, not a client result.
+
+The four treatment tabs support mouse, touch and arrow/Home/End keys. Booking
+links open a native dialog with name, phone, selected service, date and time.
+Submit validates and URL-encodes a formatted WhatsApp message, then opens the
+provided salon number. The customer still sends the message, and the salon
+confirms availability. Nothing is sent to or stored on a website backend.
+Sunday requests are restricted to bridal appointments; Sunday timing is subject
+to consultation. Ordinary weekday requests use 9:30 AM–8:30 PM.
+
+## Build and deploy
 
 ```sh
-xcode-select --install
-```
-
-Complete that installer before continuing. Then install Rust and wasm-pack:
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-. "$HOME/.cargo/env"
-rustup update stable
-rustup target add wasm32-unknown-unknown
-cargo install wasm-pack --locked
-rustc --version
-cargo --version
-wasm-pack --version
-```
-
-From the extracted project directory:
-
-```sh
-cd abirami-beauty
 npm ci
-npm run images
-npm run wasm
 npm run build
 npm test
 npm run verify
-npm run preview
 ```
 
-The individual images/wasm commands are shown for first-run inspection. build
-runs both again automatically, followed by prerender, TypeScript, Vite,
-SEO output and COMPLETE-SOURCE.md generation. To work on the pages locally:
+The small build script copies the standalone file into dist, creates a real
+404 page and refreshes exact CSP SHA-256 hashes in vercel.json. It does not
+require Rust or bundle the legacy frontend. Commit refreshed vercel.json
+whenever editing index.html. Hash authorization permits the requested embedded
+CSS/JavaScript without unsafe-inline or unsafe-eval. Only the requested image,
+font and map origins are allowed.
 
 ```sh
-npm run dev
+vercel link --yes --project abirami-beauty --scope tarun-2f6a
+vercel pull --yes --environment=production --scope tarun-2f6a
+vercel build --prod --scope tarun-2f6a
+vercel deploy --prebuilt --prod --scope tarun-2f6a
 ```
 
-After changing business.json, the image manifest or supplied photos, restart dev.
+Legacy services, gallery, about and book URLs redirect to the corresponding
+sections of this page. Earlier TypeScript, Rust and audit files remain as
+historical source in the repository and are not shipped by the standalone
+build. Do not run the legacy prerender script over the current index.html.
 
-## Install on Windows (PowerShell, x64)
-
-Install Node.js 22.12 or newer from https://nodejs.org/en/download first.
-Install Visual Studio C++ build tools. This command opens the Microsoft
-installer; accept elevation and finish installation before proceeding:
-
-```powershell
-winget install --id Microsoft.VisualStudio.2022.BuildTools --exact --override "--wait --passive --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
-```
-
-Download and run the official Rust installer:
-
-```powershell
-Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
-Start-Process -FilePath .\rustup-init.exe -ArgumentList '-y', '--default-toolchain', 'stable' -Wait
-```
-
-Close and reopen PowerShell so Cargo is on PATH. Then:
-
-```powershell
-rustup update stable
-rustup target add wasm32-unknown-unknown
-cargo install wasm-pack --locked
-rustc --version
-cargo --version
-wasm-pack --version
-cd abirami-beauty
-npm ci
-npm run images
-npm run wasm
-npm run build
-npm test
-npm run verify
-npm run preview
-```
-
-These Windows commands target x64. For Windows ARM64 use the matching installer
-from https://rust-lang.org/tools/install/ and matching Microsoft build tools.
-The Node wrappers use argument arrays with no Unix shell syntax, so project
-paths with spaces work on Windows and macOS.
-
-## Image originals and output
-
-Put approved sRGB originals in photos-original at the project root. This folder
-is a build input, not a public URL, and original photos are ignored by Git.
-Use lowercase names with digits and hyphens. Do not supply two files with the
-same stem, such as hero.jpg and hero.png. Supported inputs: JPG/JPEG, PNG, WebP.
-HEIC must first be exported to sRGB JPEG. Subdirectories are not traversed.
-
-| Original stem | Placement | Framing |
-| --- | --- | --- |
-| hero | Home hero, optional film poster, Open Graph | Landscape, subject on right |
-| salon | Story and gallery | Portrait |
-| detail | Overlapping story, services strip, gallery | Portrait |
-| services | Editorial services image | Portrait |
-| service-alt | Alternate liquid-hover texture | Same crop as services |
-| portrait | Service strip and gallery | Portrait |
-| ritual | Service strip and gallery | Portrait |
-| closing | Closing full-bleed section | Landscape |
-| before | Before comparison | Matched lighting and framing |
-| after | After comparison | Same crop as before |
-
-For example, photos-original/hero.jpg generates three exact-width AVIF/WebP
-pairs under public/assets/img/generated. Filenames include a 16-character
-source SHA-256 prefix. The CLI also writes a tiny blurred WebP, embeds that
-preview as a data URL in manifest.json, and records a dominant hex colour.
-
-Each output width is exactly 480, 960 or 1600 pixels, with proportional height.
-Small originals are upscaled; supply sufficiently large originals for sharp
-results. EXIF orientation is applied before resizing. The encoder does not
-embed original EXIF/GPS metadata. Export originals to sRGB first; arbitrary
-input ICC colour profiles are not converted. WebP uses lossless encoding;
-AVIF uses quality 65 and speed 6. AVIF is normally the smaller browser source.
-The transparent-aware dominant colour is the mean of the most populated
-4-bit RGB histogram bucket, rather than an overall average.
-
-The public manifest format is:
-
-```json
-{
-  "version": 1,
-  "images": {
-    "image-name": {
-      "width": 1600,
-      "height": 2000,
-      "dominant": "#253e34",
-      "placeholder": "data:image/webp;base64,ENCODED_PREVIEW",
-      "variants": [
-        { "width": 480, "height": 600, "avif": "/assets/img/generated/image-name-HASH-480.avif", "webp": "/assets/img/generated/image-name-HASH-480.webp" },
-        { "width": 960, "height": 1200, "avif": "/assets/img/generated/image-name-HASH-960.avif", "webp": "/assets/img/generated/image-name-HASH-960.webp" },
-        { "width": 1600, "height": 2000, "avif": "/assets/img/generated/image-name-HASH-1600.avif", "webp": "/assets/img/generated/image-name-HASH-1600.webp" }
-      ]
-    }
-  }
-}
-```
-
-This is a schema illustration; HASH and ENCODED_PREVIEW are not real generated
-assets. The shipped manifest is empty until actual originals are provided.
-The prerendered frontend reads and validates the manifest, emits AVIF/WebP
-srcsets and sizes, and uses the dominant colour and blurred preview behind
-editorial images. Hero, comparisons, Open Graph and service shader URLs also
-resolve through it. The browser chooses a width; no runtime image server is used.
-The hero is eager/high-priority; other photos are lazy-loaded.
-
-Previously supplied single-width public/assets/img/name.webp files still work
-when no generated manifest entry exists. Same-name AVIF is optional. Missing
-photos retain the labelled SVG placeholder. Do not use stock portraits as
-client work. Before/after photos require both images and comparisonApproved
-in src/business.json. Only enable that after client permission and pair review.
-
-Run the CLI directly, if needed, from the project root:
-
-```sh
-cargo run --release --manifest-path rust/imgtool/Cargo.toml -- photos-original public/assets/img
-```
-
-The optional output argument is the img directory in the public asset layout;
-manifest URLs deliberately use /assets/img/generated. Sources are processed in
-sorted order. Invalid names, duplicate stems, unreadable files, encoder/write
-errors, images above 40 megapixels/80 MiB and extreme aspect ratios fail with a
-contextual error and a nonzero exit. The manifest is published only after all
-images encode successfully. Files from an unsuccessful run can remain unused.
-Old generated files are not automatically deleted, protecting existing builds.
-On Windows, replacing the final manifest requires removing the previous file
-immediately before rename. Keep a deployment/version backup as usual.
-
-If the originals directory has no supported photos, npm run images retains the
-existing manifest and prints a skip message. To remove a photo, delete its
-manifest entry as well as the original, or run the CLI directly on the desired
-set. A direct CLI run on an empty directory publishes an empty manifest.
-
-## WASM noise and fallback
-
-rust/noise-wasm exports flow_field(size, seed) through wasm-bindgen. It returns
-size*size*4 RGBA bytes of deterministic, periodic, three-octave value noise.
-RGB channels hold the same noise value and alpha is 255. Sizes 2 through 1024
-are accepted. Invalid sizes throw a JavaScript error. All hashing uses wrapping
-integer arithmetic. There are no network calls, filesystem access or clocks.
-
-```sh
-wasm-pack build rust/noise-wasm --target web --release --out-dir ../../public/assets/wasm --out-name noise_wasm
-```
-
-The relative output path above is resolved from rust/noise-wasm. Prefer
-npm run wasm: its wrapper uses an absolute output path and also publishes
-public/assets/wasm/manifest.json after a successful build. That descriptor
-contains version 1 and module /assets/wasm/noise_wasm.js. The wrapper removes
-wasm-pack's blanket generated .gitignore so prebuilt static assets can be
-committed for hosting without Rust. wasm-opt is disabled to avoid a separate
-Binaryen installation/download requirement.
-
-The frontend automatically reads the generated descriptor. No business.json
-change is needed. An optional business.wasmUrl overrides it but must remain
-same-origin. Initialization is asynchronous and has a two-second timeout.
-Import, initialization, invalid-output and network failures use the existing
-JavaScript flow field automatically. That JS field has the same RGBA contract
-but intentionally differs visually from the Rust algorithm. WASM is optional;
-shader loading still respects reduced motion and low-power hints. Fabric,
-liquid displacement and instanced dust all sample the shared field texture.
-
-## Toolchain skips and static hosting
-
-npm run build runs images, then wasm, then the frontend build. If cargo/rustc
-are absent, each Rust step prints a clear message and succeeds without touching
-existing manifests/assets. If wasm-pack is absent, the WASM step does the same.
-Empty default descriptors keep a fresh checkout usable without Rust. A tool
-that is present but fails compilation or execution fails the build: conversion
-errors are never disguised as a missing-tool skip. Cargo can need internet
-access on first use to fetch crates. Commit generated Cargo.lock files after a
-successful native build to pin Rust dependency resolution; no lockfile was
-fabricated in this environment.
-
-Vercel can serve the dist directory unchanged. Use npm run build as the build
-command and dist as the output directory. Node must be at least 22.12. To use
-real generated media/WASM on a Node-only host, build them on a machine with
-Rust and commit public/assets/img/manifest.json, its generated files, and
-public/assets/wasm. The missing-Rust skip preserves them. Alternatively use a
-CI build image with Rust and wasm-pack installed. Do not commit private originals
-just to make a public hosting build work. This stage adds no backend or secrets.
-
-## Business content and access
-
-Edit src/business.json with the owner's confirmed details. Unknown fields stay
-null. Phone must be an international number beginning with + and digits only
-thereafter. Instagram is a username without @ or a URL. Services accept name,
-description and price; reviews accept name and text. Only publish reviews you
-have actually been given permission to use. No rating or testimonial is invented.
-Use the final HTTPS origin for siteUrl when ready to launch; the canonical origin is already configured. indexable=false retains noindex until owner approval; robots permits crawlers to read that instruction.
-
-Until a valid phone is provided, call/WhatsApp links are absent and the enquiry
-form is disabled. When connected, it opens a message in WhatsApp for the visitor
-to send. Appointment confirmation still comes from the salon. No browser form
-data is sent to a server or stored. The Google map is lazy-loaded near the footer and includes a manual static fallback.
-Self-hosted WOFF2 fonts have Georgia/Arial fallbacks. The approved supplied logo is public/assets/img/abirami-logo.png. Its artwork
-is used unchanged in the header, footer, curtain and browser icon. CSS removes
-only excess surrounding space from the displayed header/footer frame.
-
-## Checks
-
-```sh
-npm test
-npm run build
-npm run verify
-cargo test --manifest-path rust/imgtool/Cargo.toml
-cargo test --manifest-path rust/noise-wasm/Cargo.toml
-cargo fmt --manifest-path rust/imgtool/Cargo.toml
-cargo fmt --manifest-path rust/noise-wasm/Cargo.toml
-npm run source
-```
-
-npm test exercises responsive manifest consumption through prerender, protected
-asset paths, async WASM selection, automatic JS fallback and invalid field sizes.
-It substitutes an async module loader to test fallback logic; it does not execute
-a compiled .wasm. verify checks all five built routes, srcset targets, manifests,
-image container signatures, WASM binary header/glue if present, schema and the
-exact business address. Rust tests cover alpha-aware colour selection and seeded
-noise consistency. Source generation excludes binaries, private originals,
-node_modules, target directories and dist; the deliverable ZIP includes dist.
-
-In this workspace, Node tests, TypeScript, Vite and static checks pass, including
-the missing-Rust path. Rust and wasm-pack are unavailable, so Rust compilation,
-real photo encoding and compiled-WASM execution have not been verified here.
-No actual client photos have been supplied. Browser/real-Android QA, Lighthouse
-90+ and 60fps remain unmeasured. The site remains a content preview until the
-business details, real photographs and launch checks are complete.
-
-Official setup references:
-- https://rust-lang.org/tools/install/
-- https://rustwasm.github.io/docs/wasm-pack/commands/build.html
-- https://docs.rs/image/latest/image/codecs/avif/struct.AvifEncoder.html
-
-
-## Current audit and upgrade
-
-See docs/AUDIT.md for the ranked baseline findings, docs/OWNER-CHECKLIST-AND-SOCIAL.md
-for missing facts and publishable social drafts, and docs/VERIFICATION-AND-DEPLOY.md
-for all verification and Vercel commands. Font WOFF2 files and their OFL licenses
-are committed locally; no Google Fonts requests are made by the site.
-
-CSP is enforced with self-hosted resources, no authored inline scripts/styles,
-no unsafe-inline, and only www.google.com frames. Same-origin JSON-LD files are
-loaded into a non-executable data block by external JavaScript. GSAP still uses
-runtime CSSOM changes for animation. Browser CSP checks remain necessary.
-
-No phone, hours, coordinates, opening year, Google Profile or Instagram handle
-has been invented. Trust figures and Service schema are conditional on verified
-business records. The public guides are general preparation copy, not a claim
-that those services are currently offered. noindex remains until owner approval.
-
-Use npm run qa:browser on a machine with Playwright Chromium installed. The
-managed authoring environment has no local Playwright Chromium installation. No actual
-Lighthouse score or Core Web Vitals measurement is claimed.
+Verification checks exact business-data presence, zero visible bracketed
+placeholders, four treatment panels, safe external links, section targets,
+valid application JavaScript and the embedded blocks' CSP hashes. Live image
+availability still depends on the third-party providers. Browser checks and
+measured performance results must not be inferred from static build success.

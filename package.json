@@ -1,23 +1,20 @@
 {
   "name": "abirami-natural-beauty-parlour",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "engines": {
     "node": ">=22.12"
   },
   "scripts": {
-    "prepare:pages": "node scripts/prerender.mjs",
-    "dev": "npm run prepare:pages && vite --host 0.0.0.0",
-    "check": "tsc --noEmit",
-    "build": "npm run images && npm run wasm && npm run prepare:pages && npm run check && vite build && node scripts/finalize.mjs && npm run source",
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/build-standalone.mjs",
+    "verify": "node scripts/verify-standalone.mjs",
+    "test": "node scripts/verify-standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "verify": "node scripts/verify.mjs",
-    "images": "node scripts/rust.mjs images",
-    "wasm": "node scripts/rust.mjs wasm",
     "source": "node scripts/source.mjs",
-    "test": "node --test scripts/media.test.mjs scripts/noise.test.mjs",
-    "qa:browser": "node scripts/browser-qa.mjs"
+    "images": "node scripts/rust.mjs images",
+    "wasm": "node scripts/rust.mjs wasm"
   },
   "dependencies": {
     "gsap": "3.15.0",

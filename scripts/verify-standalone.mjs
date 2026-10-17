@@ -1,0 +1,25 @@
+import { readFile, access } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
+
+const html = await readFile('dist/index.html', 'utf8');
+assert.equal(html, await readFile('index.html', 'utf8'));
+for (const value of ['Abirami Natural Beauty Parlour', '+91 98406 38981', '919840638981', '9:30 AM', '8:30 PM', 'By Bridal Appointment Only', '₹8,500+', '₹1,800+', '₹1,500+', '₹600+']) assert.ok(html.includes(value), value);
+assert.ok(!/photo to follow|Details to follow|\[(?:hours|number|photo|Service|Date|Time|Name)\]|__LOGO_DATA__/i.test(html));
+assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+assert.equal((html.match(/class="treatment-panel"/g) ?? []).length, 4);
+assert.ok(html.includes('different people') && html.includes('not a client before-and-after'));
+for (const element of html.matchAll(/<a\s[^>]+>/g)) if (element[0].includes('target="_blank"')) assert.ok(element[0].includes('rel="noopener noreferrer"'));
+for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${match[1]}"`), match[1]);
+const config = JSON.parse(await readFile('vercel.json', 'utf8'));
+const policy = config.headers[0].headers.find(header => header.key === 'Content-Security-Policy').value;
+for (const block of html.matchAll(/<(?:script[^>]*|style)>([\s\S]*?)<\/(?:script|style)>/g)) assert.ok(policy.includes(createHash('sha256').update(block[1]).digest('base64')), 'CSP authorizes exact embedded block');
+assert.ok(!policy.includes('unsafe-inline') && !policy.includes('unsafe-eval'));
+const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+assert.equal(schema.telephone, '+919840638981');
+assert.equal(schema.address.postalCode, '600100');
+const app = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].at(-1)[1];
+new Function(app);
+await access('dist/assets/img/social-preview.png');
+assert.equal(config.redirects.length, 4);
+console.log('PASS: single-file build, verified-data presence, four treatments, safe links, exact CSP hashes, valid JavaScript and labelled editorial comparison.');
