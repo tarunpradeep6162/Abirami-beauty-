@@ -16,7 +16,7 @@ const fragment = `precision highp float;
   vec3 colour=texture2D(uPhoto,uv).rgb;
   float grain=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233))+floor(uTime*12.))*43758.5453);
   float vignette=1.-smoothstep(.2,.8,length(vUv-.5));
-  gl_FragColor=vec4(colour*(.75+.12*vignette)+(grain-.5)*.018,1.);
+  gl_FragColor=vec4(mix(colour,vec3(.98,.94,.92),.07)*(.96+.04*vignette)+(grain-.5)*.012,1.);
  }`;
 function Silk() {
  const texture = useLoader(TextureLoader, '/assets/img/salon-maps/listing-10-960.webp');

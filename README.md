@@ -1,3 +1,7 @@
+## Feminine luxury redesign · 18 October 2026
+
+The live page and advanced Next.js frontend now share porcelain, blush, mulberry and rose typography with restrained brass details. The bridal hero uses an arched portrait; treatments, gallery, forms, map, reviews and footer carry the same palette. The supplied logo and real listing media remain unchanged. The social preview and inline favicon match the new identity.
+
 ## Next.js + booking architecture
 
 The new requested stack is implemented separately in [advanced/README.md](advanced/README.md): Next.js App Router, R3F fluid hero, GSAP/Lenis motion, Framer Motion bridal portal, Express, PostgreSQL and Stripe. The current static production website is unchanged. See that README for the full install, security, payment and deployment gates.

@@ -3,8 +3,8 @@
   "short_name": "Abirami",
   "start_url": "/",
   "display": "browser",
-  "theme_color": "#253e34",
-  "background_color": "#f2ecdf",
+  "theme_color": "#fbf5f2",
+  "background_color": "#fbf5f2",
   "icons": [
     {
       "src": "/assets/img/icon-192.png",

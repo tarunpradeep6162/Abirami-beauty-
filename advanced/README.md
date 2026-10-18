@@ -1,3 +1,7 @@
+# Feminine luxury visual update
+
+The frontend now matches the live porcelain/blush/mulberry identity, with arched portrait photography and rose buttons. API behaviour and deposit activation gates are unchanged.
+
 # Abirami flagship architecture
 
 A separate Next.js App Router frontend and Express/PostgreSQL API. The current static production site is unchanged. All source is in this directory; copied gallery images and licensed fonts are prepared from the repository’s existing public/assets directory at build time. This development app is deliberately noindex until its new deployment is approved for launch.

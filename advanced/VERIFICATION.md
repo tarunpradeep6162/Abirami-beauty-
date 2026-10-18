@@ -1,3 +1,7 @@
+## Feminine identity verification
+
+Next.js production build and all five browser checks passed again for the porcelain/blush palette and lighter WebGL shader. Responsive checks include 360/768/1280/1920, CSP, automated WCAG AA, keyboard tabs and reduced motion. Portal API responses remain mocked.
+
 # Verification · 18 October 2026
 
 - Next.js 16.4.2 production build: passed (React 19.3.1).

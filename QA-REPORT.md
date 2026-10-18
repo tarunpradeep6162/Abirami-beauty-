@@ -1,3 +1,7 @@
+## Feminine redesign verification · 18 October 2026
+
+Static build and exact CSP hashes pass. All seven static browser checks passed at 360/768/1280/1920, including automated WCAG AA, gallery interactions, booking validation and local images. Brass label colours were darkened after the initial contrast check. Advanced Next.js production build, TypeScript/API syntax checks and all five frontend browser checks pass with the new palette and lighter shader. Portal API fixtures remain mocked; no backend activation or payment verification is claimed.
+
 ## Landing page refinement · 18 October 2026
 
 New framed bridal hero, offset typography, mobile composition, champagne booking button and refined sanctuary spacing. Build and exact CSP verification pass. Browser QA checks 360/768/1280/1920 layouts, WCAG AA automated checks, local image decoding, gallery, tabs, reduced motion, shader fallback and WhatsApp validation. Seven checks passed with no review items. These are desktop browser emulations, not physical phone or Lighthouse measurements.
