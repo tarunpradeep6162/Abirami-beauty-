@@ -1,0 +1,21 @@
+{
+  "name": "abirami-flagship",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "web",
+    "api"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w web",
+    "dev:api": "npm run dev -w api",
+    "build": "npm run build -w web && npm run check -w api",
+    "test": "npm run test -w api",
+    "check": "npm run check -w web && npm run check -w api",
+    "qa": "node scripts/browser-qa.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1"
+  }
+}

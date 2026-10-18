@@ -3,11 +3,11 @@ import { resolve, relative, extname } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const files = [];
-const excluded = new Set(['node_modules', 'dist', 'target', '.git', '.vercel', 'photos-original', 'generated', 'qa-results']);
+const excluded = new Set(['node_modules', '.next', 'private-uploads', 'dist', 'target', '.git', '.vercel', 'photos-original', 'generated', 'qa-results']);
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
-    if (excluded.has(entry.name) || entry.name === 'COMPLETE-SOURCE.md' || /^\.env(?:\.|$)/.test(entry.name)) continue;
+    if (excluded.has(entry.name) || entry.name.endsWith('.tsbuildinfo') || entry.name === 'COMPLETE-SOURCE.md' || /^\.env(?:\.|$)/.test(entry.name)) continue;
     const path = resolve(directory, entry.name);
     if (entry.isDirectory()) await walk(path);
     else if (entry.isFile() && !/\.(wasm|woff2?|ttf|webp|avif|png|jpe?g|mp4)$/i.test(entry.name)) files.push(path);

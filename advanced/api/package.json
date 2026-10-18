@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env src/server.mjs",
+    "start": "node --env-file=.env src/server.mjs",
+    "check": "node ../scripts/check-api.mjs",
+    "test": "node --test test/*.test.mjs",
+    "migrate": "node --env-file=.env src/migrate.mjs",
+    "invite": "node --env-file=.env src/invite.mjs",
+    "journal": "node --env-file=.env src/journal.mjs",
+    "reconcile": "node --env-file=.env src/reconcile.mjs"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "pg": "8.16.3",
+    "stripe": "23.0.0",
+    "helmet": "8.1.0",
+    "express-rate-limit": "8.1.0",
+    "multer": "2.4.0",
+    "sharp": "0.35.5",
+    "zod": "4.1.12"
+  }
+}

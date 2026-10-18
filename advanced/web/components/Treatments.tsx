@@ -1,0 +1,7 @@
+import Image from 'next/image';
+const rituals=[
+ {name:'Bridal couture',detail:'HD makeup, saree draping and floral hair styling. A conversation about the look you want to remember.',image:'06',price:'₹8,500+'},
+ {name:'Botanical facials',detail:'An hour for your skin. Talk to us about hydration, cleansing and the facial that suits your preferences.',image:'03',price:'₹1,800+'},
+ {name:'Hair & scalp rituals',detail:'Warm herbal oil, conditioning and unhurried care for your hair and scalp.',image:'05',price:'₹1,500+'}
+];
+export function Treatments(){return <section id="treatments" className="treatments" data-reveal><div className="section-title"><p className="eyebrow" data-reveal-item>The treatment collection</p><h2 data-reveal-item>Care, with<br/><em>intention.</em></h2></div>{rituals.map((ritual,i)=><article className="treatment" key={ritual.name} data-reveal><figure data-reveal-item><Image data-parallax src={`/assets/img/salon-maps/listing-${ritual.image}-960.webp`} alt={i===0?'Bridal styling collage from Abirami’s published gallery':i===1?'Treatment chair inside Abirami salon':'Hair colour photograph from Abirami’s salon gallery'} fill sizes="(max-width:767px) 100vw, 45vw"/></figure><div data-reveal-item><p className="eyebrow">{ritual.price} · Final quote on consultation</p><h3>{ritual.name}</h3><p>{ritual.detail}</p><a className="text-link" href="/book">Make time for yourself ↗</a></div></article>)}</section>}

@@ -1,3 +1,7 @@
+## Next.js + booking architecture
+
+The new requested stack is implemented separately in [advanced/README.md](advanced/README.md): Next.js App Router, R3F fluid hero, GSAP/Lenis motion, Framer Motion bridal portal, Express, PostgreSQL and Stripe. The current static production website is unchanged. See that README for the full install, security, payment and deployment gates.
+
 ## Landing page refinement · 18 October 2026
 
 Framed bridal inspiration from the locally copied salon gallery replaces the treatment-chair hero. The opening uses an oversized offset headline, a clearer consultation button, restrained champagne details and separate mobile image composition. No new business claims or result photographs were introduced.

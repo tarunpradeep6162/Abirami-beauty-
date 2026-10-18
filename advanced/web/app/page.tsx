@@ -1,0 +1,3 @@
+import { Hero } from '../components/Hero';
+import { Treatments } from '../components/Treatments';
+export default function Home() { return <main id="main"><Hero/><section className="opening"><p className="eyebrow">A familiar address. A little time for you.</p><h2>Your wedding morning.<br/><em>Your everyday rituals.</em></h2><p>A quiet conversation before the first brushstroke. The colour you love. The details you want to keep. Come as you are. We’ll begin there.</p></section><Treatments/><section className="promise"><p className="eyebrow">Our promise</p><h2>Still you.<br/><em>Beautifully considered.</em></h2><a className="button" data-magnetic href="/book">Plan your appointment ↗</a></section></main>; }

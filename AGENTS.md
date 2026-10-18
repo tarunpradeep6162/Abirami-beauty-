@@ -31,3 +31,8 @@ No backend, form storage, API keys or analytics. WhatsApp alone handles enquirie
 Legacy routes redirect to the standalone page sections. Earlier TypeScript and
 Rust tooling remains in the repository but is not part of the standalone build.
 Do not restore a wireframe or run the legacy prerenderer over index.html.
+
+The requested Next.js/R3F/Express architecture lives separately in advanced/.
+The static live site remains authoritative until the new application and its
+payment/database/private storage prerequisites are explicitly launched. Never
+enable deposits by default or claim mocked portal UI tests verify real payments.
