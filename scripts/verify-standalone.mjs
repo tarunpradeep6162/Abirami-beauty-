@@ -8,7 +8,7 @@ for (const value of ['Abirami Natural Beauty Parlour', '+91 98406 38981', '91984
 assert.ok(!/photo to follow|Details to follow|\[(?:hours|number|photo|Service|Date|Time|Name)\]|__LOGO_DATA__/i.test(html));
 assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
 assert.equal((html.match(/class="treatment-panel"/g) ?? []).length, 4);
-assert.ok(html.includes('not verified as a client before-and-after pair'));
+assert.ok(html.includes('not a before-and-after result from the same person'));
 for (const element of html.matchAll(/<a\s[^>]+>/g)) if (element[0].includes('target="_blank"')) assert.ok(element[0].includes('rel="noopener noreferrer"'));
 for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${match[1]}"`), match[1]);
 const config = JSON.parse(await readFile('vercel.json', 'utf8'));

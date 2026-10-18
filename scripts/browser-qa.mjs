@@ -42,15 +42,15 @@ try {
     assert.equal(await page.evaluate(() => document.activeElement.id), 'main');
     if (width === 360) {
       await page.getByRole('button', { name: 'Menu', exact: true }).click();
-      await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Treatments', exact: true }).click();
+      await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Services', exact: true }).click();
       assert.equal(await page.locator('.site-nav').isVisible(), false);
     }
-    await page.getByRole('tab', { name: '02 Botanical facials' }).click();
-    await page.getByRole('tab', { name: '02 Botanical facials' }).press('End');
+    await page.getByRole('tab', { name: '02 Facials' }).click();
+    await page.getByRole('tab', { name: '02 Facials' }).press('End');
     assert.equal(await page.locator('#panel-grooming').isVisible(), true);
-    await page.getByRole('tab', { name: '02 Botanical facials' }).click();
-    await page.getByRole('link', { name: 'Reserve your facial', exact: true }).click();
-    assert.equal(await page.locator('#client-service').inputValue(), 'Botanical & Gold Radiance Facials');
+    await page.getByRole('tab', { name: '02 Facials' }).click();
+    await page.getByRole('link', { name: 'Book a facial', exact: true }).click();
+    assert.equal(await page.locator('#client-service').inputValue(), 'Facials & Gold Facials');
     await page.screenshot({ path: `qa-results/booking-${width}.png` });
     await page.keyboard.press('Escape');
     assert.equal(await page.locator('#booking-dialog').isVisible(), false);
@@ -82,7 +82,7 @@ try {
     const galleryAxe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     assert.deepEqual(galleryAxe.violations.map(issue => ({ id: issue.id, nodes: issue.nodes.map(node => ({ target: node.target, summary: node.failureSummary })) })), [], 'Gallery accessibility');
     await page.evaluate(prior => { window.cspViolations = prior; }, beforeGalleryAxe);
-    await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
+    await page.getByRole('link', { name: 'Ask about this photo', exact: true }).click();
     assert.equal(await page.locator('#gallery-dialog').isVisible(), false);
     assert.equal(await page.locator('#booking-dialog').isVisible(), true);
     assert.match(await page.locator('#booking-reference-text').textContent(), /Bridal styling/);
@@ -164,14 +164,14 @@ try {
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
   assert.match(await page.locator('#form-status').textContent(), /already passed/);
   await page.locator('#client-date').fill('2026-10-25');
-  await page.locator('#client-service').selectOption('Botanical & Gold Radiance Facials');
+  await page.locator('#client-service').selectOption('Facials & Gold Facials');
   await page.locator('#client-time').fill('17:00');
   assert.equal(await page.locator('#client-time').evaluate(input => input.checkValidity()), false, 'Sunday ends at 4:30 PM');
   await page.locator('#client-time').fill('10:30');
   assert.equal(await page.locator('#client-time').evaluate(input => input.checkValidity()), true, 'Sunday accepts any listed service within hours');
   await page.keyboard.press('Escape');
   await page.getByRole('button', { name: 'View Bridal styling photograph', exact: true }).click();
-  await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
+  await page.getByRole('link', { name: 'Ask about this photo', exact: true }).click();
   await page.locator('#client-notes').fill('Muhurtham at 11 AM & a soft finish <please>');
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
   await page.waitForURL('https://wa.me/**');

@@ -1,3 +1,7 @@
+## Plain-language copy update
+
+Customer-facing wording now uses clear everyday English: services, bridal makeup, facials, hair care and book an appointment. Shorter descriptions explain prices, booking confirmation and photo sources. Real reviews, contact details, opening hours and numerical prices are unchanged. The same wording is used in the advanced frontend.
+
 ## Feminine luxury redesign · 18 October 2026
 
 The live page and advanced Next.js frontend now share porcelain, blush, mulberry and rose typography with restrained brass details. The bridal hero uses an arched portrait; treatments, gallery, forms, map, reviews and footer carry the same palette. The supplied logo and real listing media remain unchanged. The social preview and inline favicon match the new identity.

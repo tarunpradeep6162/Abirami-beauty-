@@ -6,29 +6,29 @@
   "instagram": null,
   "siteUrl": "https://abirami-beauty.vercel.app",
   "wasmUrl": null,
-  "prices": "Prices on consultation",
+  "prices": "Ask us for prices",
   "services": [
     {
-      "name": "Bridal Couture & Muhurtham Styling",
-      "description": "HD Airbrush Finish, Kanjeevaram Saree Draping, Traditional Floral Veni Setting",
+      "name": "Bridal Makeup & Saree Draping",
+      "description": "HD Airbrush Makeup, Kanjeevaram Saree Draping, Traditional Flower Hair Styling",
       "price": "₹8,500+",
       "duration": "3.5 hrs"
     },
     {
-      "name": "Botanical & Gold Radiance Facials",
-      "description": "24K Gold Leaf Rejuvenation, Turmeric & Saffron Skin Brightening, Deep Hydration Pore Clarifying",
+      "name": "Facials & Gold Facials",
+      "description": "24K Gold Facial, Turmeric & Saffron Facial, Hydrating & Deep Cleansing Facial",
       "price": "₹1,800+",
       "duration": "60 mins"
     },
     {
-      "name": "Ayurvedic Hair & Scalp Rituals",
-      "description": "Warm Herbal Oil Scalp Infusion, Deep Keratin & Moisture Mask, Anti-Dandruff Herbal Cleansing",
+      "name": "Hair Spa & Scalp Care",
+      "description": "Warm Herbal Oil Scalp Massage, Keratin & Moisturising Hair Mask, Herbal Anti-Dandruff Hair Wash",
       "price": "₹1,500+",
       "duration": "75 mins"
     },
     {
-      "name": "Precision Grooming & Hand/Foot Spa",
-      "description": "Micro-Precision Brow Threading, Organic Peel Waxing, Rose & Milk Pedicure",
+      "name": "Threading, Waxing & Hand/Foot Care",
+      "description": "Eyebrow Threading, Organic Peel Waxing, Rose & Milk Pedicure",
       "price": "₹600+",
       "duration": "45 mins"
     }
@@ -85,6 +85,6 @@
       "closes": "16:30"
     }
   ],
-  "tagline": "The Art of Natural Radiance & Bespoke Bridal Artistry",
+  "tagline": "Bridal makeup, skin care and hair care",
   "listingChecked": "2026-10-18"
 }
