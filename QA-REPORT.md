@@ -1,3 +1,7 @@
+## Landing page refinement · 18 October 2026
+
+New framed bridal hero, offset typography, mobile composition, champagne booking button and refined sanctuary spacing. Build and exact CSP verification pass. Browser QA checks 360/768/1280/1920 layouts, WCAG AA automated checks, local image decoding, gallery, tabs, reduced motion, shader fallback and WhatsApp validation. Seven checks passed with no review items. These are desktop browser emulations, not physical phone or Lighthouse measurements.
+
 # Release verification — 18 October 2026, Chennai
 
 The standalone page passed Chromium checks at 360, 768, 1280 and 1920px.

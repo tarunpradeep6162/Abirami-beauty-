@@ -1,3 +1,7 @@
+## Landing page refinement · 18 October 2026
+
+Framed bridal inspiration from the locally copied salon gallery replaces the treatment-chair hero. The opening uses an oversized offset headline, a clearer consultation button, restrained champagne details and separate mobile image composition. No new business claims or result photographs were introduced.
+
 <!-- Current Maps correction above supersedes historical design-pass notes below. -->
 # Abirami Natural Beauty Parlour — standalone flagship
 

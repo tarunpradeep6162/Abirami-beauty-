@@ -1158,6 +1158,65 @@ body{font-size:15px;line-height:1.9}
 .motion-ready .reveal.waiting{opacity:1;transform:none}
 }
 
+
+/* The opening is a portrait, framed like a page in a bridal album. */
+.hero{min-height:900px;min-height:max(840px,100svh);padding:170px var(--gutter) 130px;align-items:center;background:#100e0e}
+.hero-copy{width:56%;max-width:850px;position:relative;z-index:2}
+.hero .eyebrow{font-size:10px;letter-spacing:.23em;max-width:40ch;line-height:2}
+.hero h1{font-size:clamp(84px,9.2vw,176px);line-height:.85;letter-spacing:-.055em;margin:38px 0 34px}
+.hero h1 span:nth-child(2){padding-left:.45em}
+.hero h1 span:last-child{white-space:nowrap}
+.hero h1 em{font-weight:400;color:#d6bc88}
+.hero-tagline{font-size:11px;letter-spacing:.08em;max-width:34ch;color:#c9bcae;margin-bottom:15px}
+.hero-intro{font-size:14px;line-height:1.9;color:#d9d0c8;margin-bottom:30px}
+.hero-art{inset:135px 5.5% 105px auto;width:43%;transform:none!important;will-change:auto;z-index:0;margin:0;border:1px solid #c5a05940;padding:12px 12px 43px;background:#181313}
+.hero-art::before{content:'';position:absolute;inset:25px -17px -17px 25px;border:1px solid #c5a05926;z-index:-1}
+.hero-art img{object-position:18% center;opacity:.88;animation:hero-drift 24s ease-in-out infinite alternate;filter:saturate(.62) brightness(.8);clip-path:inset(0)}
+.hero-art figcaption{position:absolute;bottom:12px;left:14px;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#c9b89c}
+.hero-shade{z-index:1;pointer-events:none;background:linear-gradient(90deg,#100e0e 0%,#100e0e 30%,#100e0ec9 42%,transparent 67%)}
+.hero-glow{display:none}
+.hero .silk-veil{z-index:1;width:54%;opacity:.21}
+.hero .grain{z-index:1;pointer-events:none}
+.hero-actions .button{background:#d6bc88;color:#17120e;border-color:#d6bc88;padding-inline:29px}
+.hero-actions .button:hover{background:#e2cda4;color:#17120e}
+.hero-actions .text-link{font-size:10px;letter-spacing:.12em}
+.hero-note{z-index:2;bottom:33px;font-size:9px;letter-spacing:.17em;border-top:1px solid #c5a05935;padding-top:23px;color:#c1b299}
+.hero-note::before{display:none}
+.hero-note .scroll-cue{display:inline-flex;align-items:center;gap:28px;min-height:44px}
+.trust-bar{background:#141112;padding-block:28px}
+.trust-item strong{font-size:25px}
+.trust-caption{max-width:25ch}
+.sanctuary{background:#100e0e;padding-top:150px;padding-bottom:150px}
+.sanctuary-art{padding-right:15%;padding-bottom:80px}
+.sanctuary-art>.image-frame{aspect-ratio:3/4;border:1px solid #c5a05940;padding:9px}
+.sanctuary-inset{width:44%;right:0;bottom:0;border:9px solid #100e0e}
+.sanctuary-copy h2{font-size:clamp(54px,5.5vw,94px);line-height:.98}
+.sanctuary-copy .eyebrow{max-width:26ch;line-height:2}
+@media(min-width:768px) and (max-width:1050px){.hero{padding-top:165px;min-height:920px}.hero h1{font-size:98px}.hero-copy{width:63%}.hero-art{top:175px;bottom:145px;width:46%;right:4%}.hero-actions{gap:16px}.hero-actions .button{padding-inline:20px}.hero-shade{background:linear-gradient(90deg,#100e0e 20%,#100e0ed9 40%,transparent 75%)}}
+@media(max-width:767px){
+.hero{min-height:1030px;padding:143px 7% 105px;align-items:flex-start;display:block}
+.hero-copy{width:100%;max-width:none}
+.hero .eyebrow{font-size:9px;max-width:32ch}
+.hero h1{font-size:clamp(68px,18.3vw,112px);line-height:.88;margin:26px 0 27px}
+.hero h1 span:nth-child(2){padding-left:.32em}
+.hero-tagline{font-size:10px;max-width:32ch}
+.hero-intro{font-size:13px;margin-bottom:24px}
+.hero-actions{flex-direction:row;align-items:center;gap:18px}
+.hero-actions .button{font-size:10px;min-height:52px;padding:15px 20px}
+.hero-actions .text-link{font-size:9px;max-width:none;white-space:nowrap;line-height:1.8}
+.hero-art{inset:655px 7% 95px auto;width:74%;padding:8px 8px 33px;z-index:0}
+.hero-art img{object-position:18% 39%;animation:none;filter:saturate(.65) brightness(.85)}
+.hero-art figcaption{font-size:7px;left:10px;bottom:8px;letter-spacing:.08em}
+.hero-art::before{inset:17px -12px -12px 17px}
+.hero-shade{background:none}
+.hero .silk-veil{width:100%;height:610px;opacity:.15}
+.hero-note{left:7%;right:7%;bottom:17px;font-size:8px;letter-spacing:.06em;padding-top:12px}
+.hero-note .scroll-cue{gap:12px;font-size:8px;padding-right:0}
+.trust-bar{gap:24px;padding-block:30px}.trust-item strong{font-size:24px}.trust-caption{font-size:10px}
+.sanctuary{padding-block:100px;gap:56px}.sanctuary-art{margin-right:4%;padding-right:13%;padding-bottom:55px}.sanctuary-copy h2{font-size:59px}
+}
+@media(prefers-reduced-motion:reduce){.hero-art img{animation:none}.hero h1 span{animation:none}}
+
 </style>
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"BeautySalon","name":"Abirami Natural Beauty Parlour","url":"https://abirami-beauty.vercel.app/","slogan":"The Art of Natural Radiance & Bespoke Bridal Artistry","telephone":"+919840638981","address":{"@type":"PostalAddress","streetAddress":"No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam","addressLocality":"Chennai","addressRegion":"Tamil Nadu","postalCode":"600100","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"20:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"16:30"}],"priceRange":"₹600–₹8,500+","hasMap":"https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5","sameAs":["https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5"],"@id":"https://abirami-beauty.vercel.app/#salon","hasOfferCatalog":{"@type":"OfferCatalog","name":"The treatment collection","itemListElement":[{"@type":"Offer","price":"8500","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Bridal Couture & Muhurtham Styling","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"1800","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Botanical & Gold Radiance Facials","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"1500","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Ayurvedic Hair & Scalp Rituals","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}},{"@type":"Offer","price":"600","priceCurrency":"INR","description":"Starting price. Confirm your selection and final quote with the salon.","itemOffered":{"@type":"Service","name":"Precision Grooming & Hand/Foot Spa","provider":{"@id":"https://abirami-beauty.vercel.app/#salon"},"areaServed":"Jalladiampet, Medavakkam, Chennai"}}]},"geo":{"@type":"GeoCoordinates","latitude":12.9205664,"longitude":80.1986208},"aggregateRating":{"@type":"AggregateRating","ratingValue":5,"reviewCount":3},"image":"https://abirami-beauty.vercel.app/assets/img/salon-maps/listing-01-1600.webp"},{"@context":"https://schema.org","@type":"FAQPage","@id":"https://abirami-beauty.vercel.app/#questions","mainEntity":[{"@type":"Question","name":"How do I book an appointment?","acceptedAnswer":{"@type":"Answer","text":"Choose your ritual, preferred date and time in our booking form. It opens a message in WhatsApp for you to send. Your appointment is confirmed when the salon replies. You can also call +91 98406 38981."}},{"@type":"Question","name":"Can I book a Sunday visit?","acceptedAnswer":{"@type":"Answer","text":"Sunday opening hours are 10 AM to 4:30 PM. Monday to Saturday, the salon opens from 10 AM to 8:30 PM. Please message or call to confirm your appointment. Holiday hours may differ."}},{"@type":"Question","name":"Are the menu prices the final quote?","acceptedAnswer":{"@type":"Answer","text":"The menu shows starting prices. Your final quote depends on your chosen treatment and bridal styling needs. We will confirm the selection and price with you during consultation."}},{"@type":"Question","name":"What should I share for a bridal consultation?","acceptedAnswer":{"@type":"Answer","text":"Tell us your wedding date, muhurtham timing and venue. Share your saree or outfit, jewellery and the makeup references you like, so we can discuss the finish, draping and floral setting together."}},{"@type":"Question","name":"Where is the parlour?","acceptedAnswer":{"@type":"Answer","text":"Find Abirami Natural Beauty Parlour at No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai, Tamil Nadu 600100. Use the directions link below to plan your route."}}]},{"@context":"https://schema.org","@type":"WebSite","@id":"https://abirami-beauty.vercel.app/#website","url":"https://abirami-beauty.vercel.app/","name":"Abirami Natural Beauty Parlour","inLanguage":"en-IN"}]
@@ -1174,9 +1233,9 @@ body{font-size:15px;line-height:1.9}
 </header>
 <main id="main" tabindex="-1">
 <section class="hero" id="home" aria-labelledby="hero-title">
-<div class="hero-art"><img src="/assets/img/salon-maps/listing-03-960.webp" srcset="/assets/img/salon-maps/listing-03-480.webp 480w, /assets/img/salon-maps/listing-03-960.webp 960w, /assets/img/salon-maps/listing-03-1600.webp 1200w" sizes="(max-width:767px) 100vw, 60vw" alt="A salon chair beside the curtained windows at Abirami Natural Beauty Parlour" width="1200" height="1600" fetchpriority="high"></div><div class="hero-shade"></div><canvas class="silk-veil" id="silk-veil" aria-hidden="true" hidden></canvas><div class="hero-glow"></div><div class="grain" aria-hidden="true"></div>
-<div class="hero-copy"><p class="eyebrow">Beauty &amp; bridal artistry · Medavakkam, Chennai</p><h1 id="hero-title"><span>For the days</span><span>that become</span><span><em>memories.</em></span></h1><p class="hero-tagline">The Art of Natural Radiance &amp; Bespoke Bridal Artistry</p><div class="hero-actions"><a class="button" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Reserve consultation <span class="arrow" aria-hidden="true">↗</span></a><a class="text-link" href="#treatments">Explore our rituals <span aria-hidden="true">↓</span></a></div></div>
-<div class="hero-note"><span>Jalladiampet · Medavakkam · Chennai</span><span class="scroll-cue">Take your time. Scroll slowly.</span></div>
+<figure class="hero-art"><img src="/assets/img/salon-maps/listing-10-960.webp" srcset="/assets/img/salon-maps/listing-10-480.webp 480w, /assets/img/salon-maps/listing-10-960.webp 796w" sizes="(max-width:767px) 88vw, 48vw" alt="Bridal makeup inspiration published in Abirami’s salon gallery" width="796" height="448" fetchpriority="high"><figcaption>Bridal inspiration · From our salon journal</figcaption></figure><div class="hero-shade"></div><canvas class="silk-veil" id="silk-veil" aria-hidden="true" hidden></canvas><div class="hero-glow"></div><div class="grain" aria-hidden="true"></div>
+<div class="hero-copy"><p class="eyebrow">Beauty &amp; bridal artistry · Medavakkam, Chennai</p><h1 id="hero-title"><span>Beauty,</span><span>in your</span><span><em>own light.</em></span></h1><p class="hero-tagline">The Art of Natural Radiance &amp; Bespoke Bridal Artistry</p><p class="hero-intro">For your wedding morning.<br>For the days you keep for yourself.</p><div class="hero-actions"><a class="button" data-book href="https://wa.me/919840638981?text=Hello%20Abirami%20Beauty%20Parlour,%20I%20would%20like%20to%20book%20a%20consultation">Reserve consultation <span class="arrow" aria-hidden="true">↗</span></a><a class="text-link" href="#treatments">Our rituals <span aria-hidden="true">↓</span></a></div></div>
+<div class="hero-note"><span>Jalladiampet · Medavakkam · Chennai</span><a class="scroll-cue" href="#sanctuary">Enter the sanctuary <span aria-hidden="true">↓</span></a></div>
 </section>
 <aside class="trust-bar" aria-label="Salon information"><div class="trust-item"><strong>5.0 <span class="rating-stars" aria-label="five stars">★★★★★</span></strong><span>Google rating</span></div><div class="trust-item"><strong>3 reviews.</strong><span>Published on Google Maps</span></div><div class="trust-item"><strong>Four rituals.</strong><span>One personal approach</span></div><p class="trust-caption">5.0 from 3 Google reviews. Checked 18 October 2026.</p></aside>
 <section class="section sanctuary" id="sanctuary" aria-labelledby="sanctuary-title"><div class="sanctuary-art reveal"><figure class="image-frame"><img src="/assets/img/salon-maps/listing-01-960.webp" srcset="/assets/img/salon-maps/listing-01-480.webp 480w, /assets/img/salon-maps/listing-01-960.webp 960w, /assets/img/salon-maps/listing-01-1600.webp 1600w" sizes="(max-width:767px) 100vw, 60vw" alt="Abirami salon interior with styling chairs, mirrors and a treatment bed" width="1600" height="1200" loading="lazy" decoding="async"></figure><figure class="sanctuary-inset image-frame"><img src="/assets/img/salon-maps/listing-09-960.webp" srcset="/assets/img/salon-maps/listing-09-480.webp 480w, /assets/img/salon-maps/listing-09-960.webp 960w, /assets/img/salon-maps/listing-09-1600.webp 1600w" sizes="(max-width:767px) 100vw, 60vw" alt="Bridal mehndi design image published by Abirami on Google Maps" width="1600" height="1600" loading="lazy" decoding="async"></figure></div><div class="sanctuary-copy reveal"><p class="eyebrow">A quiet address. A personal ritual.</p><h2 id="sanctuary-title">Close to home.<br><em>Away from</em><br>the everyday.</h2><p>A bridal morning to remember. An hour set aside for your skin. A familiar face on Rice Mill Road.</p><p>At Abirami, there is room for the look you love and the questions you want to ask. Tell us about your day, your preferences and the little details that matter to you.</p><p>Our four treatment rituals bring bridal styling, botanical facials, hair care and precise finishing touches together in Jalladiampet, Medavakkam.</p><a class="text-link" href="#treatments">Find your ritual <span aria-hidden="true">↗</span></a></div></section>
@@ -3554,6 +3613,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 ## QA-REPORT.md
 
 ````md
+## Landing page refinement · 18 October 2026
+
+New framed bridal hero, offset typography, mobile composition, champagne booking button and refined sanctuary spacing. Build and exact CSP verification pass. Browser QA checks 360/768/1280/1920 layouts, WCAG AA automated checks, local image decoding, gallery, tabs, reduced motion, shader fallback and WhatsApp validation. Seven checks passed with no review items. These are desktop browser emulations, not physical phone or Lighthouse measurements.
+
 # Release verification — 18 October 2026, Chennai
 
 The standalone page passed Chromium checks at 360, 768, 1280 and 1920px.
@@ -3646,6 +3709,10 @@ or axe WCAG AA violations were detected in the tested states.
 ## README.md
 
 ````md
+## Landing page refinement · 18 October 2026
+
+Framed bridal inspiration from the locally copied salon gallery replaces the treatment-chair hero. The opening uses an oversized offset headline, a clearer consultation button, restrained champagne details and separate mobile image composition. No new business claims or result photographs were introduced.
+
 <!-- Current Maps correction above supersedes historical design-pass notes below. -->
 # Abirami Natural Beauty Parlour — standalone flagship
 
@@ -6150,7 +6217,7 @@ export async function loadStructuredData() {
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-pRZT9lGZ4uvENzTRxLlb6KRWyvXi+QjEoOl5ZJqfOXE=' 'sha256-k/H1MUEI70g2UEITOkmC8TdoAWPzIfkbmsQ+T0r11UM='; style-src 'self' 'sha256-rU9EHgqCq1x1Y06cncJ4DTv2QIi+a2HL59kXSGwFf4E='; img-src 'self' data:; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-pRZT9lGZ4uvENzTRxLlb6KRWyvXi+QjEoOl5ZJqfOXE=' 'sha256-k/H1MUEI70g2UEITOkmC8TdoAWPzIfkbmsQ+T0r11UM='; style-src 'self' 'sha256-+UrnnPRaQ6KvLBFguCCvKOjpZXxHHdwgE3i2VgLnbIU='; img-src 'self' data:; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
