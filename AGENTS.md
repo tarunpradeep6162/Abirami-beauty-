@@ -9,11 +9,23 @@ Build with npm run build; verify with npm test and npm run verify. These scripts
 preserve a strict hash-based CSP without unsafe-inline. Never edit embedded
 blocks without running the build and committing the refreshed vercel.json.
 
-The owner supplied verified phone, address, hours, treatment menu and review
-excerpts on 17 October 2026. Keep src/business.json consistent with index.html.
-Do not invent a review count or claim independent verification of owner content.
-Unsplash images are editorial references, not salon premises or client work.
-The comparison shows different people; keep its disclosure prominently visible.
+Google Maps was inspected directly on 18 October 2026. Its current published
+hours override the earlier owner brief: Monday–Saturday 10:00–20:30 and Sunday
+10:00–16:30. It shows 5.0 from 3 reviews. Only Vijayalakshmi Kandasamy left written
+text: “Nice service, and great tips for hair care and face care”. Al Thenmozhi
+and Heartlin Fernando gave five-star ratings with Eyebrow shaping noted, without
+written endorsements. Never restore the expanded quotes from the earlier brief.
+
+The nine accessible gallery photos and one video poster are copied into
+public/assets/img/salon-maps. They are served locally, without external image
+hotlinks. Some interiors date to 2021. Do not claim the photo pairs are verified
+before/after results. The May 2025 hair-colour video could not be downloaded as
+playable media; do not publish a fake or broken MP4. The limited public gallery
+exposed only the first 10 of the listing’s reported 16 items.
+
+Menu descriptions/prices remain owner-supplied, not Google-verified. Keep
+src/business.json consistent with index.html. See src/maps-provenance.json for
+source URLs and MEDIA-INVENTORY.md for the copied files and limits.
 
 No backend, form storage, API keys or analytics. WhatsApp alone handles enquiries.
 Legacy routes redirect to the standalone page sections. Earlier TypeScript and

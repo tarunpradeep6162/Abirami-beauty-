@@ -61,3 +61,26 @@ visually. Service offer names/prices and FAQ text come from visible owner conten
 
 These tests do not establish a measured Android frame rate, real-device result,
 Lighthouse score or field Core Web Vitals result.
+
+## Current release: Google Maps content correction, 18 October 2026
+
+The listing was inspected in Google Maps, including the expanded weekly hours,
+review summary and accessible gallery. Published hours are 10:00–20:30 Monday
+to Saturday and 10:00–16:30 Sunday. Rating is 5.0 from three reviews. Only the
+first review has text; the other two are five-star eyebrow-shaping ratings.
+These facts supersede the earlier brief and earlier release checks above.
+
+All Unsplash images were replaced with locally served gallery copies. Nine
+photographs and one video still are present. No playable video was available;
+its HTML error response was rejected and removed rather than shipped as MP4.
+The comparison remains labelled as an unverified pair, without before/after
+claims. The limited public gallery did not expose all 16 reported items.
+
+The seven browser checks passed again using local images and production CSP
+headers, without a third-party image cache. This includes all four widths,
+image decoding, keyboard/touch viewer controls, reduced motion, WebGL fallback,
+reference-to-booking focus/scroll lock, and the intercepted WhatsApp message.
+The Sunday test now rejects times after 16:30 and permits any listed service
+within published hours. No test enquiry was sent to WhatsApp or the salon.
+No application errors, image failures, document overflow, site CSP violations
+or axe WCAG AA violations were detected in the tested states.

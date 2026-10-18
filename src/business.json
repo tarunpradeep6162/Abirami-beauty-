@@ -2,7 +2,7 @@
   "name": "Abirami Natural Beauty Parlour",
   "address": "No. 1/11, Rice Mill Rd, Jalladiampet, Medavakkam, Chennai, Tamil Nadu 600100",
   "phone": "+919840638981",
-  "hours": "Monday – Saturday: 9:30 AM – 8:30 PM | Sunday: By Bridal Appointment Only",
+  "hours": "Monday – Saturday: 10 AM – 8:30 PM | Sunday: 10 AM – 4:30 PM",
   "instagram": null,
   "siteUrl": "https://abirami-beauty.vercel.app",
   "wasmUrl": null,
@@ -36,25 +36,55 @@
   "reviews": [
     {
       "name": "Vijayalakshmi Kandasamy",
-      "text": "Nice service, and great tips for hair care and face care. The personalized attention makes all the difference."
+      "rating": 5,
+      "text": "Nice service, and great tips for hair care and face care"
     },
     {
       "name": "Al Thenmozhi",
-      "text": "Exceptional threading and brow shaping. Very hygienic, gentle, and peaceful atmosphere."
+      "rating": 5,
+      "text": "",
+      "service": "Eyebrow shaping"
     },
     {
       "name": "Heartlin Fernando",
-      "text": "A true hidden gem in Medavakkam for bridal makeup and herbal skin care."
+      "rating": 5,
+      "text": "",
+      "service": "Eyebrow shaping"
     }
   ],
   "googleRating": 5.0,
-  "googleReviewCount": null,
+  "googleReviewCount": 3,
   "comparisonApproved": false,
   "indexable": true,
-  "geo": null,
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 12.9205664,
+    "longitude": 80.1986208
+  },
   "openedYear": null,
   "landmark": null,
   "googleProfile": "https://maps.app.goo.gl/XYMrjQPLtWK4ZtQz5",
-  "openingHoursSchema": [],
-  "tagline": "The Art of Natural Radiance & Bespoke Bridal Artistry"
+  "openingHoursSchema": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "20:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "10:00",
+      "closes": "16:30"
+    }
+  ],
+  "tagline": "The Art of Natural Radiance & Bespoke Bridal Artistry",
+  "listingChecked": "2026-10-18"
 }

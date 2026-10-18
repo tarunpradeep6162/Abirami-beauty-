@@ -1,36 +1,42 @@
+<!-- Current Maps correction above supersedes historical design-pass notes below. -->
 # Abirami Natural Beauty Parlour — standalone flagship
 
 Canonical repository: https://github.com/tarunpradeep6162/Abirami-beauty-
 Live site: https://abirami-beauty.vercel.app/
 
 index.html is the complete current site: semantic markup, embedded CSS, embedded
-JavaScript and the approved logo embedded as a data URL. No framework, server,
-JavaScript CDN, API key or runtime build process is needed to open the file.
-Internet access is needed for the requested Unsplash photographs, Google Maps
-and WhatsApp. Cormorant Garamond and Plus Jakarta Sans WOFF2 fonts are embedded
-in the file, with their SIL Open Font licences included. The file can be opened directly in a
-browser or served by any static host.
+JavaScript and the approved logo embedded as a data URL. CSS, JavaScript, fonts and the logo are embedded. The copied salon media are
+separate local assets. No backend, JavaScript CDN or API key is required.
+Internet access is needed for Google Maps and WhatsApp. Salon photographs are
+local files in public/assets/img/salon-maps, copied into dist during the build. Cormorant Garamond and Plus Jakarta Sans WOFF2 fonts are embedded
+in the file, with their SIL Open Font licences included. Serve the built dist directory at the root of a static host, or use npm run
+preview for a local check.
 
-## Content
+## Current content and media
 
-The owner supplied the phone, hours, address, menu, prices, Google Maps link,
-rating statement and review excerpts on 17 October 2026. They are used as
-supplied, with salon attribution for rating/review information. The Maps link
-resolved successfully during checking; every supplied photo ID returned a valid
-image. No total Google review count has been invented or used in rating schema.
+The Google Maps listing was read directly on 18 October 2026. Phone and address
+match the supplied business details. Published hours are Monday–Saturday
+10 AM–8:30 PM and Sunday 10 AM–4:30 PM; these replace the earlier 9:30 AM and
+bridal-only Sunday brief. Booking now validates against those hours.
 
-Editorial Unsplash photographs are not Abirami premises or client work. Some
-supplied URLs depict a different subject than their prompt descriptions; alt
-text describes the actual visible photograph. The comparison shows different
-people and is explicitly labelled as a style comparison, not a client result.
+The listing shows 5.0 from three reviews. One has written text and two are
+ratings with Eyebrow shaping noted. The earlier expanded endorsements have been
+removed. JSON-LD now uses that observed count, opening schedule and map pin.
+Menu names, descriptions and starting prices remain owner-supplied.
 
-The four treatment tabs support mouse, touch and arrow/Home/End keys. Booking
-links open a native dialog with name, phone, selected service, date and time.
-Submit validates and URL-encodes a formatted WhatsApp message, then opens the
-provided salon number. The customer still sends the message, and the salon
-confirms availability. Nothing is sent to or stored on a website backend.
-Sunday requests are restricted to bridal appointments; Sunday timing is subject
-to consultation. Ordinary weekday requests use 9:30 AM–8:30 PM.
+Nine photographs and one video poster from the salon’s accessible Google Maps
+gallery are copied and optimized as local WebP assets. They replace all Unsplash
+images. The images load from this website; no Google photo links, image embeds
+or external image hotlinks are used to display them. See MEDIA-INVENTORY.md.
+Some interiors were uploaded in 2021. The comparison is explicitly not a
+verified before/after pair. The hair-colour video download was unavailable;
+only its still is displayed and it is labelled accordingly. The remaining
+listing items were hidden by Google’s limited public view.
+
+Treatment tabs, the image viewer and booking drawer support keyboard access.
+The selected image can be attached to the enquiry as a first-party image URL.
+Nothing is sent until the customer sends the generated WhatsApp message; the
+salon then confirms availability. No website backend stores the form data.
 
 ## Build and deploy
 
@@ -45,8 +51,7 @@ The small build script copies the standalone file into dist, creates a real
 404 page and refreshes exact CSP SHA-256 hashes in vercel.json. It does not
 require Rust or bundle the legacy frontend. Commit refreshed vercel.json
 whenever editing index.html. Hash authorization permits the requested embedded
-CSS/JavaScript without unsafe-inline or unsafe-eval. Only the requested image and
-map origins are allowed; embedded fonts use data URLs.
+CSS/JavaScript without unsafe-inline or unsafe-eval. Only local/data images and the Google map frame are allowed; embedded fonts use data URLs.
 
 ```sh
 vercel link --yes --project abirami-beauty --scope tarun-2f6a

@@ -58,13 +58,13 @@ try {
     assert.equal(await page.getByRole('slider').inputValue(), '51');
     await page.getByRole('button', { name: 'Next review', exact: true }).click();
     assert.equal(await page.locator('.review-slide:not([hidden]) .review-author').textContent(), 'Al Thenmozhi');
-    await page.getByRole('button', { name: 'View Silk and jewellery photograph', exact: true }).click();
+    await page.getByRole('button', { name: 'View Bridal styling photograph', exact: true }).click();
     assert.equal(await page.locator('#gallery-dialog').isVisible(), true);
     await page.locator('#viewer-image').evaluate(image => image.decode());
     await page.getByRole('button', { name: 'Next photograph', exact: true }).click();
-    assert.equal(await page.locator('#photo-counter').textContent(), '2 / 3');
+    assert.equal(await page.locator('#photo-counter').textContent(), '2 / 10');
     await page.locator('#gallery-dialog').press('ArrowLeft');
-    assert.equal(await page.locator('#photo-counter').textContent(), '1 / 3');
+    assert.equal(await page.locator('#photo-counter').textContent(), '1 / 10');
     await page.screenshot({ path: `qa-results/gallery-${width}.png` });
     if (width === 360) {
       const bounds = await page.locator('#viewer-image').boundingBox();
@@ -74,7 +74,7 @@ try {
       await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: x + 45, y }] });
       await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x - 45, y }] });
       await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-      await page.waitForFunction(() => document.querySelector('#photo-counter').textContent === '2 / 3');
+      await page.waitForFunction(() => document.querySelector('#photo-counter').textContent === '2 / 10');
       await page.getByRole('button', { name: 'Previous photograph', exact: true }).click();
       await touch.detach();
     }
@@ -85,7 +85,7 @@ try {
     await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
     assert.equal(await page.locator('#gallery-dialog').isVisible(), false);
     assert.equal(await page.locator('#booking-dialog').isVisible(), true);
-    assert.match(await page.locator('#booking-reference-text').textContent(), /Silk & jewellery/);
+    assert.match(await page.locator('#booking-reference-text').textContent(), /Bridal styling/);
     assert.equal(await page.evaluate(() => document.body.classList.contains('modal-open')), true);
     await page.keyboard.press('Escape');
     assert.equal(await page.locator('#booking-dialog').isVisible(), false);
@@ -149,7 +149,7 @@ try {
   const context = await browser.newContext({ viewport: { width: 360, height: 900 }, reducedMotion: 'reduce' });
   await watchResources(context);
   const page = await context.newPage();
-  await page.clock.install({ time: new Date('2026-10-19T04:00:00Z') });
+  await page.clock.install({ time: new Date('2026-10-19T06:00:00Z') });
   const outgoing = [];
   await page.route('https://wa.me/**', async route => {
     outgoing.push(route.request().url());
@@ -160,16 +160,17 @@ try {
   await page.locator('#client-name').fill('Test Client & Family');
   await page.locator('#client-phone').fill('+91 90000 00000');
   await page.locator('#client-date').fill('2026-10-19');
-  await page.locator('#client-time').fill('09:30');
+  await page.locator('#client-time').fill('10:30');
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
   assert.match(await page.locator('#form-status').textContent(), /already passed/);
   await page.locator('#client-date').fill('2026-10-25');
   await page.locator('#client-service').selectOption('Botanical & Gold Radiance Facials');
+  await page.locator('#client-time').fill('17:00');
+  assert.equal(await page.locator('#client-time').evaluate(input => input.checkValidity()), false, 'Sunday ends at 4:30 PM');
   await page.locator('#client-time').fill('10:30');
-  await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
-  assert.match(await page.locator('#form-status').textContent(), /Sunday is for bridal/);
+  assert.equal(await page.locator('#client-time').evaluate(input => input.checkValidity()), true, 'Sunday accepts any listed service within hours');
   await page.keyboard.press('Escape');
-  await page.getByRole('button', { name: 'View Silk and jewellery photograph', exact: true }).click();
+  await page.getByRole('button', { name: 'View Bridal styling photograph', exact: true }).click();
   await page.getByRole('link', { name: 'Discuss this reference', exact: true }).click();
   await page.locator('#client-notes').fill('Muhurtham at 11 AM & a soft finish <please>');
   await page.getByRole('button', { name: 'Continue to WhatsApp' }).click();
@@ -180,9 +181,9 @@ try {
   assert.match(url.searchParams.get('text'), /Test Client & Family/);
   assert.match(url.searchParams.get('text'), /25 October 2026 at 10:30 AM/);
   assert.match(url.searchParams.get('text'), /Muhurtham at 11 AM & a soft finish <please>/);
-  assert.match(url.searchParams.get('text'), /Styling reference \(editorial inspiration\): Silk & jewellery/);
-  assert.match(url.searchParams.get('text'), /https:\/\/images.unsplash.com\/photo-1610030469983/);
-  results.push({ booking: 'Past-time and Sunday rules passed. WhatsApp intercepted locally; no message sent.' });
+  assert.match(url.searchParams.get('text'), /Styling reference from the salon gallery: Bridal styling/);
+  assert.match(url.searchParams.get('text'), /\/assets\/img\/salon-maps\/listing-06-960.webp/);
+  results.push({ booking: 'Past-time and published Sunday-hour rules passed. WhatsApp intercepted locally; no message sent.' });
   await context.close();
 } finally {
   await browser.close();
